@@ -30,7 +30,7 @@ function Navbar() {
           color: "#6366f1",
         }}
       >
-        Placement Prep Portal
+        Get yourself Exam Ready
       </h2>
 
       <div

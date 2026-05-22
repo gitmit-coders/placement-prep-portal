@@ -18,6 +18,20 @@ const questions = bank.filter(
     q.chapter === selectedChapter
 )
 
+if (!selectedBook || !selectedChapter || questions.length === 0) {
+  return (
+    <div className="root">
+      <style>{style}</style>
+      <div className="card">
+        <h1>Select a chapter first 📚</h1>
+        <p>Please go to Books page and choose a chapter before starting test.</p>
+      </div>
+    </div>
+  )
+}
+
+
+
   const [current, setCurrent] = useState(0)
   const [time, setTime] = useState(TOTAL_TIME)
   const [totalTime, setTotalTime] = useState(0)
