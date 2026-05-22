@@ -1,16 +1,21 @@
 import { useEffect, useState, useRef } from "react"
+import { useSearchParams } from "react-router-dom"
 import { questions as bank } from "../data/questions"
 
-const TOTAL_TIME = 30
+const TOTAL_TIME = 300
 
 function Quiz() {
+  const [searchParams] = useSearchParams()
+
+const selectedBook = searchParams.get("book")
+const selectedChapter = searchParams.get("chapter")
   const [difficulty, setDifficulty] = useState("Easy")
   const [category, setCategory] = useState("Aptitude")
 
 const questions = bank.filter(
   (q) =>
-    q.difficulty === difficulty &&
-    q.category === category
+    q.book === selectedBook &&
+    q.chapter === selectedChapter
 )
 
   const [current, setCurrent] = useState(0)
@@ -95,58 +100,72 @@ const questions = bank.filter(
   }
 
   /* NEXT QUESTION */
-  const nextQuestion = () => {
-    if (current < questions.length - 1) {
-      setCurrent((c) => c + 1)
-      setTime(TOTAL_TIME)
-      setAnswered(false)
-      setSelected(null)
-      setResult("")
-    } else {
-      localStorage.setItem("history", JSON.stringify(historyRef.current))
+ const nextQuestion = async () => {
+  if (current < questions.length - 1) {
+    setCurrent((c) => c + 1)
+    setTime(TOTAL_TIME)
+    setAnswered(false)
+    setSelected(null)
+    setResult("")
+  } else {
+    localStorage.setItem("history", JSON.stringify(historyRef.current))
 
+    const currentUser = JSON.parse(localStorage.getItem("user"))
 
-      const currentUser = JSON.parse(
-  localStorage.getItem("user")
-)
+    const quizResult = {
+  name: currentUser?.name || "Guest",
+  studentClass: currentUser?.studentClass,
 
-
-      const quizResult = {
-
-        name: currentUser?.name || "Guest",
-
+  book: selectedBook,
+  chapter: selectedChapter,
 
   score,
   total: questions.length,
   category,
   difficulty,
+
   accuracy: Math.round(
     (score / questions.length) * 100
   ),
+
   totalTime,
 }
 
-localStorage.setItem(
-  "lastQuiz",
-  JSON.stringify(quizResult)
-)
+    localStorage.setItem("lastQuiz", JSON.stringify(quizResult))
 
-const leaderboard =
-  JSON.parse(localStorage.getItem("leaderboard")) || []
+    const leaderboard =
+      JSON.parse(localStorage.getItem("leaderboard")) || []
 
-leaderboard.push(quizResult)
+    leaderboard.push(quizResult)
 
-localStorage.setItem(
-  "leaderboard",
-  JSON.stringify(leaderboard)
-)
+    localStorage.setItem("leaderboard", JSON.stringify(leaderboard))
 
-
-
-
-      setFinished(true)
+    try {
+      await fetch("http://localhost:5000/api/result/save", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+  userId: currentUser?._id,
+  name: currentUser?.name || "Guest",
+  studentClass: currentUser?.studentClass,
+  book: selectedBook,
+  chapter: selectedChapter,
+  score,
+  totalQuestions: questions.length,
+  totalTime,
+  difficulty,
+  accuracy: Math.round((score / questions.length) * 100),
+}),
+      })
+    } catch (error) {
+      console.log(error)
     }
+
+    setFinished(true)
   }
+}
 
   const style = `
     body { margin:0; font-family: Arial; background:#0b0b12; }
@@ -283,36 +302,10 @@ if (accuracy >= 80) {
 
           <div className="q-timer">{time}s</div>
 
-          <h2>Placement Quiz</h2>
+         <h2>
+  {selectedBook} → {selectedChapter}
+</h2>
 
-          <div
-  style={{
-    display: "flex",
-    gap: "10px",
-    marginBottom: "15px",
-  }}
->
-  <button onClick={() => setCategory("Aptitude")}>
-    Aptitude
-  </button>
-
-  <button onClick={() => setCategory("Reasoning")}>
-    Reasoning
-  </button>
-
-  <button onClick={() => setCategory("Technical")}>
-    Technical
-  </button>
-</div>
-
-
-          <div style={{ display: "flex", gap: "10px", marginBottom: "15px" }}>
-            <button onClick={() => setDifficulty("Easy")}>Easy</button>
-
-            <button onClick={() => setDifficulty("Medium")}>Medium</button>
-
-            <button onClick={() => setDifficulty("Hard")}>Hard</button>
-          </div>
 
           <h3>
             Question {current + 1} / {questions.length}
@@ -344,18 +337,6 @@ if (accuracy >= 80) {
           </div>
 
           <h3 style={{ marginTop: "15px" }}>{result}</h3>
-
-          {answered && (
-  <p
-    style={{
-      marginTop: "10px",
-      color: "#cbd5e1",
-    }}
-  >
-    Explanation:{" "}
-    {questions[current]?.explanation}
-  </p>
-)}
 
 
 

@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 
@@ -5,26 +6,33 @@ function Login() {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
   const navigate = useNavigate()
+const handleLogin = async () => {
+  try {
+    const res = await fetch("http://localhost:5000/api/auth/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        email,
+        password,
+      }),
+    })
 
+    const data = await res.json()
 
-  const handleLogin = () => {
-  const savedUser = JSON.parse(
-    localStorage.getItem("user")
-  )
-
-  if (
-    savedUser &&
-    savedUser.email === email &&
-    savedUser.password === password
-  ) {
-    alert("Login Successful ✅")
-
-    navigate("/quiz")
-  } else {
-    alert("Invalid Email or Password ❌")
+    if (res.ok) {
+      alert(data.message)
+      localStorage.setItem("user", JSON.stringify(data.user))
+      navigate("/books")
+    } else {
+      alert(data.message)
+    }
+  } catch (error) {
+    alert("Something went wrong")
+    console.log(error)
   }
 }
-
   return (
     <div
       style={{
@@ -88,15 +96,17 @@ function Login() {
   Don't have an account?
 </p>
 
-<button
-  style={{
-    ...buttonStyle,
-    background: "#8b5cf6",
-    marginTop: "10px",
-  }}
->
-  Register
-</button>
+<Link to="/register">
+  <button
+    style={{
+      ...buttonStyle,
+      background: "#8b5cf6",
+      marginTop: "10px",
+    }}
+  >
+    Register
+  </button>
+</Link>
 
 
       </div>

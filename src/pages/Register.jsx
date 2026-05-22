@@ -5,27 +5,49 @@ function Register() {
   const [name, setName] = useState("")
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
+  const [confirmPassword, setConfirmPassword] = useState("")
+  const [showPassword, setShowPassword] = useState(false)
+
+  const [school, setSchool] = useState("")
+  const [studentClass, setStudentClass] = useState("")
+
   const navigate = useNavigate()
 
+  const handleRegister = async () => {
+    if (password !== confirmPassword) {
+      alert("Passwords do not match ❌")
+      return
+    }
 
-  const handleRegister = () => {
-  const userData = {
-    name,
-    email,
-    password,
+    try {
+      const res = await fetch("http://localhost:5000/api/auth/register", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+
+        body: JSON.stringify({
+          name,
+          email,
+          password,
+          school,
+          studentClass,
+        }),
+      })
+
+      const data = await res.json()
+
+      if (res.ok) {
+        alert(data.message)
+        navigate("/login")
+      } else {
+        alert(data.message)
+      }
+    } catch (error) {
+      alert("Something went wrong")
+      console.log(error)
+    }
   }
-
-  localStorage.setItem(
-    "user",
-    JSON.stringify(userData)
-  )
-
-  alert("Account Created Successfully 🚀")
-
-  navigate("/login")
-}
-
-
 
   return (
     <div
@@ -73,20 +95,62 @@ function Register() {
           style={inputStyle}
         />
 
+        {/* PASSWORD */}
+        <div style={{ position: "relative", marginBottom: "15px" }}>
+          <input
+            type={showPassword ? "text" : "password"}
+            placeholder="Set Password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            style={inputStyle}
+          />
+
+          <button
+            type="button"
+            onClick={() => setShowPassword(!showPassword)}
+            style={{
+              position: "absolute",
+              right: "10px",
+              top: "50%",
+              transform: "translateY(-50%)",
+              background: "transparent",
+              border: "none",
+              color: "white",
+              cursor: "pointer",
+            }}
+          >
+            {showPassword ? "🙈" : "👁"}
+          </button>
+        </div>
+
+        {/* CONFIRM PASSWORD */}
         <input
-          type="password"
-          placeholder="Enter Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
+          type={showPassword ? "text" : "password"}
+          placeholder="Confirm Password"
+          value={confirmPassword}
+          onChange={(e) => setConfirmPassword(e.target.value)}
           style={inputStyle}
         />
 
-        <button
-  style={buttonStyle}
-  onClick={handleRegister}
->
-  Create Account
-</button>
+        <input
+          type="text"
+          placeholder="Enter School Name"
+          value={school}
+          onChange={(e) => setSchool(e.target.value)}
+          style={inputStyle}
+        />
+
+        <input
+          type="text"
+          placeholder="Enter Class"
+          value={studentClass}
+          onChange={(e) => setStudentClass(e.target.value)}
+          style={inputStyle}
+        />
+
+        <button style={buttonStyle} onClick={handleRegister}>
+          Create Account
+        </button>
       </div>
     </div>
   )
