@@ -1,0 +1,35 @@
+# Query: http://localhost:5000
+# ContextLines: 1
+
+7 results - 6 files
+
+src\App.jsx:
+  17    useEffect(() => {
+  18:     fetch("https://placement-prep-backend-n0rx.onrender.comhttps://placement-prep-backend-n0rx.onrender.com")
+  19        .then((res) => res.text())
+
+src\pages\Dashboard.jsx:
+  22  
+  23:     fetch(`https://placement-prep-backend-n0rx.onrender.com/api/result/${user._id}`)
+  24        .then((res) => res.json())
+
+src\pages\Leaderboard.jsx:
+   9        selectedClass === "all"
+  10:         ? "https://placement-prep-backend-n0rx.onrender.com/api/result/leaderboard/all"
+  11:         : `https://placement-prep-backend-n0rx.onrender.com/api/result/leaderboard/class/${selectedClass}`
+  12  
+
+src\pages\Login.jsx:
+  10    try {
+  11:     const res = await fetch("https://placement-prep-backend-n0rx.onrender.com/api/auth/login", {
+  12        method: "POST",
+
+src\pages\Quiz.jsx:
+  143      try {
+  144:       await fetch("https://placement-prep-backend-n0rx.onrender.com/api/result/save", {
+  145          method: "POST",
+
+src\pages\Register.jsx:
+  22      try {
+  23:       const res = await fetch("https://placement-prep-backend-n0rx.onrender.com/api/auth/register", {
+  24          method: "POST",

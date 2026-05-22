@@ -15,7 +15,7 @@ import ProtectedRoute from "./components/ProtectedRoute";
 
 function App() {
   useEffect(() => {
-    fetch("http://localhost:5000")
+    fetch("https://placement-prep-backend-n0rx.onrender.comhttp://localhost:5000")
       .then((res) => res.text())
       .then((data) => console.log("Backend says:", data))
       .catch((err) => console.log("Backend error:", err));
