@@ -44,9 +44,9 @@ function Navbar() {
           Home
         </Link>
 
-        <Link style={linkStyle} to="/quiz">
-          Quiz
-        </Link>
+        <Link style={linkStyle} to="/books">
+  Quiz
+</Link>
 
         <Link style={linkStyle} to="/dashboard">
           Dashboard
