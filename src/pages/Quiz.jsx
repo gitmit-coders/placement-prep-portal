@@ -2,9 +2,7 @@ import { useEffect, useState, useRef } from "react"
 import { useSearchParams } from "react-router-dom"
 import { questions as bank } from "../data/questions"
 
-// ✅ FIX: Use production backend URL, not localhost
 const BACKEND_URL = "https://placement-prep-backend-n0rx.onrender.com"
-
 const TOTAL_TIME = 300
 
 function Quiz() {
@@ -26,35 +24,31 @@ function Quiz() {
   const [result, setResult] = useState("")
   const [finished, setFinished] = useState(false)
   const [saving, setSaving] = useState(false)
+  const [saveError, setSaveError] = useState(false)
 
+  // ✅ FIX: Use refs to track score/time accurately.
+  // React setState is async — inside nextQuestion(), score state
+  // would show the OLD value. Refs always hold the current value.
+  const scoreRef = useRef(0)
+  const wrongRef = useRef(0)
+  const totalTimeRef = useRef(0)
   const historyRef = useRef([])
 
   if (!selectedBook || !selectedChapter || questions.length === 0) {
     return (
       <div className="root">
         <style>{style}</style>
-        <div className="card">
-          <h1>Select a chapter first 📚</h1>
-          <p>Please go to Books page and choose a chapter before starting test.</p>
+        <div className="card" style={{ textAlign: "center" }}>
+          <h1>Select a Chapter First</h1>
+          <p style={{ color: "#94a3b8" }}>
+            Please go to the Books page and choose a chapter before starting the test.
+          </p>
         </div>
       </div>
     )
   }
 
-  useEffect(() => {
-    setCurrent(0)
-    setTime(TOTAL_TIME)
-    setScore(0)
-    setTotalTime(0)
-    setAnswered(false)
-    setSelected(null)
-    setResult("")
-    setFinished(false)
-    historyRef.current = []
-    localStorage.removeItem("history")
-  }, [])
-
-  /* QUESTION TIMER */
+  // Question countdown timer
   useEffect(() => {
     if (finished || answered) return
     const interval = setInterval(() => {
@@ -62,7 +56,7 @@ function Quiz() {
         if (t <= 1) {
           clearInterval(interval)
           setAnswered(true)
-          setResult("Time Up ⏰")
+          setResult("Time Up!")
           return 0
         }
         return t - 1
@@ -71,11 +65,14 @@ function Quiz() {
     return () => clearInterval(interval)
   }, [current, finished, answered])
 
-  /* TOTAL TIMER */
+  // Total elapsed timer
   useEffect(() => {
     if (finished) return
     const interval = setInterval(() => {
-      setTotalTime((t) => t + 1)
+      setTotalTime((t) => {
+        totalTimeRef.current = t + 1
+        return t + 1
+      })
     }, 1000)
     return () => clearInterval(interval)
   }, [finished])
@@ -86,11 +83,13 @@ function Quiz() {
     setSelected(opt)
     const isCorrect = opt === questions[current]?.answer
     if (isCorrect) {
-      setScore((s) => s + 1)
-      setResult("Correct ✅")
+      scoreRef.current += 1
+      setScore(scoreRef.current)
+      setResult("Correct!")
     } else {
-      setWrong((w) => w + 1)
-      setResult("Wrong ❌")
+      wrongRef.current += 1
+      setWrong(wrongRef.current)
+      setResult("Wrong!")
     }
     historyRef.current.push({
       q: current + 1,
@@ -107,25 +106,17 @@ function Quiz() {
       setSelected(null)
       setResult("")
     } else {
+      // Use refs — not state — for guaranteed accurate final values
+      const finalScore = scoreRef.current
+      const finalWrong = wrongRef.current
+      const finalTime = totalTimeRef.current
+      const finalAccuracy = Math.round((finalScore / questions.length) * 100)
+
       setSaving(true)
-      localStorage.setItem("history", JSON.stringify(historyRef.current))
+      setSaveError(false)
 
       const currentUser = JSON.parse(localStorage.getItem("user"))
 
-      const quizResult = {
-        name: currentUser?.name || "Guest",
-        studentClass: currentUser?.studentClass,
-        book: selectedBook,
-        chapter: selectedChapter,
-        score,
-        total: questions.length,
-        accuracy: Math.round((score / questions.length) * 100),
-        totalTime,
-      }
-
-      localStorage.setItem("lastQuiz", JSON.stringify(quizResult))
-
-      // ✅ FIX: Save to production backend
       try {
         const response = await fetch(`${BACKEND_URL}/api/result/save`, {
           method: "POST",
@@ -136,51 +127,26 @@ function Quiz() {
             studentClass: currentUser?.studentClass,
             book: selectedBook,
             chapter: selectedChapter,
-            score,
+            score: finalScore,
             totalQuestions: questions.length,
-            totalTime,
-            accuracy: Math.round((score / questions.length) * 100),
+            totalTime: finalTime,
+            accuracy: finalAccuracy,
           }),
         })
-
         if (!response.ok) {
-          console.error("Failed to save result:", response.status)
-        } else {
-          console.log("Result saved ✅")
+          console.error("Save failed with status:", response.status)
+          setSaveError(true)
         }
       } catch (error) {
-        console.error("Save error:", error)
+        console.error("Network error while saving result:", error)
+        setSaveError(true)
       }
 
+      setScore(finalScore)
+      setWrong(finalWrong)
       setSaving(false)
       setFinished(true)
     }
-  }
-
-  const accuracy = Math.round((score / questions.length) * 100)
-  let performance = ""
-  if (accuracy >= 80) performance = "Excellent Performance 🔥"
-  else if (accuracy >= 50) performance = "Good Job 👍"
-  else performance = "Need Improvement 📚"
-
-  if (finished) {
-    return (
-      <div className="root">
-        <style>{style}</style>
-        <div className="card">
-          <h1>Quiz Finished 🎉</h1>
-          <h2>Score: {score}/{questions.length}</h2>
-          <h3>Correct: {score} ✅</h3>
-          <h3>Wrong: {wrong} ❌</h3>
-          <h3>Accuracy: {accuracy}%</h3>
-          <h3>Total Time: {totalTime}s</h3>
-          <h2 style={{ marginTop: "20px", color: "#22c55e" }}>{performance}</h2>
-          <p style={{ color: "#94a3b8", marginTop: "10px" }}>
-            Dashboard aur Leaderboard update ho gaya hai ✅
-          </p>
-        </div>
-      </div>
-    )
   }
 
   if (saving) {
@@ -188,7 +154,59 @@ function Quiz() {
       <div className="root">
         <style>{style}</style>
         <div className="card" style={{ textAlign: "center" }}>
-          <h2>Result save ho raha hai... ⏳</h2>
+          <h2>Saving your result...</h2>
+          <p style={{ color: "#94a3b8" }}>Please wait a moment.</p>
+        </div>
+      </div>
+    )
+  }
+
+  if (finished) {
+    const finalAccuracy = Math.round((score / questions.length) * 100)
+    let performance = ""
+    if (finalAccuracy >= 80) performance = "Excellent Performance!"
+    else if (finalAccuracy >= 50) performance = "Good Job! Keep it up."
+    else performance = "Needs Improvement. Practice more!"
+
+    return (
+      <div className="root">
+        <style>{style}</style>
+        <div className="card">
+          <h1 style={{ marginBottom: "24px", textAlign: "center" }}>Quiz Complete!</h1>
+          <div className="result-grid">
+            <div className="result-item">
+              <span className="result-label">Score</span>
+              <span className="result-value">{score}/{questions.length}</span>
+            </div>
+            <div className="result-item">
+              <span className="result-label">Correct</span>
+              <span className="result-value correct">{score}</span>
+            </div>
+            <div className="result-item">
+              <span className="result-label">Wrong</span>
+              <span className="result-value wrong">{wrong}</span>
+            </div>
+            <div className="result-item">
+              <span className="result-label">Accuracy</span>
+              <span className="result-value">{finalAccuracy}%</span>
+            </div>
+            <div className="result-item">
+              <span className="result-label">Time Taken</span>
+              <span className="result-value">{totalTimeRef.current}s</span>
+            </div>
+          </div>
+          <h2 style={{ marginTop: "24px", color: "#22c55e", textAlign: "center" }}>
+            {performance}
+          </h2>
+          {saveError ? (
+            <p style={{ color: "#f87171", textAlign: "center", marginTop: "12px", fontSize: "14px" }}>
+              Result could not be saved. Please check your internet connection.
+            </p>
+          ) : (
+            <p style={{ color: "#64748b", textAlign: "center", marginTop: "12px", fontSize: "14px" }}>
+              Result saved successfully. Dashboard and Leaderboard have been updated.
+            </p>
+          )}
         </div>
       </div>
     )
@@ -201,8 +219,12 @@ function Quiz() {
       <div className="root">
         <div className="card">
           <div className="q-timer">{time}s</div>
-          <h2>{selectedBook} → {selectedChapter}</h2>
-          <h3>Question {current + 1} / {questions.length}</h3>
+          <p style={{ margin: "0 0 4px", fontSize: "15px", color: "#94a3b8", fontWeight: "500" }}>
+            {selectedBook} — {selectedChapter}
+          </p>
+          <p style={{ margin: "0 0 28px", color: "#475569", fontSize: "13px" }}>
+            Question {current + 1} of {questions.length}
+          </p>
           <div className="question">{questions[current]?.question}</div>
           <div className="options">
             {questions[current]?.options?.map((opt) => {
@@ -218,7 +240,14 @@ function Quiz() {
               )
             })}
           </div>
-          <h3 style={{ marginTop: "15px" }}>{result}</h3>
+          {result && (
+            <h3 style={{
+              marginTop: "16px", marginBottom: "0",
+              color: result === "Correct!" ? "#22c55e" : result === "Wrong!" ? "#ef4444" : "#f59e0b"
+            }}>
+              {result}
+            </h3>
+          )}
           <button className="next" onClick={nextQuestion} disabled={!answered}>
             {current === questions.length - 1 ? "Finish Quiz" : "Next Question"}
           </button>
@@ -229,29 +258,52 @@ function Quiz() {
 }
 
 const style = `
-  body { margin:0; font-family: Arial; background:#0b0b12; }
+  body { margin:0; font-family: system-ui, sans-serif; background:#0b0b12; }
   .top-bar {
-    position: fixed; top: 80px; right: 20px;
+    position: fixed; top: 70px; right: 20px;
     background: rgba(255,255,255,0.08);
-    padding: 10px 16px; border-radius: 12px;
-    color: white; font-weight: bold;
-    backdrop-filter: blur(10px);
+    padding: 8px 16px; border-radius: 10px;
+    color: white; font-weight: 600; font-size: 14px;
+    backdrop-filter: blur(10px); z-index: 100;
   }
   .root { min-height:100vh; display:flex; justify-content:center; align-items:center; padding:40px 20px; }
   .card {
     width:100%; max-width:700px;
-    background:rgba(255,255,255,0.06);
-    border:1px solid rgba(255,255,255,0.1);
+    background:#111827; border:1px solid #1f2937;
     border-radius:20px; padding:40px; color:white; position:relative;
   }
-  .q-timer { position:absolute; top:20px; right:20px; background:rgba(99,102,241,0.25); padding:8px 14px; border-radius:10px; font-weight:bold; }
-  .question { font-size:26px; margin:60px 0 30px; }
+  .q-timer {
+    position:absolute; top:20px; right:20px;
+    background:rgba(99,102,241,0.15); border:1px solid rgba(99,102,241,0.3);
+    padding:8px 14px; border-radius:10px; font-weight:700; color:#818cf8;
+  }
+  .question { font-size:22px; font-weight:600; margin:0 0 28px; line-height:1.45; }
   .options { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
-  .btn { padding:14px; border-radius:10px; border:none; cursor:pointer; background:#1e1e2e; color:white; font-size:16px; }
-  .btn.correct { background:#16a34a; }
-  .btn.wrong { background:#dc2626; }
-  .next { width:100%; margin-top:20px; padding:14px; border-radius:10px; background:#6366f1; border:none; color:white; font-weight:bold; font-size:16px; cursor:pointer; }
-  .next:disabled { opacity:0.5; cursor:not-allowed; }
+  .btn {
+    padding:16px 14px; border-radius:12px; border:1px solid #1f2937;
+    cursor:pointer; background:#1e293b; color:white; font-size:15px;
+    text-align:left; transition:border-color 0.15s, background 0.15s;
+  }
+  .btn:hover:not(:disabled) { border-color:#6366f1; background:rgba(99,102,241,0.1); }
+  .btn:disabled { cursor:not-allowed; }
+  .btn.correct { background:rgba(22,163,74,0.2); border-color:#16a34a; color:#4ade80; }
+  .btn.wrong   { background:rgba(220,38,38,0.2);  border-color:#dc2626; color:#f87171; }
+  .next {
+    width:100%; margin-top:20px; padding:16px; border-radius:12px;
+    background:#6366f1; border:none; color:white;
+    font-weight:700; font-size:16px; cursor:pointer; transition:background 0.2s;
+  }
+  .next:hover:not(:disabled) { background:#5154cc; }
+  .next:disabled { opacity:0.4; cursor:not-allowed; }
+  .result-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(120px,1fr)); gap:12px; }
+  .result-item {
+    background:#1e293b; border:1px solid #1f2937; border-radius:12px;
+    padding:16px; display:flex; flex-direction:column; gap:6px; align-items:center;
+  }
+  .result-label { font-size:12px; color:#64748b; font-weight:500; }
+  .result-value { font-size:24px; font-weight:700; color:white; }
+  .result-value.correct { color:#22c55e; }
+  .result-value.wrong   { color:#ef4444; }
 `
 
 export default Quiz
