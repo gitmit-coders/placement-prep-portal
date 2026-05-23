@@ -1,112 +1,123 @@
-import { Link, useNavigate } from "react-router-dom"
+import { useState } from "react";
+import { Link, useNavigate, useLocation } from "react-router-dom";
+import "./Navbar.css";
 
 function Navbar() {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
+  const location = useLocation();
+  const [menuOpen, setMenuOpen] = useState(false);
 
-  const user = JSON.parse(localStorage.getItem("user"))
+  const user = JSON.parse(localStorage.getItem("user"));
 
   const handleLogout = () => {
-    localStorage.removeItem("user")
+    localStorage.removeItem("user");
+    navigate("/login");
+    setMenuOpen(false);
+  };
 
-    alert("Logged Out 🚪")
-
-    navigate("/login")
-  }
+  const isActive = (path) => location.pathname === path;
 
   return (
-    <nav
-      style={{
-        padding: "15px 30px",
-        background: "#111827",
-        color: "white",
-        display: "flex",
-        justifyContent: "space-between",
-        alignItems: "center",
-        borderBottom: "1px solid #1f2937",
-      }}
-    >
-      <h2
-        style={{
-          color: "#6366f1",
-        }}
-      >
-        Get yourself Exam Ready
-      </h2>
+    <nav className="navbar">
+      {/* Logo */}
+      <Link to="/" className="navbar-logo">
+        <span className="logo-icon">📚</span>
+        <div className="logo-text">
+          <span className="logo-main">EduExam</span>
+          <span className="logo-sub">Class 6–10 Portal</span>
+        </div>
+      </Link>
 
-      <div
-        style={{
-          display: "flex",
-          gap: "18px",
-          alignItems: "center",
-        }}
+      {/* Hamburger for mobile */}
+      <button
+        className="hamburger"
+        onClick={() => setMenuOpen(!menuOpen)}
+        aria-label="Toggle menu"
       >
-        <Link style={linkStyle} to="/">
+        <span className={`ham-line ${menuOpen ? "open" : ""}`}></span>
+        <span className={`ham-line ${menuOpen ? "open" : ""}`}></span>
+        <span className={`ham-line ${menuOpen ? "open" : ""}`}></span>
+      </button>
+
+      {/* Nav Links */}
+      <div className={`navbar-links ${menuOpen ? "mobile-open" : ""}`}>
+        <Link
+          to="/"
+          className={`nav-link ${isActive("/") ? "active" : ""}`}
+          onClick={() => setMenuOpen(false)}
+        >
           Home
         </Link>
 
-        <Link style={linkStyle} to="/books">
-  Quiz
-</Link>
-
-        <Link style={linkStyle} to="/dashboard">
-          Dashboard
-        </Link>
-
-        <Link style={linkStyle} to="/profile">
-  Profile
-</Link>
-
-
-        <Link style={linkStyle} to="/leaderboard">
-          Leaderboard
-        </Link>
-
-        {!user ? (
+        {user && (
           <>
-            <Link style={linkStyle} to="/login">
-              Login
-            </Link>
-
-            <Link style={linkStyle} to="/register">
-              Register
-            </Link>
-          </>
-        ) : (
-          <>
-            <span
-              style={{
-                color: "#cbd5e1",
-                fontWeight: "bold",
-              }}
+            <Link
+              to="/books"
+              className={`nav-link ${isActive("/books") ? "active" : ""}`}
+              onClick={() => setMenuOpen(false)}
             >
-              {user.name}
-            </span>
-
-            <button
-              onClick={handleLogout}
-              style={{
-                padding: "8px 14px",
-                border: "none",
-                borderRadius: "8px",
-                background: "#dc2626",
-                color: "white",
-                cursor: "pointer",
-                fontWeight: "bold",
-              }}
+              📝 Quiz
+            </Link>
+            <Link
+              to="/dashboard"
+              className={`nav-link ${isActive("/dashboard") ? "active" : ""}`}
+              onClick={() => setMenuOpen(false)}
             >
-              Logout
-            </button>
+              📊 Dashboard
+            </Link>
+            <Link
+              to="/leaderboard"
+              className={`nav-link ${isActive("/leaderboard") ? "active" : ""}`}
+              onClick={() => setMenuOpen(false)}
+            >
+              🏆 Leaderboard
+            </Link>
+            <Link
+              to="/profile"
+              className={`nav-link ${isActive("/profile") ? "active" : ""}`}
+              onClick={() => setMenuOpen(false)}
+            >
+              👤 Profile
+            </Link>
           </>
         )}
+
+        {/* Auth section */}
+        <div className="navbar-auth">
+          {!user ? (
+            <>
+              <Link
+                to="/login"
+                className="btn-outline"
+                onClick={() => setMenuOpen(false)}
+              >
+                Login
+              </Link>
+              <Link
+                to="/register"
+                className="btn-primary"
+                onClick={() => setMenuOpen(false)}
+              >
+                Register
+              </Link>
+            </>
+          ) : (
+            <>
+              <div className="user-badge">
+                <span className="user-avatar">
+                  {user.name?.charAt(0).toUpperCase()}
+                </span>
+                <span className="user-name">{user.name}</span>
+              </div>
+              <button onClick={handleLogout} className="btn-logout">
+                Logout
+              </button>
+            </>
+          )}
+        </div>
       </div>
     </nav>
-  )
+  );
 }
 
-const linkStyle = {
-  color: "white",
-  textDecoration: "none",
-  fontWeight: "500",
-}
-
-export default Navbar
+export default Navbar;
