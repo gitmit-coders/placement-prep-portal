@@ -47,7 +47,8 @@ function Dashboard() {
     ? Math.round(results.reduce((sum, r) => sum + r.totalTime, 0) / results.length)
     : 0
 
-  const chartData = results.map((r, index) => ({
+  // Reverse so graph shows oldest → newest (left to right)
+  const chartData = [...results].reverse().map((r, index) => ({
     attempt: `#${index + 1}`,
     score: r.score,
     accuracy: r.accuracy,
