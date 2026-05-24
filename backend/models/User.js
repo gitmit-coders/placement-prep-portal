@@ -5,8 +5,8 @@ const userSchema = new mongoose.Schema({
   email: { type: String, required: true, unique: true },
   password: { type: String, required: true },
   studentClass: { type: String, required: true },
-  school: { type: String },
-  schoolCode: { type: String, required: true }, // links student to a school
+  school: { type: String, default: "" },
+  schoolCode: { type: String, default: "" }, // optional for now
 }, { timestamps: true })
 
 module.exports = mongoose.model("User", userSchema)
