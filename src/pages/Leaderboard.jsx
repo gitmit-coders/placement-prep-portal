@@ -1,8 +1,6 @@
 import { useEffect, useState } from "react"
 
-// ✅ FIX: Production backend URL
 const BACKEND_URL = "https://placement-prep-backend-n0rx.onrender.com"
-
 const CLASSES = ["all", "6", "7", "8", "9", "10"]
 
 function Leaderboard() {
@@ -10,60 +8,45 @@ function Leaderboard() {
   const [selectedClass, setSelectedClass] = useState("all")
   const [loading, setLoading] = useState(true)
 
+  const currentUser = (() => {
+    try { return JSON.parse(localStorage.getItem("user")) || {} }
+    catch { return {} }
+  })()
+
   useEffect(() => {
     setLoading(true)
-
-    // ✅ FIX: Correct production URLs
-    const url =
-      selectedClass === "all"
-        ? `${BACKEND_URL}/api/result/leaderboard/all`
-        : `${BACKEND_URL}/api/result/leaderboard/class/${selectedClass}`
+    const url = selectedClass === "all"
+      ? `${BACKEND_URL}/api/result/leaderboard/all`
+      : `${BACKEND_URL}/api/result/leaderboard/class/${selectedClass}`
 
     fetch(url)
-      .then((res) => {
-        if (!res.ok) throw new Error(`Server error: ${res.status}`)
-        return res.json()
-      })
-      .then((data) => {
-        setLeaderboard(data)
-        setLoading(false)
-      })
-      .catch((err) => {
-        console.error(err)
-        setLoading(false)
-      })
+      .then((res) => res.json())
+      .then((data) => { setLeaderboard(data); setLoading(false) })
+      .catch(() => setLoading(false))
   }, [selectedClass])
 
-  const getMedalColor = (index) => {
-    if (index === 0) return "#ffd700"
-    if (index === 1) return "#c0c0c0"
-    if (index === 2) return "#cd7f32"
-    return "#64748b"
-  }
+  const medals = ["🥇", "🥈", "🥉"]
+  const medalColors = ["#ffd700", "#c0c0c0", "#cd7f32"]
 
   return (
-    <div style={{ minHeight: "100vh", background: "#0b0b12", color: "white", padding: "40px" }}>
-      <h1 style={{ marginBottom: "8px" }}>Leaderboard 🏆</h1>
-      <p style={{ color: "#64748b", marginBottom: "28px" }}>
-        Top performers — Class wise ranking
+    <div style={{ minHeight: "100vh", background: "#0b0b12", color: "white", padding: "40px 32px" }}>
+      <h1 style={{ marginBottom: "6px", fontSize: "28px" }}>Leaderboard 🏆</h1>
+      <p style={{ color: "#64748b", marginBottom: "28px", fontSize: "14px" }}>
+        Ranked by total score across all chapters. Same chapter attempted multiple times — only the best score counts.
       </p>
 
       {/* Class Filter */}
-      <div style={{ display: "flex", gap: "10px", marginBottom: "30px", flexWrap: "wrap" }}>
+      <div style={{ display: "flex", gap: "10px", marginBottom: "32px", flexWrap: "wrap" }}>
         {CLASSES.map((cls) => (
           <button
             key={cls}
             onClick={() => setSelectedClass(cls)}
             style={{
-              padding: "9px 18px",
-              borderRadius: "10px",
-              border: selectedClass === cls ? "none" : "1px solid #1f2937",
+              padding: "9px 18px", borderRadius: "10px", cursor: "pointer",
+              fontWeight: "600", fontSize: "14px", border: "none",
               background: selectedClass === cls ? "#6366f1" : "#111827",
-              color: selectedClass === cls ? "white" : "#94a3b8",
-              cursor: "pointer",
-              fontWeight: "600",
-              fontSize: "14px",
-              transition: "all 0.2s",
+              color: selectedClass === cls ? "white" : "#64748b",
+              outline: selectedClass === cls ? "none" : "1px solid #1f2937",
             }}
           >
             {cls === "all" ? "All Classes" : `Class ${cls}`}
@@ -71,73 +54,81 @@ function Leaderboard() {
         ))}
       </div>
 
-      <h2 style={{ marginBottom: "20px", fontSize: "20px" }}>
-        {selectedClass === "all" ? "Global Leaderboard" : `Class ${selectedClass} Leaderboard`}
-      </h2>
-
       {loading ? (
-        <p style={{ color: "#64748b" }}>Loading... ⏳</p>
+        <p style={{ color: "#64748b" }}>Loading rankings...</p>
       ) : leaderboard.length === 0 ? (
-        <div style={{ textAlign: "center", padding: "60px 20px", background: "#111827", borderRadius: "20px", border: "1px solid #1f2937" }}>
-          <h2 style={{ color: "white" }}>Abhi koi score nahi hai 🚀</h2>
-          <p style={{ color: "#64748b" }}>Pehle quiz do, phir yahan rank dikhega!</p>
+        <div style={{ textAlign: "center", padding: "60px", background: "#111827", borderRadius: "20px", border: "1px solid #1f2937" }}>
+          <h2>No scores yet</h2>
+          <p style={{ color: "#64748b" }}>Complete a quiz to appear on the leaderboard.</p>
         </div>
       ) : (
-        <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
-          {leaderboard.map((user, index) => (
-            <div
-              key={user._id || index}
-              style={{
-                background: index < 3 ? "rgba(99,102,241,0.08)" : "#111827",
-                padding: "20px 24px",
-                borderRadius: "16px",
-                display: "flex",
-                justifyContent: "space-between",
-                alignItems: "center",
-                border: index === 0
-                  ? "1px solid rgba(255,215,0,0.3)"
-                  : index === 1
-                  ? "1px solid rgba(192,192,192,0.25)"
-                  : index === 2
-                  ? "1px solid rgba(205,127,50,0.25)"
-                  : "1px solid #1f2937",
-              }}
-            >
-              <div style={{ display: "flex", alignItems: "center", gap: "16px" }}>
+        <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
+          {leaderboard.map((student, index) => {
+            const isCurrentUser = student.userId === currentUser?._id?.toString()
+            return (
+              <div
+                key={student.userId}
+                style={{
+                  background: isCurrentUser ? "rgba(99,102,241,0.1)" : index < 3 ? "rgba(255,255,255,0.03)" : "#111827",
+                  border: isCurrentUser
+                    ? "1px solid rgba(99,102,241,0.5)"
+                    : index === 0 ? "1px solid rgba(255,215,0,0.25)"
+                    : index === 1 ? "1px solid rgba(192,192,192,0.2)"
+                    : index === 2 ? "1px solid rgba(205,127,50,0.2)"
+                    : "1px solid #1f2937",
+                  borderRadius: "14px",
+                  padding: "18px 22px",
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "16px",
+                }}
+              >
                 {/* Rank */}
                 <div style={{
-                  width: "40px", height: "40px", borderRadius: "50%",
-                  background: index < 3 ? `${getMedalColor(index)}22` : "#1f2937",
+                  width: "42px", height: "42px", borderRadius: "50%", flexShrink: 0,
+                  background: index < 3 ? `${medalColors[index]}18` : "#1f2937",
                   display: "flex", alignItems: "center", justifyContent: "center",
-                  fontWeight: "700", fontSize: "16px",
-                  color: getMedalColor(index),
-                  flexShrink: 0,
+                  fontSize: index < 3 ? "22px" : "15px",
+                  fontWeight: "800",
+                  color: index < 3 ? medalColors[index] : "#475569",
                 }}>
-                  {index < 3 ? ["🥇", "🥈", "🥉"][index] : `#${index + 1}`}
+                  {index < 3 ? medals[index] : `#${index + 1}`}
                 </div>
 
                 {/* Name + Class */}
-                <div>
-                  <h2 style={{ margin: "0 0 4px", fontSize: "17px", color: "white" }}>
-                    {user.name}
-                  </h2>
+                <div style={{ flex: 1, minWidth: 0 }}>
+                  <p style={{ margin: "0 0 3px", fontWeight: "700", fontSize: "16px", color: isCurrentUser ? "#a5b4fc" : "white" }}>
+                    {student.name} {isCurrentUser && <span style={{ fontSize: "12px", color: "#6366f1", fontWeight: "500" }}>(You)</span>}
+                  </p>
                   <p style={{ margin: 0, color: "#64748b", fontSize: "13px" }}>
-                    Class {user.studentClass} &nbsp;|&nbsp; {user.book} → {user.chapter}
+                    Class {student.studentClass} &nbsp;·&nbsp; {student.totalChapters} chapter{student.totalChapters !== 1 ? "s" : ""} attempted
                   </p>
                 </div>
-              </div>
 
-              {/* Stats */}
-              <div style={{ textAlign: "right" }}>
-                <h2 style={{ margin: "0 0 4px", fontSize: "20px", color: "white" }}>
-                  {user.score}/{user.totalQuestions}
-                </h2>
-                <p style={{ margin: 0, color: "#64748b", fontSize: "13px" }}>
-                  {user.accuracy}% acc &nbsp;|&nbsp; {user.totalTime}s
-                </p>
+                {/* Stats */}
+                <div style={{ display: "flex", gap: "24px", alignItems: "center", flexShrink: 0 }}>
+                  <div style={{ textAlign: "center" }}>
+                    <p style={{ margin: "0 0 2px", fontSize: "20px", fontWeight: "800", color: "white" }}>
+                      {student.totalScore}
+                    </p>
+                    <p style={{ margin: 0, fontSize: "11px", color: "#64748b" }}>Total Score</p>
+                  </div>
+                  <div style={{ textAlign: "center" }}>
+                    <p style={{ margin: "0 0 2px", fontSize: "16px", fontWeight: "700", color: "#22c55e" }}>
+                      {student.avgAccuracy}%
+                    </p>
+                    <p style={{ margin: 0, fontSize: "11px", color: "#64748b" }}>Avg Accuracy</p>
+                  </div>
+                  <div style={{ textAlign: "center" }}>
+                    <p style={{ margin: "0 0 2px", fontSize: "16px", fontWeight: "700", color: "#94a3b8" }}>
+                      {student.avgTime}s
+                    </p>
+                    <p style={{ margin: 0, fontSize: "11px", color: "#64748b" }}>Avg Time</p>
+                  </div>
+                </div>
               </div>
-            </div>
-          ))}
+            )
+          })}
         </div>
       )}
     </div>
