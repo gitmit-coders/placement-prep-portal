@@ -14,6 +14,7 @@ import DPP from "./pages/DPP"
 import AdminLogin from "./pages/AdminLogin"
 import AdminPanel from "./pages/AdminPanel"
 import ProtectedRoute from "./components/ProtectedRoute"
+import AdminRoute from "./components/AdminRoute"
 
 const BACKEND_URL = "https://placement-prep-backend-n0rx.onrender.com"
 
@@ -28,11 +29,18 @@ function App() {
     <div>
       <Navbar />
       <Routes>
+        {/* Public */}
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+
+        {/* Admin — protected by AdminRoute, students cannot enter */}
         <Route path="/admin/login" element={<AdminLogin />} />
-        <Route path="/admin/panel" element={<AdminPanel />} />
+        <Route path="/admin/panel" element={
+          <AdminRoute><AdminPanel /></AdminRoute>
+        } />
+
+        {/* Student — protected by ProtectedRoute */}
         <Route path="/books" element={<ProtectedRoute><Books /></ProtectedRoute>} />
         <Route path="/chapters/:bookName" element={<ProtectedRoute><Chapters /></ProtectedRoute>} />
         <Route path="/quiz" element={<ProtectedRoute><Quiz /></ProtectedRoute>} />
