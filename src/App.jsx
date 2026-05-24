@@ -13,8 +13,11 @@ import Chapters from "./pages/Chapters"
 import DPP from "./pages/DPP"
 import AdminLogin from "./pages/AdminLogin"
 import AdminPanel from "./pages/AdminPanel"
+import SuperAdminLogin from "./pages/SuperAdminLogin"
+import SuperAdminPanel from "./pages/SuperAdminPanel"
 import ProtectedRoute from "./components/ProtectedRoute"
 import AdminRoute from "./components/AdminRoute"
+import SuperAdminRoute from "./components/SuperAdminRoute"
 
 const BACKEND_URL = "https://placement-prep-backend-n0rx.onrender.com"
 
@@ -29,18 +32,25 @@ function App() {
     <div>
       <Navbar />
       <Routes>
-        {/* Public */}
+
+        {/* ── PUBLIC ── */}
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
 
-        {/* Admin — protected by AdminRoute, students cannot enter */}
+        {/* ── SUPER ADMIN (You) ── */}
+        <Route path="/super-admin/login" element={<SuperAdminLogin />} />
+        <Route path="/super-admin/panel" element={
+          <SuperAdminRoute><SuperAdminPanel /></SuperAdminRoute>
+        } />
+
+        {/* ── TEACHER ── */}
         <Route path="/admin/login" element={<AdminLogin />} />
         <Route path="/admin/panel" element={
           <AdminRoute><AdminPanel /></AdminRoute>
         } />
 
-        {/* Student — protected by ProtectedRoute */}
+        {/* ── STUDENT ── */}
         <Route path="/books" element={<ProtectedRoute><Books /></ProtectedRoute>} />
         <Route path="/chapters/:bookName" element={<ProtectedRoute><Chapters /></ProtectedRoute>} />
         <Route path="/quiz" element={<ProtectedRoute><Quiz /></ProtectedRoute>} />
@@ -48,6 +58,7 @@ function App() {
         <Route path="/dashboard" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
         <Route path="/leaderboard" element={<ProtectedRoute><Leaderboard /></ProtectedRoute>} />
         <Route path="/profile" element={<ProtectedRoute><Profile /></ProtectedRoute>} />
+
       </Routes>
     </div>
   )
