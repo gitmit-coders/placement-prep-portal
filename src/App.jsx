@@ -13,11 +13,13 @@ import Chapters from "./pages/Chapters"
 import DPP from "./pages/DPP"
 import AdminLogin from "./pages/AdminLogin"
 import AdminPanel from "./pages/AdminPanel"
-import SuperAdminLogin from "./pages/SuperAdminLogin"
-import SuperAdminPanel from "./pages/SuperAdminPanel"
+import SchoolRegister from "./pages/SchoolRegister"
+import SchoolLogin from "./pages/SchoolLogin"
+import SchoolPanel from "./pages/SchoolPanel"
+import MasterLogin from "./pages/MasterLogin"
+import MasterPanel from "./pages/MasterPanel"
 import ProtectedRoute from "./components/ProtectedRoute"
 import AdminRoute from "./components/AdminRoute"
-import SuperAdminRoute from "./components/SuperAdminRoute"
 
 const BACKEND_URL = "https://placement-prep-backend-n0rx.onrender.com"
 
@@ -32,25 +34,25 @@ function App() {
     <div>
       <Navbar />
       <Routes>
-
-        {/* ── PUBLIC ── */}
+        {/* Public */}
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
 
-        {/* ── SUPER ADMIN (You) ── */}
-        <Route path="/super-admin/login" element={<SuperAdminLogin />} />
-        <Route path="/super-admin/panel" element={
-          <SuperAdminRoute><SuperAdminPanel /></SuperAdminRoute>
-        } />
+        {/* Master (You) */}
+        <Route path="/master/login" element={<MasterLogin />} />
+        <Route path="/master/panel" element={<MasterPanel />} />
 
-        {/* ── TEACHER ── */}
+        {/* School Admin */}
+        <Route path="/school/register" element={<SchoolRegister />} />
+        <Route path="/school/login" element={<SchoolLogin />} />
+        <Route path="/school/panel" element={<SchoolPanel />} />
+
+        {/* Teacher */}
         <Route path="/admin/login" element={<AdminLogin />} />
-        <Route path="/admin/panel" element={
-          <AdminRoute><AdminPanel /></AdminRoute>
-        } />
+        <Route path="/admin/panel" element={<AdminRoute><AdminPanel /></AdminRoute>} />
 
-        {/* ── STUDENT ── */}
+        {/* Student */}
         <Route path="/books" element={<ProtectedRoute><Books /></ProtectedRoute>} />
         <Route path="/chapters/:bookName" element={<ProtectedRoute><Chapters /></ProtectedRoute>} />
         <Route path="/quiz" element={<ProtectedRoute><Quiz /></ProtectedRoute>} />
@@ -58,7 +60,6 @@ function App() {
         <Route path="/dashboard" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
         <Route path="/leaderboard" element={<ProtectedRoute><Leaderboard /></ProtectedRoute>} />
         <Route path="/profile" element={<ProtectedRoute><Profile /></ProtectedRoute>} />
-
       </Routes>
     </div>
   )

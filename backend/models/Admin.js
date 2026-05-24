@@ -5,9 +5,10 @@ const adminSchema = new mongoose.Schema({
   email: { type: String, required: true, unique: true },
   password: { type: String, required: true },
   schoolName: { type: String, required: true },
+  schoolCode: { type: String, required: true }, // links teacher to a school
   role: {
     type: String,
-    enum: ["superadmin", "teacher"],
+    enum: ["school_admin", "teacher"],
     default: "teacher",
   },
 }, { timestamps: true })

@@ -1,11 +1,14 @@
 const express = require("express")
 const cors = require("cors")
+const mongoose = require("mongoose")
+require("dotenv").config({ path: "./config.env" })
+
 const authRoutes = require("./routes/auth")
 const resultRoutes = require("./routes/result")
 const adminRoutes = require("./routes/admin")
 const questionRoutes = require("./routes/questions")
-const mongoose = require("mongoose")
-require("dotenv").config({ path: "./config.env" })
+const schoolRoutes = require("./routes/school")
+const masterRoutes = require("./routes/master")
 
 const app = express()
 const PORT = process.env.PORT || 5000
@@ -21,6 +24,8 @@ app.use("/api/auth", authRoutes)
 app.use("/api/result", resultRoutes)
 app.use("/api/admin", adminRoutes)
 app.use("/api/questions", questionRoutes)
+app.use("/api/school", schoolRoutes)
+app.use("/api/master", masterRoutes)
 
 app.get("/", (req, res) => res.send("Backend is running 🚀"))
 
