@@ -4,9 +4,6 @@ const User = require("../models/User")
 const bcrypt = require("bcryptjs")
 const dns = require("dns").promises
 
-// Helper: verify email domain actually exists via DNS MX lookup
-// This catches fake domains like "abc@fakeemail123.com" without
-// sending any actual email — fast and free.
 async function isEmailDomainValid(email) {
   try {
     const domain = email.split("@")[1]
@@ -18,7 +15,6 @@ async function isEmailDomainValid(email) {
   }
 }
 
-// Helper: basic email format check
 function isValidEmailFormat(email) {
   const regex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/
   return regex.test(email)
@@ -27,52 +23,41 @@ function isValidEmailFormat(email) {
 // REGISTER
 router.post("/register", async (req, res) => {
   try {
-    const { name, email, password, school, studentClass } = req.body
+    const { name, email, password, school, schoolCode, studentClass } = req.body
 
-    // Validate required fields
-    if (!name || !email || !password || !studentClass) {
-      return res.status(400).json({ message: "All fields are required." })
+    if (!name || !email || !password || !studentClass || !schoolCode) {
+      return res.status(400).json({ message: "All fields are required including school selection." })
     }
-
-    // Validate email format
     if (!isValidEmailFormat(email)) {
       return res.status(400).json({ message: "Please enter a valid email address." })
     }
-
-    // ✅ Validate email domain exists (catches fake emails like abc@xyz123fake.com)
-    const domainValid = await isEmailDomainValid(email)
-    if (!domainValid) {
-      return res.status(400).json({
-        message: "Email domain does not exist. Please use a real email address.",
-      })
-    }
-
-    // Validate password length
     if (password.length < 6) {
       return res.status(400).json({ message: "Password must be at least 6 characters." })
     }
 
-    // Check if user already exists
+    // Validate email domain
+    const domainValid = await isEmailDomainValid(email)
+    if (!domainValid) {
+      return res.status(400).json({ message: "Email domain does not exist. Please use a real email address." })
+    }
+
     const existingUser = await User.findOne({ email: email.toLowerCase() })
     if (existingUser) {
       return res.status(400).json({ message: "An account with this email already exists." })
     }
 
     const hashedPassword = await bcrypt.hash(password, 10)
-
     const newUser = new User({
       name: name.trim(),
       email: email.toLowerCase().trim(),
       password: hashedPassword,
-      school: school?.trim(),
+      school: school || "",
+      schoolCode: schoolCode,
       studentClass,
     })
 
     await newUser.save()
-
-    res.status(201).json({
-      message: "Account created successfully. Please log in.",
-    })
+    res.status(201).json({ message: "Account created successfully. Please log in." })
   } catch (error) {
     console.error("Register error:", error)
     res.status(500).json({ message: "Server error. Please try again." })
@@ -83,13 +68,11 @@ router.post("/register", async (req, res) => {
 router.post("/login", async (req, res) => {
   try {
     const { email, password } = req.body
-
     if (!email || !password) {
       return res.status(400).json({ message: "Email and password are required." })
     }
 
     const user = await User.findOne({ email: email.toLowerCase().trim() })
-
     if (!user) {
       return res.status(400).json({ message: "Invalid email or password." })
     }
@@ -107,6 +90,7 @@ router.post("/login", async (req, res) => {
         email: user.email,
         studentClass: user.studentClass,
         school: user.school,
+        schoolCode: user.schoolCode,
       },
     })
   } catch (error) {
