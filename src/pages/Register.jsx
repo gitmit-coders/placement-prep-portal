@@ -7,11 +7,10 @@ const CLASSES = ["6", "7", "8", "9", "10"]
 function Register() {
   const [form, setForm] = useState({
     name: "", email: "", password: "", studentClass: "",
-    schoolCode: "", schoolName: "", joinCode: "",
+    schoolCode: "", schoolName: "",
   })
   const [schools, setSchools] = useState([])
   const [loadingSchools, setLoadingSchools] = useState(true)
-  const [codeStatus, setCodeStatus] = useState(null) // null | "checking" | "valid" | "invalid"
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState("")
   const navigate = useNavigate()
@@ -28,32 +27,9 @@ function Register() {
   const handleSchoolSelect = (e) => {
     const selected = schools.find((s) => s.schoolCode === e.target.value)
     if (selected) {
-      setForm({ ...form, schoolCode: selected.schoolCode, schoolName: selected.schoolName, joinCode: "" })
+      setForm({ ...form, schoolCode: selected.schoolCode, schoolName: selected.schoolName })
     } else {
-      setForm({ ...form, schoolCode: "", schoolName: "", joinCode: "" })
-    }
-    setCodeStatus(null)
-  }
-
-  // Verify join code when user types it
-  const handleJoinCodeChange = async (e) => {
-    const code = e.target.value.toUpperCase()
-    setForm({ ...form, joinCode: code })
-    setCodeStatus(null)
-
-    if (code.length === 6 && form.schoolCode) {
-      setCodeStatus("checking")
-      try {
-        const res = await fetch(`${BACKEND_URL}/api/school/verify-code`, {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ schoolCode: form.schoolCode, joinCode: code }),
-        })
-        const data = await res.json()
-        setCodeStatus(data.valid ? "valid" : "invalid")
-      } catch {
-        setCodeStatus("invalid")
-      }
+      setForm({ ...form, schoolCode: "", schoolName: "" })
     }
   }
 
@@ -61,9 +37,6 @@ function Register() {
     setError("")
     if (!form.name || !form.email || !form.password || !form.studentClass || !form.schoolCode) {
       setError("Please fill in all required fields including your school."); return
-    }
-    if (codeStatus !== "valid") {
-      setError("Please enter a valid school join code."); return
     }
     if (form.password.length < 6) {
       setError("Password must be at least 6 characters long."); return
@@ -103,6 +76,11 @@ function Register() {
           </p>
         </div>
 
+        {/* Approval notice */}
+        <div style={infoStyle}>
+          ℹ️ After registering, your school teacher will review and approve your account before you can log in.
+        </div>
+
         {error && <div style={errorStyle}>{error}</div>}
 
         <label style={lbl}>Full Name *</label>
@@ -121,7 +99,6 @@ function Register() {
           {CLASSES.map((c) => <option key={c} value={c}>Class {c}</option>)}
         </select>
 
-        {/* Step 1 — Select School */}
         <label style={lbl}>Select Your School *</label>
         {loadingSchools ? (
           <div style={{ ...inp, color: "#64748b" }}>Loading schools...</div>
@@ -138,55 +115,12 @@ function Register() {
           </select>
         )}
 
-        {/* Step 2 — Enter Join Code (only show after school selected) */}
-        {form.schoolCode && (
-          <>
-            <label style={lbl}>School Join Code *</label>
-            <div style={{ position: "relative" }}>
-              <input
-                type="text"
-                placeholder="Enter 6-character code from your school"
-                value={form.joinCode}
-                onChange={handleJoinCodeChange}
-                maxLength={6}
-                style={{
-                  ...inp,
-                  fontFamily: "monospace",
-                  fontSize: "18px",
-                  letterSpacing: "4px",
-                  textTransform: "uppercase",
-                  borderColor: codeStatus === "valid" ? "#22c55e" : codeStatus === "invalid" ? "#ef4444" : "#1f2937",
-                }}
-              />
-            </div>
-
-            {/* Code status feedback */}
-            {codeStatus === "checking" && (
-              <p style={{ margin: "-10px 0 14px", color: "#64748b", fontSize: "13px" }}>Verifying code...</p>
-            )}
-            {codeStatus === "valid" && (
-              <div style={{ margin: "-10px 0 14px", background: "rgba(34,197,94,0.08)", border: "1px solid rgba(34,197,94,0.25)", borderRadius: "8px", padding: "9px 14px" }}>
-                <p style={{ margin: 0, color: "#22c55e", fontSize: "13px", fontWeight: "600" }}>
-                  ✓ Code verified — {form.schoolName}
-                </p>
-              </div>
-            )}
-            {codeStatus === "invalid" && (
-              <div style={{ margin: "-10px 0 14px", background: "rgba(239,68,68,0.08)", border: "1px solid rgba(239,68,68,0.25)", borderRadius: "8px", padding: "9px 14px" }}>
-                <p style={{ margin: 0, color: "#f87171", fontSize: "13px" }}>
-                  ✗ Invalid code. Please check with your school administrator.
-                </p>
-              </div>
-            )}
-            <p style={{ margin: "-6px 0 16px", color: "#475569", fontSize: "12px" }}>
-              Ask your school administrator or teacher for this code.
-            </p>
-          </>
-        )}
-
-        <button onClick={handleRegister} disabled={loading || codeStatus !== "valid"}
-          style={{ ...btnStyle, opacity: codeStatus === "valid" ? 1 : 0.5, marginTop: "4px" }}>
-          {loading ? "Creating account..." : "Create Account"}
+        <button
+          onClick={handleRegister}
+          disabled={loading || !form.schoolCode}
+          style={{ ...btnStyle, opacity: form.schoolCode ? 1 : 0.5, marginTop: "4px" }}
+        >
+          {loading ? "Submitting..." : "Submit Registration"}
         </button>
 
         <p style={{ textAlign: "center", marginTop: "20px", color: "#64748b", fontSize: "14px" }}>
@@ -204,5 +138,6 @@ const lbl = { display: "block", marginBottom: "6px", color: "#94a3b8", fontSize:
 const inp = { width: "100%", padding: "12px 14px", marginBottom: "18px", borderRadius: "10px", border: "1px solid #1f2937", outline: "none", background: "#1e293b", color: "white", fontSize: "15px", boxSizing: "border-box", cursor: "auto" }
 const btnStyle = { width: "100%", padding: "14px", borderRadius: "10px", border: "none", background: "#6366f1", color: "white", fontSize: "16px", fontWeight: "700", cursor: "pointer" }
 const errorStyle = { background: "rgba(239,68,68,0.1)", border: "1px solid rgba(239,68,68,0.3)", color: "#f87171", borderRadius: "10px", padding: "12px 14px", marginBottom: "20px", fontSize: "14px" }
+const infoStyle = { background: "rgba(99,102,241,0.08)", border: "1px solid rgba(99,102,241,0.25)", color: "#a5b4fc", borderRadius: "10px", padding: "12px 14px", marginBottom: "20px", fontSize: "13px" }
 
 export default Register
