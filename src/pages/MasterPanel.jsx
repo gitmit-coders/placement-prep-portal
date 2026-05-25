@@ -37,6 +37,13 @@ function MasterPanel() {
     else showMsg("Failed to approve.", "#ef4444")
   }
 
+  const handleDelete = async (id, name) => {
+    if (!window.confirm(`Delete "${name}" permanently? This cannot be undone.`)) return
+    const res = await fetch(`${BACKEND_URL}/api/master/school/${id}`, { method: "DELETE" })
+    if (res.ok) { showMsg(`${name} deleted.`); fetchSchools() }
+    else showMsg("Failed to delete.", "#ef4444")
+  }
+
   const handleReject = async () => {
     const res = await fetch(`${BACKEND_URL}/api/master/reject/${rejectModal.id}`, {
       method: "PUT",
@@ -155,9 +162,10 @@ function MasterPanel() {
                       </div>
                     )}
                     {s.status === "approved" && (
-                      <button onClick={() => handleApprove(s._id, s.schoolName)} style={{ padding: "7px 14px", borderRadius: "8px", border: "1px solid #1f2937", background: "#1e293b", color: "#64748b", cursor: "pointer", fontSize: "12px" }}>
-                        Active ✅
-                      </button>
+                      <div style={{ display: "flex", gap: "8px" }}>
+                        <span style={{ padding: "5px 12px", borderRadius: "7px", fontSize: "12px", fontWeight: "700", color: "#22c55e", background: "rgba(34,197,94,0.1)", border: "1px solid rgba(34,197,94,0.2)", display: "flex", alignItems: "center" }}>Active ✅</span>
+                        <button onClick={() => handleDelete(s._id, s.schoolName)} style={{ padding: "7px 14px", borderRadius: "8px", border: "1px solid rgba(220,38,38,0.3)", background: "rgba(220,38,38,0.1)", color: "#f87171", cursor: "pointer", fontSize: "12px", fontWeight: "600" }}>Delete</button>
+                      </div>
                     )}
                   </div>
                 </div>
