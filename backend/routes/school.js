@@ -178,3 +178,100 @@ router.post("/verify-code", async (req, res) => {
     res.status(500).json({ message: "Server error.", valid: false })
   }
 })
+
+// GET pending students for a school
+router.get("/students/:schoolCode", async (req, res) => {
+  try {
+    const User = require("../models/User")
+    const { status } = req.query // "pending", "approved", "rejected", or "all"
+    const filter = { schoolCode: req.params.schoolCode }
+    if (status && status !== "all") filter.status = status
+
+    const students = await User.find(filter)
+      .select("-password")
+      .sort({ createdAt: -1 })
+    res.status(200).json(students)
+  } catch (err) {
+    res.status(500).json({ message: "Server error.", error: err.message })
+  }
+})
+
+// APPROVE student
+router.put("/student/approve/:id", async (req, res) => {
+  try {
+    const User = require("../models/User")
+    const student = await User.findByIdAndUpdate(
+      req.params.id,
+      { status: "approved" },
+      { new: true }
+    ).select("-password")
+    if (!student) return res.status(404).json({ message: "Student not found." })
+    res.status(200).json({ message: `${student.name} approved.`, student })
+  } catch (err) {
+    res.status(500).json({ message: "Server error.", error: err.message })
+  }
+})
+
+// REJECT student
+router.put("/student/reject/:id", async (req, res) => {
+  try {
+    const User = require("../models/User")
+    const { reason } = req.body
+    const student = await User.findByIdAndUpdate(
+      req.params.id,
+      { status: "rejected", rejectedReason: reason || "Not approved by school administrator." },
+      { new: true }
+    ).select("-password")
+    if (!student) return res.status(404).json({ message: "Student not found." })
+    res.status(200).json({ message: `${student.name} rejected.` })
+  } catch (err) {
+    res.status(500).json({ message: "Server error.", error: err.message })
+  }
+})
+
+// GET pending students for a school
+router.get("/students/:schoolCode", async (req, res) => {
+  try {
+    const User = require("../models/User")
+    const { status } = req.query // "pending" | "approved" | "rejected" | "all"
+    const filter = { schoolCode: req.params.schoolCode }
+    if (status && status !== "all") filter.status = status
+    const students = await User.find(filter).select("-password").sort({ createdAt: -1 })
+    res.status(200).json(students)
+  } catch (err) {
+    res.status(500).json({ message: "Server error.", error: err.message })
+  }
+})
+
+// APPROVE student
+router.put("/student/approve/:id", async (req, res) => {
+  try {
+    const User = require("../models/User")
+    const student = await User.findByIdAndUpdate(
+      req.params.id,
+      { status: "approved" },
+      { new: true }
+    )
+    if (!student) return res.status(404).json({ message: "Student not found." })
+    res.status(200).json({ message: `${student.name} approved.` })
+  } catch (err) {
+    res.status(500).json({ message: "Server error.", error: err.message })
+  }
+})
+
+// REJECT student
+router.put("/student/reject/:id", async (req, res) => {
+  try {
+    const User = require("../models/User")
+    const { reason } = req.body
+    const student = await User.findByIdAndUpdate(
+      req.params.id,
+      { status: "rejected", rejectedReason: reason || "Not approved by school admin." },
+      { new: true }
+    )
+    if (!student) return res.status(404).json({ message: "Student not found." })
+    res.status(200).json({ message: `${student.name} rejected.` })
+  } catch (err) {
+    res.status(500).json({ message: "Server error.", error: err.message })
+  }
+})

@@ -10,14 +10,11 @@ async function isEmailDomainValid(email) {
     if (!domain) return false
     const records = await dns.resolveMx(domain)
     return records && records.length > 0
-  } catch {
-    return false
-  }
+  } catch { return false }
 }
 
 function isValidEmailFormat(email) {
-  const regex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/
-  return regex.test(email)
+  return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)
 }
 
 // REGISTER
@@ -35,29 +32,31 @@ router.post("/register", async (req, res) => {
       return res.status(400).json({ message: "Password must be at least 6 characters." })
     }
 
-    // Validate email domain
     const domainValid = await isEmailDomainValid(email)
     if (!domainValid) {
       return res.status(400).json({ message: "Email domain does not exist. Please use a real email address." })
     }
 
-    const existingUser = await User.findOne({ email: email.toLowerCase() })
-    if (existingUser) {
+    const existing = await User.findOne({ email: email.toLowerCase() })
+    if (existing) {
       return res.status(400).json({ message: "An account with this email already exists." })
     }
 
-    const hashedPassword = await bcrypt.hash(password, 10)
+    const hashed = await bcrypt.hash(password, 10)
     const newUser = new User({
       name: name.trim(),
       email: email.toLowerCase().trim(),
-      password: hashedPassword,
+      password: hashed,
       school: school || "",
-      schoolCode: schoolCode,
+      schoolCode,
       studentClass,
+      status: "pending", // requires school admin approval
     })
 
     await newUser.save()
-    res.status(201).json({ message: "Account created successfully. Please log in." })
+    res.status(201).json({
+      message: "Registration submitted! Your school administrator will approve your account shortly.",
+    })
   } catch (error) {
     console.error("Register error:", error)
     res.status(500).json({ message: "Server error. Please try again." })
@@ -80,6 +79,18 @@ router.post("/login", async (req, res) => {
     const isMatch = await bcrypt.compare(password, user.password)
     if (!isMatch) {
       return res.status(400).json({ message: "Invalid email or password." })
+    }
+
+    // Layer 2 check — must be approved by school admin
+    if (user.status === "pending") {
+      return res.status(403).json({
+        message: "Your account is pending approval. Please wait for your school administrator to approve you.",
+      })
+    }
+    if (user.status === "rejected") {
+      return res.status(403).json({
+        message: `Your registration was rejected. Reason: ${user.rejectedReason || "Contact your school admin."}`,
+      })
     }
 
     res.status(200).json({
