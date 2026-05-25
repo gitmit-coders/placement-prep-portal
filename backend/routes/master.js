@@ -3,11 +3,15 @@ const router = express.Router()
 const Master = require("../models/Master")
 const School = require("../models/School")
 const bcrypt = require("bcryptjs")
-const crypto = require("crypto")
 
-// Generate random 6-char uppercase join code e.g. "DPS4X2"
+// Simple random 6-char code generator — no external deps
 function generateJoinCode() {
-  return crypto.randomBytes(3).toString("hex").toUpperCase()
+  const chars = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789"
+  let code = ""
+  for (let i = 0; i < 6; i++) {
+    code += chars[Math.floor(Math.random() * chars.length)]
+  }
+  return code
 }
 
 // MASTER LOGIN
@@ -57,7 +61,7 @@ router.get("/schools", async (req, res) => {
   }
 })
 
-// APPROVE school — generate schoolCode + joinCode
+// APPROVE school
 router.put("/approve/:id", async (req, res) => {
   try {
     const school = await School.findById(req.params.id)
@@ -66,20 +70,29 @@ router.put("/approve/:id", async (req, res) => {
     // Generate school code
     if (!school.schoolCode) {
       const count = await School.countDocuments({ status: "approved" })
-      const prefix = school.schoolName.substring(0, 3).toUpperCase().replace(/\s/g, "")
+      const prefix = school.schoolName.substring(0, 3).toUpperCase().replace(/[^A-Z]/g, "X")
       school.schoolCode = `${prefix}${String(count + 1).padStart(3, "0")}`
     }
 
-    // Generate unique join code — students use this to register
-    if (!school.joinCode) {
-      school.joinCode = generateJoinCode()
-    }
-
+    // Always generate a fresh join code on approval
+    school.joinCode = generateJoinCode()
     school.status = "approved"
     school.approvedAt = new Date()
+
     await school.save()
 
-    res.status(200).json({ message: `${school.schoolName} approved.`, school })
+    console.log(`School approved: ${school.schoolName}, Code: ${school.schoolCode}, JoinCode: ${school.joinCode}`)
+
+    res.status(200).json({
+      message: `${school.schoolName} approved successfully.`,
+      school: {
+        _id: school._id,
+        schoolName: school.schoolName,
+        schoolCode: school.schoolCode,
+        joinCode: school.joinCode,
+        status: school.status,
+      }
+    })
   } catch (err) {
     console.error("Approve error:", err.message)
     res.status(500).json({ message: "Server error.", error: err.message })
@@ -102,12 +115,13 @@ router.put("/reject/:id", async (req, res) => {
   }
 })
 
-// REGENERATE join code (if school wants to reset it)
+// REGENERATE join code
 router.put("/regenerate-code/:id", async (req, res) => {
   try {
+    const newCode = generateJoinCode()
     const school = await School.findByIdAndUpdate(
       req.params.id,
-      { joinCode: generateJoinCode() },
+      { joinCode: newCode },
       { new: true }
     )
     if (!school) return res.status(404).json({ message: "School not found." })
