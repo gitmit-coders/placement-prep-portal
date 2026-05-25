@@ -154,3 +154,27 @@ router.delete("/teacher/:id", async (req, res) => {
 })
 
 module.exports = router
+
+// VERIFY join code (called from Register page before submitting)
+router.post("/verify-code", async (req, res) => {
+  try {
+    const { schoolCode, joinCode } = req.body
+    if (!schoolCode || !joinCode) {
+      return res.status(400).json({ message: "School and join code required.", valid: false })
+    }
+
+    const school = await School.findOne({
+      schoolCode: schoolCode,
+      joinCode: joinCode.toUpperCase().trim(),
+      status: "approved",
+    })
+
+    if (!school) {
+      return res.status(400).json({ message: "Invalid join code. Please check with your school.", valid: false })
+    }
+
+    res.status(200).json({ message: "Join code verified.", valid: true, schoolName: school.schoolName })
+  } catch (err) {
+    res.status(500).json({ message: "Server error.", valid: false })
+  }
+})

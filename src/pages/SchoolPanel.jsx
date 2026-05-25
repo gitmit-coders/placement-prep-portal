@@ -13,6 +13,7 @@ function SchoolPanel() {
   const [saving, setSaving] = useState(false)
   const [showForm, setShowForm] = useState(false)
   const [toast, setToast] = useState({ msg: "", color: "#22c55e" })
+  const [codeCopied, setCodeCopied] = useState(false)
 
   useEffect(() => {
     if (!school) { navigate("/school/login"); return }
@@ -60,13 +61,21 @@ function SchoolPanel() {
     if (res.ok) { showMsg("Teacher deleted."); fetchTeachers() }
   }
 
+  const copyCode = () => {
+    navigator.clipboard.writeText(school?.joinCode || "")
+    setCodeCopied(true)
+    setTimeout(() => setCodeCopied(false), 2000)
+  }
+
   return (
     <div style={{ minHeight: "100vh", background: "#0b0b12", color: "white", fontFamily: "system-ui,sans-serif" }}>
       {/* Header */}
       <div style={{ background: "#111827", borderBottom: "1px solid #1f2937", padding: "14px 28px", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
         <div>
           <h2 style={{ margin: 0, fontSize: "18px" }}>🏫 {school?.schoolName}</h2>
-          <p style={{ margin: 0, color: "#64748b", fontSize: "12px" }}>School Code: <strong style={{ color: "#6366f1" }}>{school?.schoolCode}</strong> &nbsp;·&nbsp; {school?.city}, {school?.state}</p>
+          <p style={{ margin: 0, color: "#64748b", fontSize: "12px" }}>
+            School Code: <strong style={{ color: "#6366f1" }}>{school?.schoolCode}</strong> &nbsp;·&nbsp; {school?.city}, {school?.state}
+          </p>
         </div>
         <button onClick={() => { localStorage.removeItem("schoolAdmin"); navigate("/school/login") }}
           style={{ padding: "8px 16px", borderRadius: "8px", border: "1px solid rgba(220,38,38,0.3)", background: "rgba(220,38,38,0.1)", color: "#f87171", cursor: "pointer", fontWeight: "600", fontSize: "13px" }}>
@@ -78,15 +87,32 @@ function SchoolPanel() {
 
       <div style={{ maxWidth: "900px", margin: "0 auto", padding: "32px" }}>
 
-        {/* Info */}
-        <div style={{ background: "rgba(99,102,241,0.08)", border: "1px solid rgba(99,102,241,0.2)", borderRadius: "14px", padding: "18px 22px", marginBottom: "28px" }}>
-          <h3 style={{ margin: "0 0 8px", fontSize: "15px", color: "#a5b4fc" }}>How to Add Teachers</h3>
-          <p style={{ margin: 0, color: "#64748b", fontSize: "13px", lineHeight: 1.7 }}>
-            1. Click "+ Add Teacher" and fill in their name, email, and password.<br />
-            2. Share the email and password with the teacher (via WhatsApp or email).<br />
-            3. Teacher goes to <strong style={{ color: "#94a3b8" }}>your-site/admin/login</strong> and signs in with those credentials.<br />
-            4. Teacher can then add DPP questions for their chapters and classes.
+        {/* JOIN CODE CARD — Most Important */}
+        <div style={{ background: "linear-gradient(135deg, rgba(99,102,241,0.15), rgba(139,92,246,0.1))", border: "1px solid rgba(99,102,241,0.4)", borderRadius: "18px", padding: "24px 28px", marginBottom: "28px" }}>
+          <h3 style={{ margin: "0 0 6px", fontSize: "16px", color: "#a5b4fc" }}>
+            🔑 Student Join Code
+          </h3>
+          <p style={{ margin: "0 0 16px", color: "#64748b", fontSize: "13px", lineHeight: 1.6 }}>
+            Share this code with your students. They must enter this code while registering —
+            only students with this code can join your school.
           </p>
+
+          <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
+            <div style={{ background: "#0b0b12", border: "2px solid rgba(99,102,241,0.4)", borderRadius: "12px", padding: "14px 24px" }}>
+              <span style={{ fontSize: "32px", fontWeight: "900", letterSpacing: "6px", color: "white", fontFamily: "monospace" }}>
+                {school?.joinCode || "------"}
+              </span>
+            </div>
+            <button onClick={copyCode} style={{ padding: "12px 20px", borderRadius: "10px", border: "none", background: codeCopied ? "rgba(34,197,94,0.2)" : "#6366f1", color: codeCopied ? "#22c55e" : "white", fontWeight: "700", cursor: "pointer", fontSize: "14px", transition: "all 0.2s" }}>
+              {codeCopied ? "Copied! ✓" : "Copy Code"}
+            </button>
+          </div>
+
+          <div style={{ marginTop: "14px", background: "rgba(245,158,11,0.08)", border: "1px solid rgba(245,158,11,0.2)", borderRadius: "9px", padding: "10px 14px" }}>
+            <p style={{ margin: 0, color: "#fbbf24", fontSize: "13px" }}>
+              ⚠️ Keep this code private — share only with your actual students via notice board or WhatsApp group. Do not post it publicly.
+            </p>
+          </div>
         </div>
 
         {/* Stats */}
@@ -96,7 +122,7 @@ function SchoolPanel() {
           <div style={sCard}><p style={sLbl}>Board</p><h2 style={{ margin: 0, fontSize: "18px", color: "#f59e0b" }}>{school?.board}</h2></div>
         </div>
 
-        {/* Header + Add button */}
+        {/* Add Teacher */}
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "16px" }}>
           <h2 style={{ margin: 0, fontSize: "18px" }}>Teachers</h2>
           <button onClick={() => setShowForm(!showForm)} style={{ padding: "10px 20px", borderRadius: "10px", border: "none", background: "#6366f1", color: "white", fontWeight: "700", fontSize: "14px", cursor: "pointer" }}>
@@ -104,7 +130,6 @@ function SchoolPanel() {
           </button>
         </div>
 
-        {/* Add Form */}
         {showForm && (
           <div style={{ background: "#111827", border: "1px solid rgba(99,102,241,0.3)", borderRadius: "16px", padding: "22px", marginBottom: "20px" }}>
             <h3 style={{ margin: "0 0 18px", fontSize: "15px", color: "#a5b4fc" }}>New Teacher Account</h3>
@@ -122,19 +147,17 @@ function SchoolPanel() {
           </div>
         )}
 
-        {/* Teachers List */}
         {loading ? <p style={{ color: "#64748b" }}>Loading...</p>
           : teachers.length === 0 ? (
-            <div style={{ textAlign: "center", padding: "60px", background: "#111827", borderRadius: "16px", border: "1px solid #1f2937" }}>
-              <h3>No teachers yet</h3>
-              <p style={{ color: "#64748b" }}>Add your first teacher to get started.</p>
+            <div style={{ textAlign: "center", padding: "40px", background: "#111827", borderRadius: "16px", border: "1px solid #1f2937" }}>
+              <p style={{ color: "#64748b" }}>No teachers yet. Add your first teacher above.</p>
             </div>
           ) : (
             <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
               {teachers.map((t) => (
                 <div key={t._id} style={{ background: "#111827", border: "1px solid #1f2937", borderRadius: "14px", padding: "16px 20px", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
                   <div style={{ display: "flex", alignItems: "center", gap: "14px" }}>
-                    <div style={{ width: "38px", height: "38px", borderRadius: "50%", background: "linear-gradient(135deg,#6366f1,#8b5cf6)", display: "flex", alignItems: "center", justifyContent: "center", fontWeight: "800", fontSize: "15px", flexShrink: 0 }}>
+                    <div style={{ width: "38px", height: "38px", borderRadius: "50%", background: "linear-gradient(135deg,#6366f1,#8b5cf6)", display: "flex", alignItems: "center", justifyContent: "center", fontWeight: "800", fontSize: "15px" }}>
                       {t.name.charAt(0).toUpperCase()}
                     </div>
                     <div>

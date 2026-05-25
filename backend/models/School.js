@@ -3,6 +3,7 @@ const mongoose = require("mongoose")
 const schoolSchema = new mongoose.Schema({
   schoolName: { type: String, required: true },
   schoolCode: { type: String, default: "" },
+  joinCode: { type: String, default: "" }, // secret code students use to register
   city: { type: String, required: true },
   state: { type: String, required: true },
   board: { type: String, default: "CBSE" },

@@ -3,6 +3,12 @@ const router = express.Router()
 const Master = require("../models/Master")
 const School = require("../models/School")
 const bcrypt = require("bcryptjs")
+const crypto = require("crypto")
+
+// Generate random 6-char uppercase join code e.g. "DPS4X2"
+function generateJoinCode() {
+  return crypto.randomBytes(3).toString("hex").toUpperCase()
+}
 
 // MASTER LOGIN
 router.post("/login", async (req, res) => {
@@ -51,24 +57,29 @@ router.get("/schools", async (req, res) => {
   }
 })
 
-// APPROVE school — generate school code here
+// APPROVE school — generate schoolCode + joinCode
 router.put("/approve/:id", async (req, res) => {
   try {
     const school = await School.findById(req.params.id)
     if (!school) return res.status(404).json({ message: "School not found." })
 
-    // Generate school code if not already set
+    // Generate school code
     if (!school.schoolCode) {
       const count = await School.countDocuments({ status: "approved" })
       const prefix = school.schoolName.substring(0, 3).toUpperCase().replace(/\s/g, "")
       school.schoolCode = `${prefix}${String(count + 1).padStart(3, "0")}`
     }
 
+    // Generate unique join code — students use this to register
+    if (!school.joinCode) {
+      school.joinCode = generateJoinCode()
+    }
+
     school.status = "approved"
     school.approvedAt = new Date()
     await school.save()
 
-    res.status(200).json({ message: `${school.schoolName} approved successfully.`, school })
+    res.status(200).json({ message: `${school.schoolName} approved.`, school })
   } catch (err) {
     console.error("Approve error:", err.message)
     res.status(500).json({ message: "Server error.", error: err.message })
@@ -86,6 +97,21 @@ router.put("/reject/:id", async (req, res) => {
     )
     if (!school) return res.status(404).json({ message: "School not found." })
     res.status(200).json({ message: `${school.schoolName} rejected.` })
+  } catch (err) {
+    res.status(500).json({ message: "Server error.", error: err.message })
+  }
+})
+
+// REGENERATE join code (if school wants to reset it)
+router.put("/regenerate-code/:id", async (req, res) => {
+  try {
+    const school = await School.findByIdAndUpdate(
+      req.params.id,
+      { joinCode: generateJoinCode() },
+      { new: true }
+    )
+    if (!school) return res.status(404).json({ message: "School not found." })
+    res.status(200).json({ message: "Join code regenerated.", joinCode: school.joinCode })
   } catch (err) {
     res.status(500).json({ message: "Server error.", error: err.message })
   }
