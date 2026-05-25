@@ -21,7 +21,7 @@ router.post("/login", async (req, res) => {
   }
 })
 
-// SETUP — create master account (run once)
+// SETUP master account (one time only)
 router.post("/setup", async (req, res) => {
   try {
     const existing = await Master.countDocuments()
@@ -29,6 +29,9 @@ router.post("/setup", async (req, res) => {
       return res.status(400).json({ message: "Master account already exists." })
     }
     const { name, email, password } = req.body
+    if (!name || !email || !password) {
+      return res.status(400).json({ message: "All fields required." })
+    }
     const hashed = await bcrypt.hash(password, 10)
     const master = new Master({ name, email: email.toLowerCase(), password: hashed })
     await master.save()
@@ -38,7 +41,7 @@ router.post("/setup", async (req, res) => {
   }
 })
 
-// GET all schools (pending + approved + rejected)
+// GET all schools
 router.get("/schools", async (req, res) => {
   try {
     const schools = await School.find().sort({ createdAt: -1 }).select("-password")
@@ -48,17 +51,26 @@ router.get("/schools", async (req, res) => {
   }
 })
 
-// APPROVE school
+// APPROVE school — generate school code here
 router.put("/approve/:id", async (req, res) => {
   try {
-    const school = await School.findByIdAndUpdate(
-      req.params.id,
-      { status: "approved", approvedAt: new Date() },
-      { new: true }
-    )
+    const school = await School.findById(req.params.id)
     if (!school) return res.status(404).json({ message: "School not found." })
-    res.status(200).json({ message: `${school.schoolName} approved.`, school })
+
+    // Generate school code if not already set
+    if (!school.schoolCode) {
+      const count = await School.countDocuments({ status: "approved" })
+      const prefix = school.schoolName.substring(0, 3).toUpperCase().replace(/\s/g, "")
+      school.schoolCode = `${prefix}${String(count + 1).padStart(3, "0")}`
+    }
+
+    school.status = "approved"
+    school.approvedAt = new Date()
+    await school.save()
+
+    res.status(200).json({ message: `${school.schoolName} approved successfully.`, school })
   } catch (err) {
+    console.error("Approve error:", err.message)
     res.status(500).json({ message: "Server error.", error: err.message })
   }
 })

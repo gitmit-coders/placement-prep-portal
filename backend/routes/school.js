@@ -4,7 +4,7 @@ const School = require("../models/School")
 const Admin = require("../models/Admin")
 const bcrypt = require("bcryptjs")
 
-// SCHOOL REGISTER (public — any school can apply)
+// SCHOOL REGISTER
 router.post("/register", async (req, res) => {
   try {
     const { schoolName, city, state, board, adminName, adminEmail, adminPhone, password } = req.body
@@ -25,7 +25,8 @@ router.post("/register", async (req, res) => {
     const school = new School({
       schoolName, city, state,
       board: board || "CBSE",
-      adminName, adminPhone,
+      adminName,
+      adminPhone,
       adminEmail: adminEmail.toLowerCase(),
       password: hashed,
       status: "pending",
@@ -36,11 +37,12 @@ router.post("/register", async (req, res) => {
       message: "Registration submitted successfully. You will be notified once approved.",
     })
   } catch (err) {
+    console.error("School register error:", err.message)
     res.status(500).json({ message: "Server error.", error: err.message })
   }
 })
 
-// SCHOOL LOGIN (only approved schools)
+// SCHOOL LOGIN
 router.post("/login", async (req, res) => {
   try {
     const { email, password } = req.body
@@ -53,10 +55,10 @@ router.post("/login", async (req, res) => {
       return res.status(400).json({ message: "Invalid email or password." })
     }
     if (school.status === "pending") {
-      return res.status(403).json({ message: "Your school registration is pending approval. Please wait for confirmation." })
+      return res.status(403).json({ message: "Your registration is pending approval. Please wait." })
     }
     if (school.status === "rejected") {
-      return res.status(403).json({ message: `Your registration was rejected. Reason: ${school.rejectedReason || "Not specified."}` })
+      return res.status(403).json({ message: `Registration rejected. Reason: ${school.rejectedReason || "Not specified."}` })
     }
 
     const match = await bcrypt.compare(password, school.password)
@@ -78,11 +80,12 @@ router.post("/login", async (req, res) => {
       },
     })
   } catch (err) {
+    console.error("School login error:", err.message)
     res.status(500).json({ message: "Server error.", error: err.message })
   }
 })
 
-// GET all approved schools list (for student registration dropdown)
+// GET approved schools list (for student registration dropdown)
 router.get("/list", async (req, res) => {
   try {
     const schools = await School.find({ status: "approved" })
@@ -112,14 +115,17 @@ router.post("/add-teacher", async (req, res) => {
 
     const hashed = await bcrypt.hash(password, 10)
     const teacher = new Admin({
-      name, email: email.toLowerCase(),
+      name,
+      email: email.toLowerCase(),
       password: hashed,
-      schoolName, schoolCode,
+      schoolName,
+      schoolCode,
       role: "teacher",
     })
     await teacher.save()
     res.status(201).json({ message: "Teacher account created successfully." })
   } catch (err) {
+    console.error("Add teacher error:", err.message)
     res.status(500).json({ message: "Server error.", error: err.message })
   }
 })
