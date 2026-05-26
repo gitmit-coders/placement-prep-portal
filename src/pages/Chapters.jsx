@@ -11,7 +11,21 @@ function Chapters() {
       "Some Applications of Trigonometry", "Circles", "Areas Related to Circles",
       "Surface Areas and Volumes", "Statistics", "Probability",
     ],
-    Science: ["Matter", "Atoms and Molecules", "Life Processes", "Electricity", "Light"],
+    Science: [
+      "Chemical Reactions and Equations",
+      "Acids, Bases and Salts",
+      "Metals and Non-metals",
+      "Carbon and Its Compounds",
+      "Life Processes",
+      "Control and Coordination",
+      "How do Organisms Reproduce",
+      "Heredity and Evolution",
+      "Light – Reflection and Refraction",
+      "Human Eye and the Colourful World",
+      "Electricity",
+      "Magnetic Effects of Electric Current",
+      "Sources of Energy",
+    ],
     English: ["Reading Comprehension", "Grammar", "Writing Skills", "Literature"],
     Physics: ["Motion", "Laws of Motion", "Work Energy Power", "Electric Charges", "Optics"],
     Chemistry: ["Basic Concepts", "Atomic Structure", "Chemical Bonding", "Thermodynamics"],
@@ -36,7 +50,6 @@ function Chapters() {
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(280px,1fr))", gap: "16px" }}>
           {chapters.map((chapter, i) => (
             <div key={chapter} style={chapterCard}>
-              {/* Chapter number + name */}
               <div style={{ marginBottom: "14px" }}>
                 <span style={chapNum}>Chapter {i + 1}</span>
                 <h2 style={{ margin: "6px 0 6px", fontSize: "17px", color: "white" }}>{chapter}</h2>
@@ -45,10 +58,7 @@ function Chapters() {
                 </p>
               </div>
 
-              {/* Divider */}
               <div style={{ borderTop: "1px solid #1f2937", paddingTop: "14px", display: "flex", gap: "10px" }}>
-
-                {/* PYQ Button */}
                 <Link
                   to={`/quiz?book=${encodeURIComponent(bookName)}&chapter=${encodeURIComponent(chapter)}`}
                   style={{ flex: 1, textDecoration: "none" }}
@@ -60,7 +70,6 @@ function Chapters() {
                   </button>
                 </Link>
 
-                {/* DPP Button */}
                 <Link
                   to={`/dpp?subject=${encodeURIComponent(bookName)}&chapter=${encodeURIComponent(chapter)}`}
                   style={{ flex: 1, textDecoration: "none" }}
@@ -71,7 +80,6 @@ function Chapters() {
                     <span style={{ fontSize: "11px", color: "#86efac", fontWeight: "400" }}>Daily</span>
                   </button>
                 </Link>
-
               </div>
             </div>
           ))}
@@ -88,7 +96,6 @@ const chapterCard = {
   borderRadius: "18px",
   transition: "border-color 0.2s",
 }
-
 const chapNum = {
   fontSize: "12px",
   fontWeight: "600",
@@ -96,7 +103,6 @@ const chapNum = {
   letterSpacing: "0.5px",
   textTransform: "uppercase",
 }
-
 const pyqBtn = {
   width: "100%",
   padding: "12px 8px",
@@ -112,7 +118,6 @@ const pyqBtn = {
   alignItems: "center",
   gap: "2px",
 }
-
 const dppBtn = {
   width: "100%",
   padding: "12px 8px",

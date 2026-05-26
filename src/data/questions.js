@@ -13,6 +13,21 @@ import { surfaceAreasAndVolumesQuestions } from "./class10/mathematics/surfaceAr
 import { statisticsQuestions } from "./class10/mathematics/statistics"
 import { probabilityQuestions } from "./class10/mathematics/probability"
 
+// Class 10 Science
+import { chemicalReactionsAndEquationsQuestions } from "./class10/science/chemicalReactionsAndEquations"
+import { acidsBasesAndSaltsQuestions } from "./class10/science/acidsBasesAndSalts"
+import { metalsAndNonMetalsQuestions } from "./class10/science/metalsAndNonMetals"
+import { carbonAndItsCompoundsQuestions } from "./class10/science/carbonAndItsCompounds"
+import { lifeProcessesQuestions } from "./class10/science/lifeProcesses"
+import { controlAndCoordinationQuestions } from "./class10/science/controlAndCoordination"
+import { howDoOrganismsReproduceQuestions } from "./class10/science/howDoOrganismsReproduce"
+import { heredityAndEvolutionQuestions } from "./class10/science/heredityAndEvolution"
+import { lightReflectionAndRefractionQuestions } from "./class10/science/lightReflectionAndRefraction"
+import { humanEyeAndColourfulWorldQuestions } from "./class10/science/humanEyeAndColourfulWorld"
+import { electricityQuestions } from "./class10/science/electricity"
+import { magneticEffectsOfElectricCurrentQuestions } from "./class10/science/magneticEffectsOfElectricCurrent"
+import { sourcesOfEnergyQuestions } from "./class10/science/sourcesOfEnergy"
+
 export const questions = [
   ...realNumbersQuestions,
   ...polynomialQuestions,
@@ -28,4 +43,19 @@ export const questions = [
   ...surfaceAreasAndVolumesQuestions,
   ...statisticsQuestions,
   ...probabilityQuestions,
+
+  // Class 10 Science
+  ...chemicalReactionsAndEquationsQuestions,
+  ...acidsBasesAndSaltsQuestions,
+  ...metalsAndNonMetalsQuestions,
+  ...carbonAndItsCompoundsQuestions,
+  ...lifeProcessesQuestions,
+  ...controlAndCoordinationQuestions,
+  ...howDoOrganismsReproduceQuestions,
+  ...heredityAndEvolutionQuestions,
+  ...lightReflectionAndRefractionQuestions,
+  ...humanEyeAndColourfulWorldQuestions,
+  ...electricityQuestions,
+  ...magneticEffectsOfElectricCurrentQuestions,
+  ...sourcesOfEnergyQuestions,
 ]
