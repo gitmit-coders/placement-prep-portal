@@ -2,7 +2,7 @@
 export const atomsAndMoleculesQuestions = [
   {
     id: 21,
-    book: "Science",
+    book: "Science (Class 9)",
     chapter: "Atoms and Molecules",
     question: "Who gave the law of conservation of mass?",
     options: ["Dalton", "Lavoisier", "Proust", "Avogadro"],
@@ -10,7 +10,7 @@ export const atomsAndMoleculesQuestions = [
   },
   {
     id: 22,
-    book: "Science",
+    book: "Science (Class 9)",
     chapter: "Atoms and Molecules",
     question: "The chemical formula of water is:",
     options: ["HO", "H₂O₂", "H₂O", "HO₂"],
@@ -18,7 +18,7 @@ export const atomsAndMoleculesQuestions = [
   },
   {
     id: 23,
-    book: "Science",
+    book: "Science (Class 9)",
     chapter: "Atoms and Molecules",
     question: "Avogadro's number is:",
     options: ["6.022 × 10²¹", "6.022 × 10²³", "6.022 × 10²⁵", "6.022 × 10²²"],
@@ -26,7 +26,7 @@ export const atomsAndMoleculesQuestions = [
   },
   {
     id: 24,
-    book: "Science",
+    book: "Science (Class 9)",
     chapter: "Atoms and Molecules",
     question: "The atomic mass of oxygen is:",
     options: ["14 u", "16 u", "18 u", "12 u"],
@@ -34,7 +34,7 @@ export const atomsAndMoleculesQuestions = [
   },
   {
     id: 25,
-    book: "Science",
+    book: "Science (Class 9)",
     chapter: "Atoms and Molecules",
     question: "The valency of chlorine is:",
     options: ["1", "2", "3", "4"],
@@ -42,7 +42,7 @@ export const atomsAndMoleculesQuestions = [
   },
   {
     id: 26,
-    book: "Science",
+    book: "Science (Class 9)",
     chapter: "Atoms and Molecules",
     question: "The molar mass of NaCl is:",
     options: ["23 g/mol", "35.5 g/mol", "58.5 g/mol", "40 g/mol"],
@@ -50,7 +50,7 @@ export const atomsAndMoleculesQuestions = [
   },
   {
     id: 27,
-    book: "Science",
+    book: "Science (Class 9)",
     chapter: "Atoms and Molecules",
     question: "Law of constant proportions was given by:",
     options: ["Lavoisier", "Dalton", "Proust", "Avogadro"],
@@ -58,7 +58,7 @@ export const atomsAndMoleculesQuestions = [
   },
   {
     id: 28,
-    book: "Science",
+    book: "Science (Class 9)",
     chapter: "Atoms and Molecules",
     question: "The chemical symbol of sodium is:",
     options: ["So", "S", "Na", "Sn"],
@@ -66,7 +66,7 @@ export const atomsAndMoleculesQuestions = [
   },
   {
     id: 29,
-    book: "Science",
+    book: "Science (Class 9)",
     chapter: "Atoms and Molecules",
     question: "Which of the following is a diatomic molecule?",
     options: ["Argon", "Helium", "Oxygen", "Sodium"],
@@ -74,7 +74,7 @@ export const atomsAndMoleculesQuestions = [
   },
   {
     id: 30,
-    book: "Science",
+    book: "Science (Class 9)",
     chapter: "Atoms and Molecules",
     question: "The molecular mass of CO₂ is:",
     options: ["28 u", "44 u", "32 u", "40 u"],

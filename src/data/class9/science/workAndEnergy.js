@@ -2,7 +2,7 @@
 export const workAndEnergyQuestions = [
   {
     id: 91,
-    book: "Science",
+    book: "Science (Class 9)",
     chapter: "Work and Energy",
     question: "Work is done when:",
     options: ["Force is applied", "Body is displaced in direction of force", "Body is stationary", "Only energy is used"],
@@ -10,7 +10,7 @@ export const workAndEnergyQuestions = [
   },
   {
     id: 92,
-    book: "Science",
+    book: "Science (Class 9)",
     chapter: "Work and Energy",
     question: "The SI unit of work and energy is:",
     options: ["Watt", "Newton", "Joule", "Pascal"],
@@ -18,7 +18,7 @@ export const workAndEnergyQuestions = [
   },
   {
     id: 93,
-    book: "Science",
+    book: "Science (Class 9)",
     chapter: "Work and Energy",
     question: "The kinetic energy of an object of mass m moving with velocity v is:",
     options: ["mv", "mv²", "½mv²", "2mv²"],
@@ -26,7 +26,7 @@ export const workAndEnergyQuestions = [
   },
   {
     id: 94,
-    book: "Science",
+    book: "Science (Class 9)",
     chapter: "Work and Energy",
     question: "The potential energy of an object at height h is:",
     options: ["mgh", "½mgh", "mg/h", "mh"],
@@ -34,7 +34,7 @@ export const workAndEnergyQuestions = [
   },
   {
     id: 95,
-    book: "Science",
+    book: "Science (Class 9)",
     chapter: "Work and Energy",
     question: "When a ball is thrown upward, at the highest point:",
     options: ["KE is maximum", "PE is minimum", "KE is zero and PE is maximum", "Both KE and PE are maximum"],
@@ -42,7 +42,7 @@ export const workAndEnergyQuestions = [
   },
   {
     id: 96,
-    book: "Science",
+    book: "Science (Class 9)",
     chapter: "Work and Energy",
     question: "Power is defined as:",
     options: ["Work × Time", "Work / Time", "Force × Time", "Energy × Time"],
@@ -50,7 +50,7 @@ export const workAndEnergyQuestions = [
   },
   {
     id: 97,
-    book: "Science",
+    book: "Science (Class 9)",
     chapter: "Work and Energy",
     question: "The SI unit of power is:",
     options: ["Joule", "Newton", "Pascal", "Watt"],
@@ -58,7 +58,7 @@ export const workAndEnergyQuestions = [
   },
   {
     id: 98,
-    book: "Science",
+    book: "Science (Class 9)",
     chapter: "Work and Energy",
     question: "If a force is perpendicular to the displacement, the work done is:",
     options: ["Maximum", "Minimum", "Zero", "Negative"],
@@ -66,7 +66,7 @@ export const workAndEnergyQuestions = [
   },
   {
     id: 99,
-    book: "Science",
+    book: "Science (Class 9)",
     chapter: "Work and Energy",
     question: "1 kWh equals:",
     options: ["1000 J", "3600 J", "3.6 × 10⁶ J", "1 × 10⁶ J"],
@@ -74,7 +74,7 @@ export const workAndEnergyQuestions = [
   },
   {
     id: 100,
-    book: "Science",
+    book: "Science (Class 9)",
     chapter: "Work and Energy",
     question: "Law of conservation of energy states that energy can be:",
     options: ["Created but not destroyed", "Destroyed but not created", "Neither created nor destroyed", "Both created and destroyed"],

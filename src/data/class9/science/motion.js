@@ -2,7 +2,7 @@
 export const motionQuestions = [
   {
     id: 61,
-    book: "Science",
+    book: "Science (Class 9)",
     chapter: "Motion",
     question: "The SI unit of speed is:",
     options: ["km/h", "m/s", "cm/s", "m/min"],
@@ -10,7 +10,7 @@ export const motionQuestions = [
   },
   {
     id: 62,
-    book: "Science",
+    book: "Science (Class 9)",
     chapter: "Motion",
     question: "A body moving with uniform speed in a circular path has:",
     options: ["Uniform velocity", "Non-uniform velocity", "Zero acceleration", "Constant direction"],
@@ -18,7 +18,7 @@ export const motionQuestions = [
   },
   {
     id: 63,
-    book: "Science",
+    book: "Science (Class 9)",
     chapter: "Motion",
     question: "The slope of a distance-time graph gives:",
     options: ["Acceleration", "Speed", "Distance", "Force"],
@@ -26,7 +26,7 @@ export const motionQuestions = [
   },
   {
     id: 64,
-    book: "Science",
+    book: "Science (Class 9)",
     chapter: "Motion",
     question: "The equation v = u + at represents:",
     options: ["Newton's law", "First equation of motion", "Second equation of motion", "Third equation of motion"],
@@ -34,7 +34,7 @@ export const motionQuestions = [
   },
   {
     id: 65,
-    book: "Science",
+    book: "Science (Class 9)",
     chapter: "Motion",
     question: "A car starts from rest and accelerates at 2 m/s². Its velocity after 5 seconds is:",
     options: ["5 m/s", "10 m/s", "15 m/s", "20 m/s"],
@@ -42,7 +42,7 @@ export const motionQuestions = [
   },
   {
     id: 66,
-    book: "Science",
+    book: "Science (Class 9)",
     chapter: "Motion",
     question: "The area under a velocity-time graph gives:",
     options: ["Speed", "Acceleration", "Distance covered", "Force"],
@@ -50,7 +50,7 @@ export const motionQuestions = [
   },
   {
     id: 67,
-    book: "Science",
+    book: "Science (Class 9)",
     chapter: "Motion",
     question: "A body is said to be in uniform motion when it covers:",
     options: ["Equal distances in unequal time intervals", "Unequal distances in equal time intervals", "Equal distances in equal time intervals", "Zero distance"],
@@ -58,7 +58,7 @@ export const motionQuestions = [
   },
   {
     id: 68,
-    book: "Science",
+    book: "Science (Class 9)",
     chapter: "Motion",
     question: "The rate of change of velocity is called:",
     options: ["Speed", "Displacement", "Acceleration", "Distance"],
@@ -66,7 +66,7 @@ export const motionQuestions = [
   },
   {
     id: 69,
-    book: "Science",
+    book: "Science (Class 9)",
     chapter: "Motion",
     question: "The slope of a velocity-time graph gives:",
     options: ["Speed", "Distance", "Acceleration", "Displacement"],
@@ -74,7 +74,7 @@ export const motionQuestions = [
   },
   {
     id: 70,
-    book: "Science",
+    book: "Science (Class 9)",
     chapter: "Motion",
     question: "Which of the following is a scalar quantity?",
     options: ["Velocity", "Force", "Speed", "Acceleration"],

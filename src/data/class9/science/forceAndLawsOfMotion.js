@@ -2,7 +2,7 @@
 export const forceAndLawsOfMotionQuestions = [
   {
     id: 71,
-    book: "Science",
+    book: "Science (Class 9)",
     chapter: "Force and Laws of Motion",
     question: "The SI unit of force is:",
     options: ["Joule", "Watt", "Newton", "Pascal"],
@@ -10,7 +10,7 @@ export const forceAndLawsOfMotionQuestions = [
   },
   {
     id: 72,
-    book: "Science",
+    book: "Science (Class 9)",
     chapter: "Force and Laws of Motion",
     question: "Newton's first law of motion is also known as the law of:",
     options: ["Acceleration", "Inertia", "Action-Reaction", "Momentum"],
@@ -18,7 +18,7 @@ export const forceAndLawsOfMotionQuestions = [
   },
   {
     id: 73,
-    book: "Science",
+    book: "Science (Class 9)",
     chapter: "Force and Laws of Motion",
     question: "The tendency of a body to resist change in its state of motion is called:",
     options: ["Force", "Momentum", "Inertia", "Velocity"],
@@ -26,7 +26,7 @@ export const forceAndLawsOfMotionQuestions = [
   },
   {
     id: 74,
-    book: "Science",
+    book: "Science (Class 9)",
     chapter: "Force and Laws of Motion",
     question: "F = ma is Newton's:",
     options: ["First law", "Second law", "Third law", "Law of gravitation"],
@@ -34,7 +34,7 @@ export const forceAndLawsOfMotionQuestions = [
   },
   {
     id: 75,
-    book: "Science",
+    book: "Science (Class 9)",
     chapter: "Force and Laws of Motion",
     question: "The SI unit of momentum is:",
     options: ["kg⋅m/s²", "kg⋅m/s", "N/m", "J/s"],
@@ -42,7 +42,7 @@ export const forceAndLawsOfMotionQuestions = [
   },
   {
     id: 76,
-    book: "Science",
+    book: "Science (Class 9)",
     chapter: "Force and Laws of Motion",
     question: "To every action there is an equal and opposite reaction. This is Newton's:",
     options: ["First law", "Second law", "Third law", "Law of inertia"],
@@ -50,7 +50,7 @@ export const forceAndLawsOfMotionQuestions = [
   },
   {
     id: 77,
-    book: "Science",
+    book: "Science (Class 9)",
     chapter: "Force and Laws of Motion",
     question: "A rocket works on the principle of Newton's:",
     options: ["First law", "Second law", "Third law", "Law of gravitation"],
@@ -58,7 +58,7 @@ export const forceAndLawsOfMotionQuestions = [
   },
   {
     id: 78,
-    book: "Science",
+    book: "Science (Class 9)",
     chapter: "Force and Laws of Motion",
     question: "Which of the following has more inertia?",
     options: ["A rubber ball", "A stone of same size", "A feather", "Air"],
@@ -66,7 +66,7 @@ export const forceAndLawsOfMotionQuestions = [
   },
   {
     id: 79,
-    book: "Science",
+    book: "Science (Class 9)",
     chapter: "Force and Laws of Motion",
     question: "Momentum is defined as:",
     options: ["Mass × Acceleration", "Mass × Velocity", "Force × Time", "Force × Distance"],
@@ -74,7 +74,7 @@ export const forceAndLawsOfMotionQuestions = [
   },
   {
     id: 80,
-    book: "Science",
+    book: "Science (Class 9)",
     chapter: "Force and Laws of Motion",
     question: "An object of mass 5 kg is moving with velocity 4 m/s. Its momentum is:",
     options: ["1.25 kg⋅m/s", "9 kg⋅m/s", "20 kg⋅m/s", "40 kg⋅m/s"],

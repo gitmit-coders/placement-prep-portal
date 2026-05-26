@@ -2,7 +2,7 @@
 export const soundQuestions = [
   {
     id: 101,
-    book: "Science",
+    book: "Science (Class 9)",
     chapter: "Sound",
     question: "Sound travels fastest in:",
     options: ["Air", "Water", "Vacuum", "Solids"],
@@ -10,7 +10,7 @@ export const soundQuestions = [
   },
   {
     id: 102,
-    book: "Science",
+    book: "Science (Class 9)",
     chapter: "Sound",
     question: "The SI unit of frequency is:",
     options: ["Decibel", "Hertz", "Metre", "Second"],
@@ -18,7 +18,7 @@ export const soundQuestions = [
   },
   {
     id: 103,
-    book: "Science",
+    book: "Science (Class 9)",
     chapter: "Sound",
     question: "The human ear can hear sounds of frequency between:",
     options: ["20 Hz to 20000 Hz", "2 Hz to 2000 Hz", "200 Hz to 2000 Hz", "20 Hz to 2000 Hz"],
@@ -26,7 +26,7 @@ export const soundQuestions = [
   },
   {
     id: 104,
-    book: "Science",
+    book: "Science (Class 9)",
     chapter: "Sound",
     question: "An echo is heard when the minimum distance from the reflecting surface is:",
     options: ["10 m", "17 m", "34 m", "50 m"],
@@ -34,7 +34,7 @@ export const soundQuestions = [
   },
   {
     id: 105,
-    book: "Science",
+    book: "Science (Class 9)",
     chapter: "Sound",
     question: "Ultrasound has frequency:",
     options: ["Less than 20 Hz", "Between 20 and 20000 Hz", "Greater than 20000 Hz", "Exactly 20000 Hz"],
@@ -42,7 +42,7 @@ export const soundQuestions = [
   },
   {
     id: 106,
-    book: "Science",
+    book: "Science (Class 9)",
     chapter: "Sound",
     question: "Sound cannot travel through:",
     options: ["Solids", "Liquids", "Gases", "Vacuum"],
@@ -50,7 +50,7 @@ export const soundQuestions = [
   },
   {
     id: 107,
-    book: "Science",
+    book: "Science (Class 9)",
     chapter: "Sound",
     question: "The loudness of sound is measured in:",
     options: ["Hertz", "Decibels", "Metres", "Watts"],
@@ -58,7 +58,7 @@ export const soundQuestions = [
   },
   {
     id: 108,
-    book: "Science",
+    book: "Science (Class 9)",
     chapter: "Sound",
     question: "Reverberation is due to:",
     options: ["Reflection of sound", "Refraction of sound", "Absorption of sound", "Diffraction of sound"],
@@ -66,7 +66,7 @@ export const soundQuestions = [
   },
   {
     id: 109,
-    book: "Science",
+    book: "Science (Class 9)",
     chapter: "Sound",
     question: "SONAR is used to measure:",
     options: ["Speed of light", "Depth of sea", "Height of mountains", "Temperature of water"],
@@ -74,7 +74,7 @@ export const soundQuestions = [
   },
   {
     id: 110,
-    book: "Science",
+    book: "Science (Class 9)",
     chapter: "Sound",
     question: "The speed of sound in air at 0°C is approximately:",
     options: ["232 m/s", "332 m/s", "432 m/s", "532 m/s"],

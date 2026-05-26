@@ -2,7 +2,7 @@
 export const structureOfTheAtomQuestions = [
   {
     id: 31,
-    book: "Science",
+    book: "Science (Class 9)",
     chapter: "Structure of the Atom",
     question: "Who discovered the electron?",
     options: ["Rutherford", "Bohr", "J.J. Thomson", "Chadwick"],
@@ -10,7 +10,7 @@ export const structureOfTheAtomQuestions = [
   },
   {
     id: 32,
-    book: "Science",
+    book: "Science (Class 9)",
     chapter: "Structure of the Atom",
     question: "The atomic number of an element is equal to the number of:",
     options: ["Neutrons", "Protons", "Electrons + Protons", "Neutrons + Protons"],
@@ -18,7 +18,7 @@ export const structureOfTheAtomQuestions = [
   },
   {
     id: 33,
-    book: "Science",
+    book: "Science (Class 9)",
     chapter: "Structure of the Atom",
     question: "Isotopes have the same number of:",
     options: ["Neutrons", "Mass number", "Protons", "Electrons and neutrons"],
@@ -26,7 +26,7 @@ export const structureOfTheAtomQuestions = [
   },
   {
     id: 34,
-    book: "Science",
+    book: "Science (Class 9)",
     chapter: "Structure of the Atom",
     question: "The maximum number of electrons in the first shell (K shell) is:",
     options: ["2", "8", "18", "32"],
@@ -34,7 +34,7 @@ export const structureOfTheAtomQuestions = [
   },
   {
     id: 35,
-    book: "Science",
+    book: "Science (Class 9)",
     chapter: "Structure of the Atom",
     question: "Who proposed the nuclear model of the atom?",
     options: ["Thomson", "Bohr", "Rutherford", "Dalton"],
@@ -42,7 +42,7 @@ export const structureOfTheAtomQuestions = [
   },
   {
     id: 36,
-    book: "Science",
+    book: "Science (Class 9)",
     chapter: "Structure of the Atom",
     question: "The mass number of an element is the sum of:",
     options: ["Protons and electrons", "Neutrons and electrons", "Protons and neutrons", "Only protons"],
@@ -50,7 +50,7 @@ export const structureOfTheAtomQuestions = [
   },
   {
     id: 37,
-    book: "Science",
+    book: "Science (Class 9)",
     chapter: "Structure of the Atom",
     question: "Isobars are atoms of different elements with the same:",
     options: ["Atomic number", "Number of neutrons", "Mass number", "Number of electrons"],
@@ -58,7 +58,7 @@ export const structureOfTheAtomQuestions = [
   },
   {
     id: 38,
-    book: "Science",
+    book: "Science (Class 9)",
     chapter: "Structure of the Atom",
     question: "The charge of an electron is:",
     options: ["+1", "-1", "0", "+2"],
@@ -66,7 +66,7 @@ export const structureOfTheAtomQuestions = [
   },
   {
     id: 39,
-    book: "Science",
+    book: "Science (Class 9)",
     chapter: "Structure of the Atom",
     question: "Who discovered the neutron?",
     options: ["Thomson", "Rutherford", "Bohr", "Chadwick"],
@@ -74,7 +74,7 @@ export const structureOfTheAtomQuestions = [
   },
   {
     id: 40,
-    book: "Science",
+    book: "Science (Class 9)",
     chapter: "Structure of the Atom",
     question: "The valency of an element with electronic configuration 2, 8, 1 is:",
     options: ["1", "2", "7", "0"],

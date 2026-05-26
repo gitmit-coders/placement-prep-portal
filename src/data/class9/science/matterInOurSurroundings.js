@@ -2,7 +2,7 @@
 export const matterInOurSurroundingsQuestions = [
   {
     id: 1,
-    book: "Science",
+    book: "Science (Class 9)",
     chapter: "Matter in Our Surroundings",
     question: "The mass per unit volume of a substance is called its:",
     options: ["Weight", "Density", "Velocity", "Acceleration"],
@@ -10,7 +10,7 @@ export const matterInOurSurroundingsQuestions = [
   },
   {
     id: 2,
-    book: "Science",
+    book: "Science (Class 9)",
     chapter: "Matter in Our Surroundings",
     question: "At higher altitudes, the boiling point of a liquid:",
     options: ["Increases", "Decreases", "Remains the same", "Becomes zero"],
@@ -18,7 +18,7 @@ export const matterInOurSurroundingsQuestions = [
   },
   {
     id: 3,
-    book: "Science",
+    book: "Science (Class 9)",
     chapter: "Matter in Our Surroundings",
     question: "The boiling point of water on the Kelvin scale is:",
     options: ["100 K", "273 K", "373 K", "0 K"],
@@ -26,7 +26,7 @@ export const matterInOurSurroundingsQuestions = [
   },
   {
     id: 4,
-    book: "Science",
+    book: "Science (Class 9)",
     chapter: "Matter in Our Surroundings",
     question: "Which state of matter takes the shape of its container but has a fixed volume?",
     options: ["Solid", "Liquid", "Gas", "Plasma"],
@@ -34,7 +34,7 @@ export const matterInOurSurroundingsQuestions = [
   },
   {
     id: 5,
-    book: "Science",
+    book: "Science (Class 9)",
     chapter: "Matter in Our Surroundings",
     question: "The process of conversion of a solid directly into gas without passing through liquid state is called:",
     options: ["Evaporation", "Condensation", "Sublimation", "Melting"],
@@ -42,7 +42,7 @@ export const matterInOurSurroundingsQuestions = [
   },
   {
     id: 6,
-    book: "Science",
+    book: "Science (Class 9)",
     chapter: "Matter in Our Surroundings",
     question: "Evaporation causes:",
     options: ["Heating", "Cooling", "No temperature change", "Condensation"],
@@ -50,7 +50,7 @@ export const matterInOurSurroundingsQuestions = [
   },
   {
     id: 7,
-    book: "Science",
+    book: "Science (Class 9)",
     chapter: "Matter in Our Surroundings",
     question: "Which of the following phenomena increases on raising the temperature?",
     options: ["Compression of gases", "Evaporation, diffusion, expansion of gases", "Solubility only", "Condensation"],
@@ -58,7 +58,7 @@ export const matterInOurSurroundingsQuestions = [
   },
   {
     id: 8,
-    book: "Science",
+    book: "Science (Class 9)",
     chapter: "Matter in Our Surroundings",
     question: "The intermixing of particles of two substances on their own is called:",
     options: ["Evaporation", "Diffusion", "Sublimation", "Condensation"],
@@ -66,7 +66,7 @@ export const matterInOurSurroundingsQuestions = [
   },
   {
     id: 9,
-    book: "Science",
+    book: "Science (Class 9)",
     chapter: "Matter in Our Surroundings",
     question: "Dry ice is the solid form of:",
     options: ["Water", "Nitrogen", "Carbon dioxide", "Oxygen"],
@@ -74,7 +74,7 @@ export const matterInOurSurroundingsQuestions = [
   },
   {
     id: 10,
-    book: "Science",
+    book: "Science (Class 9)",
     chapter: "Matter in Our Surroundings",
     question: "Latent heat of vaporisation is the heat energy required to change 1 kg of liquid to gas at:",
     options: ["0°C", "100°C", "Its boiling point", "Room temperature"],

@@ -2,7 +2,7 @@
 export const isMatterAroundUsPureQuestions = [
   {
     id: 11,
-    book: "Science",
+    book: "Science (Class 9)",
     chapter: "Is Matter Around Us Pure?",
     question: "Which of the following is a pure substance?",
     options: ["Milk", "Air", "Gold", "Soil"],
@@ -10,7 +10,7 @@ export const isMatterAroundUsPureQuestions = [
   },
   {
     id: 12,
-    book: "Science",
+    book: "Science (Class 9)",
     chapter: "Is Matter Around Us Pure?",
     question: "The technique used to separate cream from milk is:",
     options: ["Filtration", "Distillation", "Centrifugation", "Evaporation"],
@@ -18,7 +18,7 @@ export const isMatterAroundUsPureQuestions = [
   },
   {
     id: 13,
-    book: "Science",
+    book: "Science (Class 9)",
     chapter: "Is Matter Around Us Pure?",
     question: "A mixture of iron filings and sulphur can be separated by:",
     options: ["Filtration", "Magnet", "Distillation", "Evaporation"],
@@ -26,7 +26,7 @@ export const isMatterAroundUsPureQuestions = [
   },
   {
     id: 14,
-    book: "Science",
+    book: "Science (Class 9)",
     chapter: "Is Matter Around Us Pure?",
     question: "Which of the following is a homogeneous mixture?",
     options: ["Soil", "Air", "Blood", "Granite"],
@@ -34,7 +34,7 @@ export const isMatterAroundUsPureQuestions = [
   },
   {
     id: 15,
-    book: "Science",
+    book: "Science (Class 9)",
     chapter: "Is Matter Around Us Pure?",
     question: "The process used to separate two miscible liquids with different boiling points is:",
     options: ["Filtration", "Distillation", "Sublimation", "Crystallisation"],
@@ -42,7 +42,7 @@ export const isMatterAroundUsPureQuestions = [
   },
   {
     id: 16,
-    book: "Science",
+    book: "Science (Class 9)",
     chapter: "Is Matter Around Us Pure?",
     question: "Tyndall effect is shown by:",
     options: ["True solutions", "Colloids", "Suspensions", "Pure substances"],
@@ -50,7 +50,7 @@ export const isMatterAroundUsPureQuestions = [
   },
   {
     id: 17,
-    book: "Science",
+    book: "Science (Class 9)",
     chapter: "Is Matter Around Us Pure?",
     question: "An alloy is a:",
     options: ["Compound", "Element", "Mixture", "Pure substance"],
@@ -58,7 +58,7 @@ export const isMatterAroundUsPureQuestions = [
   },
   {
     id: 18,
-    book: "Science",
+    book: "Science (Class 9)",
     chapter: "Is Matter Around Us Pure?",
     question: "Which method is used to obtain salt from sea water?",
     options: ["Distillation", "Evaporation", "Filtration", "Centrifugation"],
@@ -66,7 +66,7 @@ export const isMatterAroundUsPureQuestions = [
   },
   {
     id: 19,
-    book: "Science",
+    book: "Science (Class 9)",
     chapter: "Is Matter Around Us Pure?",
     question: "The size of particles in a colloidal solution is:",
     options: ["Less than 1 nm", "1 nm to 1000 nm", "More than 1000 nm", "Exactly 1 nm"],
@@ -74,7 +74,7 @@ export const isMatterAroundUsPureQuestions = [
   },
   {
     id: 20,
-    book: "Science",
+    book: "Science (Class 9)",
     chapter: "Is Matter Around Us Pure?",
     question: "Which of the following is a compound?",
     options: ["Brass", "Air", "Water", "Sugar solution"],

@@ -2,7 +2,7 @@
 export const gravitationQuestions = [
   {
     id: 81,
-    book: "Science",
+    book: "Science (Class 9)",
     chapter: "Gravitation",
     question: "The value of acceleration due to gravity on the surface of the earth is approximately:",
     options: ["9.8 m/s", "9.8 m/s²", "9.8 km/s²", "9.8 N"],
@@ -10,7 +10,7 @@ export const gravitationQuestions = [
   },
   {
     id: 82,
-    book: "Science",
+    book: "Science (Class 9)",
     chapter: "Gravitation",
     question: "The universal law of gravitation was given by:",
     options: ["Einstein", "Newton", "Galileo", "Kepler"],
@@ -18,7 +18,7 @@ export const gravitationQuestions = [
   },
   {
     id: 83,
-    book: "Science",
+    book: "Science (Class 9)",
     chapter: "Gravitation",
     question: "The weight of an object on the moon is approximately _____ of its weight on earth:",
     options: ["1/2", "1/4", "1/6", "1/8"],
@@ -26,7 +26,7 @@ export const gravitationQuestions = [
   },
   {
     id: 84,
-    book: "Science",
+    book: "Science (Class 9)",
     chapter: "Gravitation",
     question: "The SI unit of the universal gravitational constant (G) is:",
     options: ["N⋅m/kg", "N⋅m²/kg²", "N/kg²", "kg/m²"],
@@ -34,7 +34,7 @@ export const gravitationQuestions = [
   },
   {
     id: 85,
-    book: "Science",
+    book: "Science (Class 9)",
     chapter: "Gravitation",
     question: "The upward force exerted by a liquid on an object immersed in it is called:",
     options: ["Gravitational force", "Buoyant force", "Friction", "Normal force"],
@@ -42,7 +42,7 @@ export const gravitationQuestions = [
   },
   {
     id: 86,
-    book: "Science",
+    book: "Science (Class 9)",
     chapter: "Gravitation",
     question: "Archimedes' principle states that the buoyant force equals:",
     options: ["Weight of the object", "Weight of liquid displaced", "Mass of the object", "Volume of the object"],
@@ -50,7 +50,7 @@ export const gravitationQuestions = [
   },
   {
     id: 87,
-    book: "Science",
+    book: "Science (Class 9)",
     chapter: "Gravitation",
     question: "The weight of an object is:",
     options: ["Same everywhere", "Less at poles", "Less at equator", "More at equator"],
@@ -58,7 +58,7 @@ export const gravitationQuestions = [
   },
   {
     id: 88,
-    book: "Science",
+    book: "Science (Class 9)",
     chapter: "Gravitation",
     question: "The gravitational force between two objects is inversely proportional to the square of:",
     options: ["Their masses", "Their velocities", "Distance between them", "Their densities"],
@@ -66,7 +66,7 @@ export const gravitationQuestions = [
   },
   {
     id: 89,
-    book: "Science",
+    book: "Science (Class 9)",
     chapter: "Gravitation",
     question: "An object will float if its density is:",
     options: ["Greater than liquid", "Equal to liquid", "Less than liquid", "Zero"],
@@ -74,7 +74,7 @@ export const gravitationQuestions = [
   },
   {
     id: 90,
-    book: "Science",
+    book: "Science (Class 9)",
     chapter: "Gravitation",
     question: "The SI unit of pressure is:",
     options: ["Newton", "Joule", "Pascal", "Watt"],

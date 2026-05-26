@@ -2,7 +2,7 @@
 export const tissuesQuestions = [
   {
     id: 51,
-    book: "Science",
+    book: "Science (Class 9)",
     chapter: "Tissues",
     question: "Which tissue provides flexibility to plants?",
     options: ["Parenchyma", "Collenchyma", "Sclerenchyma", "Xylem"],
@@ -10,7 +10,7 @@ export const tissuesQuestions = [
   },
   {
     id: 52,
-    book: "Science",
+    book: "Science (Class 9)",
     chapter: "Tissues",
     question: "Blood is which type of tissue?",
     options: ["Epithelial", "Muscular", "Connective", "Nervous"],
@@ -18,7 +18,7 @@ export const tissuesQuestions = [
   },
   {
     id: 53,
-    book: "Science",
+    book: "Science (Class 9)",
     chapter: "Tissues",
     question: "The tissue that conducts water in plants is:",
     options: ["Phloem", "Xylem", "Parenchyma", "Collenchyma"],
@@ -26,7 +26,7 @@ export const tissuesQuestions = [
   },
   {
     id: 54,
-    book: "Science",
+    book: "Science (Class 9)",
     chapter: "Tissues",
     question: "Neurons are cells of which tissue?",
     options: ["Muscular tissue", "Connective tissue", "Nervous tissue", "Epithelial tissue"],
@@ -34,7 +34,7 @@ export const tissuesQuestions = [
   },
   {
     id: 55,
-    book: "Science",
+    book: "Science (Class 9)",
     chapter: "Tissues",
     question: "Meristematic tissue in plants is responsible for:",
     options: ["Photosynthesis", "Transport of water", "Growth", "Protection"],
@@ -42,7 +42,7 @@ export const tissuesQuestions = [
   },
   {
     id: 56,
-    book: "Science",
+    book: "Science (Class 9)",
     chapter: "Tissues",
     question: "Which tissue lines the inner surface of the mouth?",
     options: ["Muscular tissue", "Squamous epithelium", "Connective tissue", "Nervous tissue"],
@@ -50,7 +50,7 @@ export const tissuesQuestions = [
   },
   {
     id: 57,
-    book: "Science",
+    book: "Science (Class 9)",
     chapter: "Tissues",
     question: "The tissue that transports food in plants is:",
     options: ["Xylem", "Phloem", "Parenchyma", "Sclerenchyma"],
@@ -58,7 +58,7 @@ export const tissuesQuestions = [
   },
   {
     id: 58,
-    book: "Science",
+    book: "Science (Class 9)",
     chapter: "Tissues",
     question: "Cardiac muscle is found in:",
     options: ["Arms", "Legs", "Heart", "Stomach"],
@@ -66,7 +66,7 @@ export const tissuesQuestions = [
   },
   {
     id: 59,
-    book: "Science",
+    book: "Science (Class 9)",
     chapter: "Tissues",
     question: "Which cells are dead at maturity?",
     options: ["Parenchyma", "Collenchyma", "Sclerenchyma", "Meristematic"],
@@ -74,7 +74,7 @@ export const tissuesQuestions = [
   },
   {
     id: 60,
-    book: "Science",
+    book: "Science (Class 9)",
     chapter: "Tissues",
     question: "Tendons connect:",
     options: ["Bone to bone", "Muscle to bone", "Muscle to muscle", "Organ to organ"],

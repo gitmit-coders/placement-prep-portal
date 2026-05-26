@@ -2,7 +2,7 @@
 export const improvementInFoodResourcesQuestions = [
   {
     id: 111,
-    book: "Science",
+    book: "Science (Class 9)",
     chapter: "Improvement in Food Resources",
     question: "The process of growing two or more crops simultaneously on the same piece of land is called:",
     options: ["Mixed farming", "Mixed cropping", "Crop rotation", "Intercropping"],
@@ -10,7 +10,7 @@ export const improvementInFoodResourcesQuestions = [
   },
   {
     id: 112,
-    book: "Science",
+    book: "Science (Class 9)",
     chapter: "Improvement in Food Resources",
     question: "Which of the following is a Kharif crop?",
     options: ["Wheat", "Mustard", "Paddy", "Gram"],
@@ -18,7 +18,7 @@ export const improvementInFoodResourcesQuestions = [
   },
   {
     id: 113,
-    book: "Science",
+    book: "Science (Class 9)",
     chapter: "Improvement in Food Resources",
     question: "Which of the following is a Rabi crop?",
     options: ["Maize", "Paddy", "Wheat", "Soyabean"],
@@ -26,7 +26,7 @@ export const improvementInFoodResourcesQuestions = [
   },
   {
     id: 114,
-    book: "Science",
+    book: "Science (Class 9)",
     chapter: "Improvement in Food Resources",
     question: "The source of nitrogen for plants is:",
     options: ["Air only", "Soil only", "Fertilisers and manure", "Water only"],
@@ -34,7 +34,7 @@ export const improvementInFoodResourcesQuestions = [
   },
   {
     id: 115,
-    book: "Science",
+    book: "Science (Class 9)",
     chapter: "Improvement in Food Resources",
     question: "Hybridisation refers to:",
     options: ["Using chemical fertilisers", "Crossing between two varieties", "Irrigation method", "Storage of grains"],
@@ -42,7 +42,7 @@ export const improvementInFoodResourcesQuestions = [
   },
   {
     id: 116,
-    book: "Science",
+    book: "Science (Class 9)",
     chapter: "Improvement in Food Resources",
     question: "The rearing of honey bees is called:",
     options: ["Pisciculture", "Apiculture", "Sericulture", "Horticulture"],
@@ -50,7 +50,7 @@ export const improvementInFoodResourcesQuestions = [
   },
   {
     id: 117,
-    book: "Science",
+    book: "Science (Class 9)",
     chapter: "Improvement in Food Resources",
     question: "Which type of farming uses no chemicals?",
     options: ["Modern farming", "Organic farming", "Mixed farming", "Intensive farming"],
@@ -58,7 +58,7 @@ export const improvementInFoodResourcesQuestions = [
   },
   {
     id: 118,
-    book: "Science",
+    book: "Science (Class 9)",
     chapter: "Improvement in Food Resources",
     question: "Cattle farming is done for:",
     options: ["Milk and draught labour", "Eggs only", "Meat only", "Wool only"],
@@ -66,7 +66,7 @@ export const improvementInFoodResourcesQuestions = [
   },
   {
     id: 119,
-    book: "Science",
+    book: "Science (Class 9)",
     chapter: "Improvement in Food Resources",
     question: "The rearing of fish in controlled environments is called:",
     options: ["Apiculture", "Sericulture", "Pisciculture", "Horticulture"],
@@ -74,7 +74,7 @@ export const improvementInFoodResourcesQuestions = [
   },
   {
     id: 120,
-    book: "Science",
+    book: "Science (Class 9)",
     chapter: "Improvement in Food Resources",
     question: "Crop rotation helps in:",
     options: ["Increasing pests", "Improving soil fertility", "Reducing yield", "Increasing water usage"],

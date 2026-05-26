@@ -2,7 +2,7 @@
 export const theFundamentalUnitOfLifeQuestions = [
   {
     id: 41,
-    book: "Science",
+    book: "Science (Class 9)",
     chapter: "The Fundamental Unit of Life",
     question: "The fundamental unit of life is:",
     options: ["Organ", "Cell", "Tissue", "Organism"],
@@ -10,7 +10,7 @@ export const theFundamentalUnitOfLifeQuestions = [
   },
   {
     id: 42,
-    book: "Science",
+    book: "Science (Class 9)",
     chapter: "The Fundamental Unit of Life",
     question: "Who discovered the cell?",
     options: ["Leeuwenhoek", "Robert Brown", "Robert Hooke", "Schleiden"],
@@ -18,7 +18,7 @@ export const theFundamentalUnitOfLifeQuestions = [
   },
   {
     id: 43,
-    book: "Science",
+    book: "Science (Class 9)",
     chapter: "The Fundamental Unit of Life",
     question: "The powerhouse of the cell is:",
     options: ["Nucleus", "Ribosome", "Mitochondria", "Chloroplast"],
@@ -26,7 +26,7 @@ export const theFundamentalUnitOfLifeQuestions = [
   },
   {
     id: 44,
-    book: "Science",
+    book: "Science (Class 9)",
     chapter: "The Fundamental Unit of Life",
     question: "Which organelle is responsible for photosynthesis?",
     options: ["Mitochondria", "Chloroplast", "Nucleus", "Ribosome"],
@@ -34,7 +34,7 @@ export const theFundamentalUnitOfLifeQuestions = [
   },
   {
     id: 45,
-    book: "Science",
+    book: "Science (Class 9)",
     chapter: "The Fundamental Unit of Life",
     question: "Cell wall is found in:",
     options: ["Animal cells only", "Plant cells only", "Both plant and animal cells", "Neither"],
@@ -42,7 +42,7 @@ export const theFundamentalUnitOfLifeQuestions = [
   },
   {
     id: 46,
-    book: "Science",
+    book: "Science (Class 9)",
     chapter: "The Fundamental Unit of Life",
     question: "The control centre of the cell is:",
     options: ["Mitochondria", "Ribosome", "Nucleus", "Vacuole"],
@@ -50,7 +50,7 @@ export const theFundamentalUnitOfLifeQuestions = [
   },
   {
     id: 47,
-    book: "Science",
+    book: "Science (Class 9)",
     chapter: "The Fundamental Unit of Life",
     question: "Ribosomes are the site of:",
     options: ["Respiration", "Photosynthesis", "Protein synthesis", "Fat synthesis"],
@@ -58,7 +58,7 @@ export const theFundamentalUnitOfLifeQuestions = [
   },
   {
     id: 48,
-    book: "Science",
+    book: "Science (Class 9)",
     chapter: "The Fundamental Unit of Life",
     question: "The process by which a cell takes in large particles is called:",
     options: ["Osmosis", "Diffusion", "Endocytosis", "Plasmolysis"],
@@ -66,7 +66,7 @@ export const theFundamentalUnitOfLifeQuestions = [
   },
   {
     id: 49,
-    book: "Science",
+    book: "Science (Class 9)",
     chapter: "The Fundamental Unit of Life",
     question: "The largest organelle in a plant cell is:",
     options: ["Nucleus", "Mitochondria", "Vacuole", "Chloroplast"],
@@ -74,7 +74,7 @@ export const theFundamentalUnitOfLifeQuestions = [
   },
   {
     id: 50,
-    book: "Science",
+    book: "Science (Class 9)",
     chapter: "The Fundamental Unit of Life",
     question: "Lysosomes are called suicidal bags because they:",
     options: ["Produce energy", "Digest worn-out cell organelles", "Synthesise proteins", "Store food"],
