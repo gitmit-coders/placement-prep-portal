@@ -2,7 +2,7 @@
 export const carbonAndItsCompoundsQuestions = [
   {
     id: 31,
-    book: "Science",
+    book: "Science (Class 10)",
     chapter: "Carbon and Its Compounds",
     question: "The number of carbon atoms in butane is:",
     options: ["2", "3", "4", "5"],
@@ -10,7 +10,7 @@ export const carbonAndItsCompoundsQuestions = [
   },
   {
     id: 32,
-    book: "Science",
+    book: "Science (Class 10)",
     chapter: "Carbon and Its Compounds",
     question: "The general formula of alkanes is:",
     options: ["CₙH₂ₙ", "CₙH₂ₙ₋₂", "CₙH₂ₙ₊₂", "CₙH₂ₙ₊₁"],
@@ -18,7 +18,7 @@ export const carbonAndItsCompoundsQuestions = [
   },
   {
     id: 33,
-    book: "Science",
+    book: "Science (Class 10)",
     chapter: "Carbon and Its Compounds",
     question: "The ability of carbon to form long chains of atoms is called:",
     options: ["Isomerism", "Catenation", "Allotropy", "Polymerisation"],
@@ -26,7 +26,7 @@ export const carbonAndItsCompoundsQuestions = [
   },
   {
     id: 34,
-    book: "Science",
+    book: "Science (Class 10)",
     chapter: "Carbon and Its Compounds",
     question: "Ethanol reacts with sodium to produce:",
     options: ["Sodium ethanoate and water", "Sodium ethoxide and hydrogen", "Ethanoic acid and sodium", "Sodium and ethane"],
@@ -34,7 +34,7 @@ export const carbonAndItsCompoundsQuestions = [
   },
   {
     id: 35,
-    book: "Science",
+    book: "Science (Class 10)",
     chapter: "Carbon and Its Compounds",
     question: "The functional group present in ethanoic acid is:",
     options: ["-OH", "-CHO", "-COOH", "-CO-"],
@@ -42,7 +42,7 @@ export const carbonAndItsCompoundsQuestions = [
   },
   {
     id: 36,
-    book: "Science",
+    book: "Science (Class 10)",
     chapter: "Carbon and Its Compounds",
     question: "Saponification is the process of making:",
     options: ["Alcohol", "Soap", "Ester", "Acid"],
@@ -50,7 +50,7 @@ export const carbonAndItsCompoundsQuestions = [
   },
   {
     id: 37,
-    book: "Science",
+    book: "Science (Class 10)",
     chapter: "Carbon and Its Compounds",
     question: "The hardest natural substance is:",
     options: ["Graphite", "Coal", "Diamond", "Fullerene"],
@@ -58,7 +58,7 @@ export const carbonAndItsCompoundsQuestions = [
   },
   {
     id: 38,
-    book: "Science",
+    book: "Science (Class 10)",
     chapter: "Carbon and Its Compounds",
     question: "Which of the following is an ester?",
     options: ["CH₃OH", "CH₃COOH", "CH₃COOC₂H₅", "C₂H₅OH"],
@@ -66,7 +66,7 @@ export const carbonAndItsCompoundsQuestions = [
   },
   {
     id: 39,
-    book: "Science",
+    book: "Science (Class 10)",
     chapter: "Carbon and Its Compounds",
     question: "The reaction of carboxylic acid with alcohol in the presence of an acid catalyst is called:",
     options: ["Saponification", "Esterification", "Hydrogenation", "Oxidation"],
@@ -74,7 +74,7 @@ export const carbonAndItsCompoundsQuestions = [
   },
   {
     id: 40,
-    book: "Science",
+    book: "Science (Class 10)",
     chapter: "Carbon and Its Compounds",
     question: "Allotropes of carbon are:",
     options: ["Diamond and graphite only", "Diamond, graphite and fullerene", "Graphite and coal", "Diamond and coal"],

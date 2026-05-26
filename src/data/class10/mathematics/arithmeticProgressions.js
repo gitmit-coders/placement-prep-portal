@@ -3,7 +3,7 @@ export const arithmeticProgressionsQuestions = [
 {
   id: 41,
 
-  book: "Mathematics",
+  book: "Mathematics (Class 10)",
 
   chapter: "Arithmetic Progressions",
 
@@ -18,7 +18,7 @@ export const arithmeticProgressionsQuestions = [
 {
   id: 42,
 
-  book: "Mathematics",
+  book: "Mathematics (Class 10)",
 
   chapter: "Arithmetic Progressions",
 
@@ -33,7 +33,7 @@ export const arithmeticProgressionsQuestions = [
 {
   id: 43,
 
-  book: "Mathematics",
+  book: "Mathematics (Class 10)",
 
   chapter: "Arithmetic Progressions",
 
@@ -48,7 +48,7 @@ export const arithmeticProgressionsQuestions = [
 {
   id: 44,
 
-  book: "Mathematics",
+  book: "Mathematics (Class 10)",
 
   chapter: "Arithmetic Progressions",
 
@@ -63,7 +63,7 @@ export const arithmeticProgressionsQuestions = [
 {
   id: 45,
 
-  book: "Mathematics",
+  book: "Mathematics (Class 10)",
 
   chapter: "Arithmetic Progressions",
 
@@ -83,7 +83,7 @@ export const arithmeticProgressionsQuestions = [
 {
   id: 46,
 
-  book: "Mathematics",
+  book: "Mathematics (Class 10)",
 
   chapter: "Arithmetic Progressions",
 
@@ -98,7 +98,7 @@ export const arithmeticProgressionsQuestions = [
 {
   id: 47,
 
-  book: "Mathematics",
+  book: "Mathematics (Class 10)",
 
   chapter: "Arithmetic Progressions",
 
@@ -113,7 +113,7 @@ export const arithmeticProgressionsQuestions = [
 {
   id: 48,
 
-  book: "Mathematics",
+  book: "Mathematics (Class 10)",
 
   chapter: "Arithmetic Progressions",
 
@@ -128,7 +128,7 @@ export const arithmeticProgressionsQuestions = [
 {
   id: 49,
 
-  book: "Mathematics",
+  book: "Mathematics (Class 10)",
 
   chapter: "Arithmetic Progressions",
 
@@ -148,7 +148,7 @@ export const arithmeticProgressionsQuestions = [
 {
   id: 50,
 
-  book: "Mathematics",
+  book: "Mathematics (Class 10)",
 
   chapter: "Arithmetic Progressions",
 

@@ -2,7 +2,7 @@
 export const magneticEffectsOfElectricCurrentQuestions = [
   {
     id: 111,
-    book: "Science",
+    book: "Science (Class 10)",
     chapter: "Magnetic Effects of Electric Current",
     question: "The direction of induced current is given by:",
     options: ["Fleming's left hand rule", "Fleming's right hand rule", "Ohm's law", "Faraday's law"],
@@ -10,7 +10,7 @@ export const magneticEffectsOfElectricCurrentQuestions = [
   },
   {
     id: 112,
-    book: "Science",
+    book: "Science (Class 10)",
     chapter: "Magnetic Effects of Electric Current",
     question: "An electric motor converts:",
     options: ["Electrical energy to mechanical energy", "Mechanical energy to electrical energy", "Heat energy to electrical energy", "Chemical energy to electrical energy"],
@@ -18,7 +18,7 @@ export const magneticEffectsOfElectricCurrentQuestions = [
   },
   {
     id: 113,
-    book: "Science",
+    book: "Science (Class 10)",
     chapter: "Magnetic Effects of Electric Current",
     question: "An electric generator works on the principle of:",
     options: ["Magnetic effect of current", "Heating effect of current", "Electromagnetic induction", "Chemical effect of current"],
@@ -26,7 +26,7 @@ export const magneticEffectsOfElectricCurrentQuestions = [
   },
   {
     id: 114,
-    book: "Science",
+    book: "Science (Class 10)",
     chapter: "Magnetic Effects of Electric Current",
     question: "The domestic power supply in India has a frequency of:",
     options: ["50 Hz", "60 Hz", "100 Hz", "220 Hz"],
@@ -34,7 +34,7 @@ export const magneticEffectsOfElectricCurrentQuestions = [
   },
   {
     id: 115,
-    book: "Science",
+    book: "Science (Class 10)",
     chapter: "Magnetic Effects of Electric Current",
     question: "The force on a current-carrying conductor in a magnetic field is given by:",
     options: ["Fleming's right hand rule", "Fleming's left hand rule", "Lenz's law", "Faraday's law"],
@@ -42,7 +42,7 @@ export const magneticEffectsOfElectricCurrentQuestions = [
   },
   {
     id: 116,
-    book: "Science",
+    book: "Science (Class 10)",
     chapter: "Magnetic Effects of Electric Current",
     question: "Magnetic field lines are:",
     options: ["Closed curves", "Open curves", "Straight lines only", "Random"],
@@ -50,7 +50,7 @@ export const magneticEffectsOfElectricCurrentQuestions = [
   },
   {
     id: 117,
-    book: "Science",
+    book: "Science (Class 10)",
     chapter: "Magnetic Effects of Electric Current",
     question: "The device used to protect electrical appliances is:",
     options: ["Ammeter", "Voltmeter", "Fuse", "Galvanometer"],
@@ -58,7 +58,7 @@ export const magneticEffectsOfElectricCurrentQuestions = [
   },
   {
     id: 118,
-    book: "Science",
+    book: "Science (Class 10)",
     chapter: "Magnetic Effects of Electric Current",
     question: "AC stands for:",
     options: ["Active current", "Alternating current", "Actual current", "Applied current"],
@@ -66,7 +66,7 @@ export const magneticEffectsOfElectricCurrentQuestions = [
   },
   {
     id: 119,
-    book: "Science",
+    book: "Science (Class 10)",
     chapter: "Magnetic Effects of Electric Current",
     question: "The earth wire in domestic wiring is of which colour?",
     options: ["Red", "Black", "Green", "Blue"],
@@ -74,7 +74,7 @@ export const magneticEffectsOfElectricCurrentQuestions = [
   },
   {
     id: 120,
-    book: "Science",
+    book: "Science (Class 10)",
     chapter: "Magnetic Effects of Electric Current",
     question: "Electromagnet is made of:",
     options: ["Permanent magnet material", "Soft iron", "Steel", "Copper"],

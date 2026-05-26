@@ -2,7 +2,7 @@
 export const electricityQuestions = [
   {
     id: 101,
-    book: "Science",
+    book: "Science (Class 10)",
     chapter: "Electricity",
     question: "The SI unit of electric charge is:",
     options: ["Ampere", "Coulomb", "Volt", "Ohm"],
@@ -10,7 +10,7 @@ export const electricityQuestions = [
   },
   {
     id: 102,
-    book: "Science",
+    book: "Science (Class 10)",
     chapter: "Electricity",
     question: "Ohm's law states that V is proportional to I, provided:",
     options: ["Temperature changes", "Temperature remains constant", "Resistance changes", "Length changes"],
@@ -18,7 +18,7 @@ export const electricityQuestions = [
   },
   {
     id: 103,
-    book: "Science",
+    book: "Science (Class 10)",
     chapter: "Electricity",
     question: "Three resistors of 2Ω each are connected in series. The total resistance is:",
     options: ["2Ω", "4Ω", "6Ω", "0.67Ω"],
@@ -26,7 +26,7 @@ export const electricityQuestions = [
   },
   {
     id: 104,
-    book: "Science",
+    book: "Science (Class 10)",
     chapter: "Electricity",
     question: "The heating effect of electric current is used in:",
     options: ["Electric fan", "Electric bulb", "Electric motor", "Transformer"],
@@ -34,7 +34,7 @@ export const electricityQuestions = [
   },
   {
     id: 105,
-    book: "Science",
+    book: "Science (Class 10)",
     chapter: "Electricity",
     question: "Electric power is given by:",
     options: ["P = V/I", "P = VI", "P = V+I", "P = V-I"],
@@ -42,7 +42,7 @@ export const electricityQuestions = [
   },
   {
     id: 106,
-    book: "Science",
+    book: "Science (Class 10)",
     chapter: "Electricity",
     question: "The unit of electrical energy is:",
     options: ["Watt", "Joule", "kWh", "Volt"],
@@ -50,7 +50,7 @@ export const electricityQuestions = [
   },
   {
     id: 107,
-    book: "Science",
+    book: "Science (Class 10)",
     chapter: "Electricity",
     question: "Which of the following is the best conductor of electricity?",
     options: ["Iron", "Nichrome", "Copper", "Tungsten"],
@@ -58,7 +58,7 @@ export const electricityQuestions = [
   },
   {
     id: 108,
-    book: "Science",
+    book: "Science (Class 10)",
     chapter: "Electricity",
     question: "In a parallel circuit, the voltage across each component is:",
     options: ["Different", "Same", "Zero", "Infinite"],
@@ -66,7 +66,7 @@ export const electricityQuestions = [
   },
   {
     id: 109,
-    book: "Science",
+    book: "Science (Class 10)",
     chapter: "Electricity",
     question: "The resistance of a wire depends on:",
     options: ["Its length only", "Its area only", "Its material only", "Length, area and material"],
@@ -74,7 +74,7 @@ export const electricityQuestions = [
   },
   {
     id: 110,
-    book: "Science",
+    book: "Science (Class 10)",
     chapter: "Electricity",
     question: "The filament of a bulb is made of tungsten because it has:",
     options: ["Low melting point", "High melting point", "Low resistance", "High conductivity"],

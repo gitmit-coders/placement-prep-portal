@@ -13,6 +13,7 @@ function Register() {
   const [loadingSchools, setLoadingSchools] = useState(true)
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState("")
+  const [success, setSuccess] = useState(false)
   const navigate = useNavigate()
 
   useEffect(() => {
@@ -41,7 +42,6 @@ function Register() {
     if (form.password.length < 6) {
       setError("Password must be at least 6 characters long."); return
     }
-
     setLoading(true)
     try {
       const res = await fetch(`${BACKEND_URL}/api/auth/register`, {
@@ -57,12 +57,40 @@ function Register() {
         }),
       })
       const data = await res.json()
-      if (res.ok) { navigate("/login") }
+      if (res.ok) { setSuccess(true) }
       else { setError(data.message || "Registration failed. Please try again.") }
     } catch {
       setError("Cannot connect to server. Please try again later.")
     }
     setLoading(false)
+  }
+
+  // Success screen
+  if (success) {
+    return (
+      <div style={pageStyle}>
+        <div style={{ ...cardStyle, textAlign: "center" }}>
+          <div style={{ fontSize: "52px", marginBottom: "16px" }}>✅</div>
+          <h2 style={{ color: "white", margin: "0 0 12px" }}>Registration Submitted!</h2>
+          <p style={{ color: "#94a3b8", lineHeight: 1.7, marginBottom: "8px" }}>
+            Your account has been created successfully.
+          </p>
+          <p style={{ color: "#64748b", fontSize: "13px", marginBottom: "24px" }}>
+            Your school administrator will review and approve your account.
+            You will be able to login once approved.
+          </p>
+          <div style={{ background: "rgba(99,102,241,0.08)", border: "1px solid rgba(99,102,241,0.2)", borderRadius: "12px", padding: "14px 18px", marginBottom: "24px" }}>
+            <p style={{ margin: 0, color: "#a5b4fc", fontSize: "13px" }}>
+              📌 Contact your class teacher or school admin to get your account approved quickly.
+            </p>
+          </div>
+          <button onClick={() => navigate("/login")}
+            style={{ padding: "12px 28px", borderRadius: "10px", border: "none", background: "#6366f1", color: "white", fontWeight: "700", fontSize: "15px", cursor: "pointer" }}>
+            Go to Login
+          </button>
+        </div>
+      </div>
+    )
   }
 
   return (
@@ -76,22 +104,19 @@ function Register() {
           </p>
         </div>
 
-        {/* Approval notice */}
-        <div style={infoStyle}>
-          ℹ️ After registering, your school teacher will review and approve your account before you can log in.
-        </div>
-
         {error && <div style={errorStyle}>{error}</div>}
 
         <label style={lbl}>Full Name *</label>
-        <input type="text" placeholder="Enter your full name" value={form.name} onChange={update("name")} style={inp} />
+        <input type="text" placeholder="Enter your full name"
+          value={form.name} onChange={update("name")} style={inp} />
 
         <label style={lbl}>Email Address *</label>
-        <input type="email" placeholder="student@school.com" value={form.email} onChange={update("email")} style={inp} />
-        <p style={{ margin: "-12px 0 18px", color: "#475569", fontSize: "12px" }}>Must be a real email address.</p>
+        <input type="email" placeholder="student@gmail.com"
+          value={form.email} onChange={update("email")} style={inp} />
 
         <label style={lbl}>Password *</label>
-        <input type="password" placeholder="Minimum 6 characters" value={form.password} onChange={update("password")} style={inp} />
+        <input type="password" placeholder="Minimum 6 characters"
+          value={form.password} onChange={update("password")} style={inp} />
 
         <label style={lbl}>Class *</label>
         <select value={form.studentClass} onChange={update("studentClass")} style={inp}>
@@ -103,7 +128,9 @@ function Register() {
         {loadingSchools ? (
           <div style={{ ...inp, color: "#64748b" }}>Loading schools...</div>
         ) : schools.length === 0 ? (
-          <div style={{ ...inp, color: "#f87171", fontSize: "13px" }}>No schools registered yet.</div>
+          <div style={{ ...inp, color: "#f87171", fontSize: "13px" }}>
+            No schools registered yet.
+          </div>
         ) : (
           <select value={form.schoolCode} onChange={handleSchoolSelect} style={inp}>
             <option value="">Select your school</option>
@@ -115,17 +142,22 @@ function Register() {
           </select>
         )}
 
-        <button
-          onClick={handleRegister}
-          disabled={loading || !form.schoolCode}
-          style={{ ...btnStyle, opacity: form.schoolCode ? 1 : 0.5, marginTop: "4px" }}
-        >
-          {loading ? "Submitting..." : "Submit Registration"}
+        {/* Info box */}
+        <div style={{ background: "rgba(245,158,11,0.08)", border: "1px solid rgba(245,158,11,0.2)", borderRadius: "10px", padding: "12px 16px", marginBottom: "20px" }}>
+          <p style={{ margin: 0, color: "#fbbf24", fontSize: "13px" }}>
+            ⏳ After registering, your school admin will approve your account before you can login.
+          </p>
+        </div>
+
+        <button onClick={handleRegister} disabled={loading} style={btnStyle}>
+          {loading ? "Creating account..." : "Register"}
         </button>
 
         <p style={{ textAlign: "center", marginTop: "20px", color: "#64748b", fontSize: "14px" }}>
           Already have an account?{" "}
-          <Link to="/login" style={{ color: "#818cf8", fontWeight: "600", textDecoration: "none" }}>Sign in here</Link>
+          <Link to="/login" style={{ color: "#818cf8", fontWeight: "600", textDecoration: "none" }}>
+            Sign in here
+          </Link>
         </p>
       </div>
     </div>
@@ -138,6 +170,5 @@ const lbl = { display: "block", marginBottom: "6px", color: "#94a3b8", fontSize:
 const inp = { width: "100%", padding: "12px 14px", marginBottom: "18px", borderRadius: "10px", border: "1px solid #1f2937", outline: "none", background: "#1e293b", color: "white", fontSize: "15px", boxSizing: "border-box", cursor: "auto" }
 const btnStyle = { width: "100%", padding: "14px", borderRadius: "10px", border: "none", background: "#6366f1", color: "white", fontSize: "16px", fontWeight: "700", cursor: "pointer" }
 const errorStyle = { background: "rgba(239,68,68,0.1)", border: "1px solid rgba(239,68,68,0.3)", color: "#f87171", borderRadius: "10px", padding: "12px 14px", marginBottom: "20px", fontSize: "14px" }
-const infoStyle = { background: "rgba(99,102,241,0.08)", border: "1px solid rgba(99,102,241,0.25)", color: "#a5b4fc", borderRadius: "10px", padding: "12px 14px", marginBottom: "20px", fontSize: "13px" }
 
 export default Register

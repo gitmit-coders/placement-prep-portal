@@ -2,7 +2,7 @@
 export const chemicalReactionsAndEquationsQuestions = [
   {
     id: 1,
-    book: "Science",
+    book: "Science (Class 10)",
     chapter: "Chemical Reactions and Equations",
     question: "The mass ratio of hydrogen to oxygen liberated during electrolysis of water is:",
     options: ["1:8", "2:1", "8:1", "1:2"],
@@ -10,7 +10,7 @@ export const chemicalReactionsAndEquationsQuestions = [
   },
   {
     id: 2,
-    book: "Science",
+    book: "Science (Class 10)",
     chapter: "Chemical Reactions and Equations",
     question: "Magnesium ribbon is rubbed before burning because it has a coating of:",
     options: ["Basic magnesium carbonate", "Basic magnesium oxide", "Basic magnesium sulphide", "Basic magnesium chloride"],
@@ -18,7 +18,7 @@ export const chemicalReactionsAndEquationsQuestions = [
   },
   {
     id: 3,
-    book: "Science",
+    book: "Science (Class 10)",
     chapter: "Chemical Reactions and Equations",
     question: "Which of the following is a decomposition reaction?",
     options: ["NaOH + HCl → NaCl + H₂O", "2H₂O → 2H₂ + O₂", "Fe + CuSO₄ → FeSO₄ + Cu", "C + O₂ → CO₂"],
@@ -26,7 +26,7 @@ export const chemicalReactionsAndEquationsQuestions = [
   },
   {
     id: 4,
-    book: "Science",
+    book: "Science (Class 10)",
     chapter: "Chemical Reactions and Equations",
     question: "A substance added to food containing fats and oils to prevent rancidity is called:",
     options: ["Oxidant", "Antioxidant", "Coolant", "Rancid"],
@@ -34,7 +34,7 @@ export const chemicalReactionsAndEquationsQuestions = [
   },
   {
     id: 5,
-    book: "Science",
+    book: "Science (Class 10)",
     chapter: "Chemical Reactions and Equations",
     question: "The condition produced by aerial oxidation of fats and oils in foods marked by unpleasant smell and taste is called:",
     options: ["Antioxidation", "Reduction", "Rancidity", "Corrosion"],
@@ -42,7 +42,7 @@ export const chemicalReactionsAndEquationsQuestions = [
   },
   {
     id: 6,
-    book: "Science",
+    book: "Science (Class 10)",
     chapter: "Chemical Reactions and Equations",
     question: "Which of the following is an exothermic reaction?",
     options: ["Decomposition of CaCO₃", "Photosynthesis", "Burning of coal", "Electrolysis of water"],
@@ -50,7 +50,7 @@ export const chemicalReactionsAndEquationsQuestions = [
   },
   {
     id: 7,
-    book: "Science",
+    book: "Science (Class 10)",
     chapter: "Chemical Reactions and Equations",
     question: "In the reaction: Fe₂O₃ + 2Al → Al₂O₃ + 2Fe, the substance getting reduced is:",
     options: ["Al", "Fe₂O₃", "Al₂O₃", "Fe"],
@@ -58,7 +58,7 @@ export const chemicalReactionsAndEquationsQuestions = [
   },
   {
     id: 8,
-    book: "Science",
+    book: "Science (Class 10)",
     chapter: "Chemical Reactions and Equations",
     question: "Which type of reaction is: CaO + H₂O → Ca(OH)₂?",
     options: ["Decomposition", "Displacement", "Combination", "Double displacement"],
@@ -66,7 +66,7 @@ export const chemicalReactionsAndEquationsQuestions = [
   },
   {
     id: 9,
-    book: "Science",
+    book: "Science (Class 10)",
     chapter: "Chemical Reactions and Equations",
     question: "What type of reaction is represented by: AgNO₃ + NaCl → AgCl↓ + NaNO₃?",
     options: ["Combination", "Decomposition", "Displacement", "Double displacement"],
@@ -74,7 +74,7 @@ export const chemicalReactionsAndEquationsQuestions = [
   },
   {
     id: 10,
-    book: "Science",
+    book: "Science (Class 10)",
     chapter: "Chemical Reactions and Equations",
     question: "Respiration is considered as which type of chemical reaction?",
     options: ["Endothermic", "Exothermic", "Photochemical", "Decomposition"],

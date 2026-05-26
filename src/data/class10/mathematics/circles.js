@@ -3,7 +3,7 @@ export const circlesQuestions = [
 {
   id: 71,
 
-  book: "Mathematics",
+  book: "Mathematics (Class 10)",
 
   chapter: "Circles",
 
@@ -23,7 +23,7 @@ export const circlesQuestions = [
 {
   id: 72,
 
-  book: "Mathematics",
+  book: "Mathematics (Class 10)",
 
   chapter: "Circles",
 
@@ -43,7 +43,7 @@ export const circlesQuestions = [
 {
   id: 73,
 
-  book: "Mathematics",
+  book: "Mathematics (Class 10)",
 
   chapter: "Circles",
 
@@ -63,7 +63,7 @@ export const circlesQuestions = [
 {
   id: 74,
 
-  book: "Mathematics",
+  book: "Mathematics (Class 10)",
 
   chapter: "Circles",
 
@@ -83,7 +83,7 @@ export const circlesQuestions = [
 {
   id: 75,
 
-  book: "Mathematics",
+  book: "Mathematics (Class 10)",
 
   chapter: "Circles",
 
@@ -103,7 +103,7 @@ export const circlesQuestions = [
 {
   id: 76,
 
-  book: "Mathematics",
+  book: "Mathematics (Class 10)",
 
   chapter: "Circles",
 
@@ -123,7 +123,7 @@ export const circlesQuestions = [
 {
   id: 77,
 
-  book: "Mathematics",
+  book: "Mathematics (Class 10)",
 
   chapter: "Circles",
 
@@ -143,7 +143,7 @@ export const circlesQuestions = [
 {
   id: 78,
 
-  book: "Mathematics",
+  book: "Mathematics (Class 10)",
 
   chapter: "Circles",
 
@@ -163,7 +163,7 @@ export const circlesQuestions = [
 {
   id: 79,
 
-  book: "Mathematics",
+  book: "Mathematics (Class 10)",
 
   chapter: "Circles",
 
@@ -183,7 +183,7 @@ export const circlesQuestions = [
 {
   id: 80,
 
-  book: "Mathematics",
+  book: "Mathematics (Class 10)",
 
   chapter: "Circles",
 

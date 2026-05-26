@@ -2,7 +2,7 @@
 export const humanEyeAndColourfulWorldQuestions = [
   {
     id: 91,
-    book: "Science",
+    book: "Science (Class 10)",
     chapter: "Human Eye and the Colourful World",
     question: "The ability of the eye to focus on near and far objects is called:",
     options: ["Power of accommodation", "Persistence of vision", "Visual acuity", "Night vision"],
@@ -10,7 +10,7 @@ export const humanEyeAndColourfulWorldQuestions = [
   },
   {
     id: 92,
-    book: "Science",
+    book: "Science (Class 10)",
     chapter: "Human Eye and the Colourful World",
     question: "A person cannot see distant objects clearly. He suffers from:",
     options: ["Hypermetropia", "Myopia", "Presbyopia", "Astigmatism"],
@@ -18,7 +18,7 @@ export const humanEyeAndColourfulWorldQuestions = [
   },
   {
     id: 93,
-    book: "Science",
+    book: "Science (Class 10)",
     chapter: "Human Eye and the Colourful World",
     question: "Myopia is corrected using:",
     options: ["Convex lens", "Concave lens", "Bifocal lens", "Cylindrical lens"],
@@ -26,7 +26,7 @@ export const humanEyeAndColourfulWorldQuestions = [
   },
   {
     id: 94,
-    book: "Science",
+    book: "Science (Class 10)",
     chapter: "Human Eye and the Colourful World",
     question: "The splitting of white light into its constituent colours is called:",
     options: ["Reflection", "Refraction", "Dispersion", "Scattering"],
@@ -34,7 +34,7 @@ export const humanEyeAndColourfulWorldQuestions = [
   },
   {
     id: 95,
-    book: "Science",
+    book: "Science (Class 10)",
     chapter: "Human Eye and the Colourful World",
     question: "The colour of sky appears blue due to:",
     options: ["Dispersion of light", "Scattering of light", "Reflection of light", "Refraction of light"],
@@ -42,7 +42,7 @@ export const humanEyeAndColourfulWorldQuestions = [
   },
   {
     id: 96,
-    book: "Science",
+    book: "Science (Class 10)",
     chapter: "Human Eye and the Colourful World",
     question: "The least distance of distinct vision for a normal human eye is:",
     options: ["10 cm", "15 cm", "25 cm", "50 cm"],
@@ -50,7 +50,7 @@ export const humanEyeAndColourfulWorldQuestions = [
   },
   {
     id: 97,
-    book: "Science",
+    book: "Science (Class 10)",
     chapter: "Human Eye and the Colourful World",
     question: "Which colour of light is scattered the most?",
     options: ["Red", "Yellow", "Green", "Violet"],
@@ -58,7 +58,7 @@ export const humanEyeAndColourfulWorldQuestions = [
   },
   {
     id: 98,
-    book: "Science",
+    book: "Science (Class 10)",
     chapter: "Human Eye and the Colourful World",
     question: "The defect of vision in old age where the eye loses its power of accommodation is called:",
     options: ["Myopia", "Hypermetropia", "Presbyopia", "Cataract"],
@@ -66,7 +66,7 @@ export const humanEyeAndColourfulWorldQuestions = [
   },
   {
     id: 99,
-    book: "Science",
+    book: "Science (Class 10)",
     chapter: "Human Eye and the Colourful World",
     question: "The sun appears red at sunrise and sunset because:",
     options: ["Sun produces red light at that time", "Blue light is scattered more leaving red", "Red light travels faster", "Refraction bends red light more"],
@@ -74,7 +74,7 @@ export const humanEyeAndColourfulWorldQuestions = [
   },
   {
     id: 100,
-    book: "Science",
+    book: "Science (Class 10)",
     chapter: "Human Eye and the Colourful World",
     question: "A rainbow is formed due to:",
     options: ["Reflection only", "Refraction only", "Dispersion only", "Dispersion, refraction and internal reflection"],

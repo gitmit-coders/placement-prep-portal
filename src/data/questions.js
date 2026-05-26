@@ -28,6 +28,22 @@ import { electricityQuestions } from "./class10/science/electricity"
 import { magneticEffectsOfElectricCurrentQuestions } from "./class10/science/magneticEffectsOfElectricCurrent"
 import { sourcesOfEnergyQuestions } from "./class10/science/sourcesOfEnergy"
 
+
+// Class 9 Science
+import { matterInOurSurroundingsQuestions } from "./class9/science/matterInOurSurroundings"
+import { isMatterAroundUsPureQuestions } from "./class9/science/isMatterAroundUsPure"
+import { atomsAndMoleculesQuestions } from "./class9/science/atomsAndMolecules"
+import { structureOfTheAtomQuestions } from "./class9/science/structureOfTheAtom"
+import { theFundamentalUnitOfLifeQuestions } from "./class9/science/theFundamentalUnitOfLife"
+import { tissuesQuestions } from "./class9/science/tissues"
+import { motionQuestions } from "./class9/science/motion"
+import { forceAndLawsOfMotionQuestions } from "./class9/science/forceAndLawsOfMotion"
+import { gravitationQuestions } from "./class9/science/gravitation"
+import { workAndEnergyQuestions } from "./class9/science/workAndEnergy"
+import { soundQuestions } from "./class9/science/sound"
+import { improvementInFoodResourcesQuestions } from "./class9/science/improvementInFoodResources"
+
+
 export const questions = [
   ...realNumbersQuestions,
   ...polynomialQuestions,
@@ -58,4 +74,20 @@ export const questions = [
   ...electricityQuestions,
   ...magneticEffectsOfElectricCurrentQuestions,
   ...sourcesOfEnergyQuestions,
+
+// Class 9 Science
+  ...matterInOurSurroundingsQuestions,
+...isMatterAroundUsPureQuestions,
+...atomsAndMoleculesQuestions,
+...structureOfTheAtomQuestions,
+...theFundamentalUnitOfLifeQuestions,
+...tissuesQuestions,
+...motionQuestions,
+...forceAndLawsOfMotionQuestions,
+...gravitationQuestions,
+...workAndEnergyQuestions,
+...soundQuestions,
+...improvementInFoodResourcesQuestions,
+
+
 ]

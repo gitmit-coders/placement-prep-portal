@@ -1,7 +1,7 @@
 export const polynomialQuestions = [
   {
     id: 1,
-    book: "Mathematics",
+    book: "Mathematics (Class 10)",
     chapter: "Polynomials",
 
     question:
@@ -14,7 +14,7 @@ export const polynomialQuestions = [
 
   {
     id: 2,
-    book: "Mathematics",
+    book: "Mathematics (Class 10)",
     chapter: "Polynomials",
 
     question:
@@ -27,7 +27,7 @@ export const polynomialQuestions = [
 
   {
     id: 3,
-    book: "Mathematics",
+    book: "Mathematics (Class 10)",
     chapter: "Polynomials",
 
     question:
@@ -40,7 +40,7 @@ export const polynomialQuestions = [
 
   {
     id: 4,
-    book: "Mathematics",
+    book: "Mathematics (Class 10)",
     chapter: "Polynomials",
 
     question:
@@ -58,7 +58,7 @@ export const polynomialQuestions = [
 
   {
     id: 5,
-    book: "Mathematics",
+    book: "Mathematics (Class 10)",
     chapter: "Polynomials",
 
     question:
@@ -76,7 +76,7 @@ export const polynomialQuestions = [
 
   {
     id: 6,
-    book: "Mathematics",
+    book: "Mathematics (Class 10)",
     chapter: "Polynomials",
 
     question:
@@ -89,7 +89,7 @@ export const polynomialQuestions = [
 
   {
     id: 7,
-    book: "Mathematics",
+    book: "Mathematics (Class 10)",
     chapter: "Polynomials",
 
     question:
@@ -102,7 +102,7 @@ export const polynomialQuestions = [
 
   {
     id: 8,
-    book: "Mathematics",
+    book: "Mathematics (Class 10)",
     chapter: "Polynomials",
 
     question:
@@ -120,7 +120,7 @@ export const polynomialQuestions = [
 
   {
     id: 9,
-    book: "Mathematics",
+    book: "Mathematics (Class 10)",
     chapter: "Polynomials",
 
     question:
@@ -138,7 +138,7 @@ export const polynomialQuestions = [
 
   {
     id: 10,
-    book: "Mathematics",
+    book: "Mathematics (Class 10)",
     chapter: "Polynomials",
 
     question:

@@ -2,7 +2,7 @@
 export const sourcesOfEnergyQuestions = [
   {
     id: 121,
-    book: "Science",
+    book: "Science (Class 10)",
     chapter: "Sources of Energy",
     question: "Which of the following is a non-renewable source of energy?",
     options: ["Solar energy", "Wind energy", "Coal", "Tidal energy"],
@@ -10,7 +10,7 @@ export const sourcesOfEnergyQuestions = [
   },
   {
     id: 122,
-    book: "Science",
+    book: "Science (Class 10)",
     chapter: "Sources of Energy",
     question: "Biogas is mainly composed of:",
     options: ["Carbon dioxide", "Hydrogen", "Methane", "Oxygen"],
@@ -18,7 +18,7 @@ export const sourcesOfEnergyQuestions = [
   },
   {
     id: 123,
-    book: "Science",
+    book: "Science (Class 10)",
     chapter: "Sources of Energy",
     question: "The calorific value of a fuel is expressed in:",
     options: ["Joule", "kJ/kg", "Watt", "Calorie"],
@@ -26,7 +26,7 @@ export const sourcesOfEnergyQuestions = [
   },
   {
     id: 124,
-    book: "Science",
+    book: "Science (Class 10)",
     chapter: "Sources of Energy",
     question: "Solar cells convert solar energy into:",
     options: ["Heat energy", "Electrical energy", "Chemical energy", "Mechanical energy"],
@@ -34,7 +34,7 @@ export const sourcesOfEnergyQuestions = [
   },
   {
     id: 125,
-    book: "Science",
+    book: "Science (Class 10)",
     chapter: "Sources of Energy",
     question: "Which of the following has the highest calorific value?",
     options: ["Wood", "Coal", "LPG", "Biogas"],
@@ -42,7 +42,7 @@ export const sourcesOfEnergyQuestions = [
   },
   {
     id: 126,
-    book: "Science",
+    book: "Science (Class 10)",
     chapter: "Sources of Energy",
     question: "Wind energy is a form of:",
     options: ["Nuclear energy", "Solar energy", "Chemical energy", "Tidal energy"],
@@ -50,7 +50,7 @@ export const sourcesOfEnergyQuestions = [
   },
   {
     id: 127,
-    book: "Science",
+    book: "Science (Class 10)",
     chapter: "Sources of Energy",
     question: "The energy released in a nuclear reaction comes from:",
     options: ["Chemical bonds", "Mass defect", "Heat", "Electricity"],
@@ -58,7 +58,7 @@ export const sourcesOfEnergyQuestions = [
   },
   {
     id: 128,
-    book: "Science",
+    book: "Science (Class 10)",
     chapter: "Sources of Energy",
     question: "Geothermal energy is obtained from:",
     options: ["Sun", "Wind", "Heat inside the earth", "Ocean waves"],
@@ -66,7 +66,7 @@ export const sourcesOfEnergyQuestions = [
   },
   {
     id: 129,
-    book: "Science",
+    book: "Science (Class 10)",
     chapter: "Sources of Energy",
     question: "The ideal fuel should have:",
     options: ["Low calorific value", "High calorific value", "Produce more smoke", "Be difficult to transport"],
@@ -74,7 +74,7 @@ export const sourcesOfEnergyQuestions = [
   },
   {
     id: 130,
-    book: "Science",
+    book: "Science (Class 10)",
     chapter: "Sources of Energy",
     question: "Ocean thermal energy is obtained from the difference in temperature between:",
     options: ["Day and night", "Summer and winter", "Ocean surface and deep water", "Land and sea"],

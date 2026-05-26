@@ -3,7 +3,7 @@ export const applicationsOfTrigonometryQuestions = [
 {
   id: 91,
 
-  book: "Mathematics",
+  book: "Mathematics (Class 10)",
 
   chapter: "Some Applications of Trigonometry",
 
@@ -23,7 +23,7 @@ export const applicationsOfTrigonometryQuestions = [
 {
   id: 92,
 
-  book: "Mathematics",
+  book: "Mathematics (Class 10)",
 
   chapter: "Some Applications of Trigonometry",
 
@@ -43,7 +43,7 @@ export const applicationsOfTrigonometryQuestions = [
 {
   id: 93,
 
-  book: "Mathematics",
+  book: "Mathematics (Class 10)",
 
   chapter: "Some Applications of Trigonometry",
 
@@ -63,7 +63,7 @@ export const applicationsOfTrigonometryQuestions = [
 {
   id: 94,
 
-  book: "Mathematics",
+  book: "Mathematics (Class 10)",
 
   chapter: "Some Applications of Trigonometry",
 
@@ -83,7 +83,7 @@ export const applicationsOfTrigonometryQuestions = [
 {
   id: 95,
 
-  book: "Mathematics",
+  book: "Mathematics (Class 10)",
 
   chapter: "Some Applications of Trigonometry",
 
@@ -103,7 +103,7 @@ export const applicationsOfTrigonometryQuestions = [
 {
   id: 96,
 
-  book: "Mathematics",
+  book: "Mathematics (Class 10)",
 
   chapter: "Some Applications of Trigonometry",
 
@@ -123,7 +123,7 @@ export const applicationsOfTrigonometryQuestions = [
 {
   id: 97,
 
-  book: "Mathematics",
+  book: "Mathematics (Class 10)",
 
   chapter: "Some Applications of Trigonometry",
 
@@ -143,7 +143,7 @@ export const applicationsOfTrigonometryQuestions = [
 {
   id: 98,
 
-  book: "Mathematics",
+  book: "Mathematics (Class 10)",
 
   chapter: "Some Applications of Trigonometry",
 
@@ -163,7 +163,7 @@ export const applicationsOfTrigonometryQuestions = [
 {
   id: 99,
 
-  book: "Mathematics",
+  book: "Mathematics (Class 10)",
 
   chapter: "Some Applications of Trigonometry",
 
@@ -183,7 +183,7 @@ export const applicationsOfTrigonometryQuestions = [
 {
   id: 100,
 
-  book: "Mathematics",
+  book: "Mathematics (Class 10)",
 
   chapter: "Some Applications of Trigonometry",
 

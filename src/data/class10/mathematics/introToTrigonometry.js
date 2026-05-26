@@ -3,7 +3,7 @@ export const introToTrigonometryQuestions = [
 {
   id: 81,
 
-  book: "Mathematics",
+  book: "Mathematics (Class 10)",
 
   chapter: "Introduction to Trigonometry",
 
@@ -23,7 +23,7 @@ export const introToTrigonometryQuestions = [
 {
   id: 82,
 
-  book: "Mathematics",
+  book: "Mathematics (Class 10)",
 
   chapter: "Introduction to Trigonometry",
 
@@ -43,7 +43,7 @@ export const introToTrigonometryQuestions = [
 {
   id: 83,
 
-  book: "Mathematics",
+  book: "Mathematics (Class 10)",
 
   chapter: "Introduction to Trigonometry",
 
@@ -63,7 +63,7 @@ export const introToTrigonometryQuestions = [
 {
   id: 84,
 
-  book: "Mathematics",
+  book: "Mathematics (Class 10)",
 
   chapter: "Introduction to Trigonometry",
 
@@ -83,7 +83,7 @@ export const introToTrigonometryQuestions = [
 {
   id: 85,
 
-  book: "Mathematics",
+  book: "Mathematics (Class 10)",
 
   chapter: "Introduction to Trigonometry",
 
@@ -103,7 +103,7 @@ export const introToTrigonometryQuestions = [
 {
   id: 86,
 
-  book: "Mathematics",
+  book: "Mathematics (Class 10)",
 
   chapter: "Introduction to Trigonometry",
 
@@ -123,7 +123,7 @@ export const introToTrigonometryQuestions = [
 {
   id: 87,
 
-  book: "Mathematics",
+  book: "Mathematics (Class 10)",
 
   chapter: "Introduction to Trigonometry",
 
@@ -143,7 +143,7 @@ export const introToTrigonometryQuestions = [
 {
   id: 88,
 
-  book: "Mathematics",
+  book: "Mathematics (Class 10)",
 
   chapter: "Introduction to Trigonometry",
 
@@ -163,7 +163,7 @@ export const introToTrigonometryQuestions = [
 {
   id: 89,
 
-  book: "Mathematics",
+  book: "Mathematics (Class 10)",
 
   chapter: "Introduction to Trigonometry",
 
@@ -183,7 +183,7 @@ export const introToTrigonometryQuestions = [
 {
   id: 90,
 
-  book: "Mathematics",
+  book: "Mathematics (Class 10)",
 
   chapter: "Introduction to Trigonometry",
 

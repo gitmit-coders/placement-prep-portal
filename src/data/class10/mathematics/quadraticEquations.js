@@ -3,7 +3,7 @@ export const quadraticEquationsQuestions = [
 {
   id: 31,
 
-  book: "Mathematics",
+  book: "Mathematics (Class 10)",
 
   chapter: "Quadratic Equations",
 
@@ -23,7 +23,7 @@ export const quadraticEquationsQuestions = [
 {
   id: 32,
 
-  book: "Mathematics",
+  book: "Mathematics (Class 10)",
 
   chapter: "Quadratic Equations",
 
@@ -43,7 +43,7 @@ export const quadraticEquationsQuestions = [
 {
   id: 33,
 
-  book: "Mathematics",
+  book: "Mathematics (Class 10)",
 
   chapter: "Quadratic Equations",
 
@@ -63,7 +63,7 @@ export const quadraticEquationsQuestions = [
 {
   id: 34,
 
-  book: "Mathematics",
+  book: "Mathematics (Class 10)",
 
   chapter: "Quadratic Equations",
 
@@ -83,7 +83,7 @@ export const quadraticEquationsQuestions = [
 {
   id: 35,
 
-  book: "Mathematics",
+  book: "Mathematics (Class 10)",
 
   chapter: "Quadratic Equations",
 
@@ -103,7 +103,7 @@ export const quadraticEquationsQuestions = [
 {
   id: 36,
 
-  book: "Mathematics",
+  book: "Mathematics (Class 10)",
 
   chapter: "Quadratic Equations",
 
@@ -123,7 +123,7 @@ export const quadraticEquationsQuestions = [
 {
   id: 37,
 
-  book: "Mathematics",
+  book: "Mathematics (Class 10)",
 
   chapter: "Quadratic Equations",
 
@@ -143,7 +143,7 @@ export const quadraticEquationsQuestions = [
 {
   id: 38,
 
-  book: "Mathematics",
+  book: "Mathematics (Class 10)",
 
   chapter: "Quadratic Equations",
 
@@ -163,7 +163,7 @@ export const quadraticEquationsQuestions = [
 {
   id: 39,
 
-  book: "Mathematics",
+  book: "Mathematics (Class 10)",
 
   chapter: "Quadratic Equations",
 
@@ -183,7 +183,7 @@ export const quadraticEquationsQuestions = [
 {
   id: 40,
 
-  book: "Mathematics",
+  book: "Mathematics (Class 10)",
 
   chapter: "Quadratic Equations",
 

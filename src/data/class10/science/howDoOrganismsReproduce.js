@@ -2,7 +2,7 @@
 export const howDoOrganismsReproduceQuestions = [
   {
     id: 61,
-    book: "Science",
+    book: "Science (Class 10)",
     chapter: "How do Organisms Reproduce",
     question: "Binary fission is seen in:",
     options: ["Hydra", "Amoeba", "Planaria", "Yeast"],
@@ -10,7 +10,7 @@ export const howDoOrganismsReproduceQuestions = [
   },
   {
     id: 62,
-    book: "Science",
+    book: "Science (Class 10)",
     chapter: "How do Organisms Reproduce",
     question: "Budding as a method of reproduction is seen in:",
     options: ["Amoeba", "Planaria", "Yeast", "Fern"],
@@ -18,7 +18,7 @@ export const howDoOrganismsReproduceQuestions = [
   },
   {
     id: 63,
-    book: "Science",
+    book: "Science (Class 10)",
     chapter: "How do Organisms Reproduce",
     question: "Which of the following is a sexually transmitted disease?",
     options: ["Typhoid", "Cholera", "Syphilis", "Malaria"],
@@ -26,7 +26,7 @@ export const howDoOrganismsReproduceQuestions = [
   },
   {
     id: 64,
-    book: "Science",
+    book: "Science (Class 10)",
     chapter: "How do Organisms Reproduce",
     question: "The male reproductive part of a flower is called:",
     options: ["Pistil", "Carpel", "Stamen", "Stigma"],
@@ -34,7 +34,7 @@ export const howDoOrganismsReproduceQuestions = [
   },
   {
     id: 65,
-    book: "Science",
+    book: "Science (Class 10)",
     chapter: "How do Organisms Reproduce",
     question: "The transfer of pollen from anther to stigma is called:",
     options: ["Fertilisation", "Pollination", "Germination", "Reproduction"],
@@ -42,7 +42,7 @@ export const howDoOrganismsReproduceQuestions = [
   },
   {
     id: 66,
-    book: "Science",
+    book: "Science (Class 10)",
     chapter: "How do Organisms Reproduce",
     question: "DNA copies are made during reproduction to ensure:",
     options: ["Variation", "Consistency of body design", "Faster growth", "Disease resistance"],
@@ -50,7 +50,7 @@ export const howDoOrganismsReproduceQuestions = [
   },
   {
     id: 67,
-    book: "Science",
+    book: "Science (Class 10)",
     chapter: "How do Organisms Reproduce",
     question: "Vegetative propagation in rose is done through:",
     options: ["Seeds", "Leaves", "Stem cutting", "Roots"],
@@ -58,7 +58,7 @@ export const howDoOrganismsReproduceQuestions = [
   },
   {
     id: 68,
-    book: "Science",
+    book: "Science (Class 10)",
     chapter: "How do Organisms Reproduce",
     question: "The contraceptive method that provides protection against STDs is:",
     options: ["Oral pills", "Copper-T", "Condom", "Surgical method"],
@@ -66,7 +66,7 @@ export const howDoOrganismsReproduceQuestions = [
   },
   {
     id: 69,
-    book: "Science",
+    book: "Science (Class 10)",
     chapter: "How do Organisms Reproduce",
     question: "In humans, the embryo gets nutrition from the mother through:",
     options: ["Ovary", "Uterus", "Placenta", "Oviduct"],
@@ -74,7 +74,7 @@ export const howDoOrganismsReproduceQuestions = [
   },
   {
     id: 70,
-    book: "Science",
+    book: "Science (Class 10)",
     chapter: "How do Organisms Reproduce",
     question: "Regeneration is seen in:",
     options: ["Yeast", "Planaria", "Amoeba", "Hydra"],

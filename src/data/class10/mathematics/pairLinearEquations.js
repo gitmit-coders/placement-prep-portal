@@ -3,7 +3,7 @@ export const pairLinearEquationsQuestions  = [
 {
   id: 21,
 
-  book: "Mathematics",
+  book: "Mathematics (Class 10)",
 
   chapter: "Pair of Linear Equations in Two Variables",
 
@@ -23,7 +23,7 @@ export const pairLinearEquationsQuestions  = [
 {
   id: 22,
 
-  book: "Mathematics",
+  book: "Mathematics (Class 10)",
 
   chapter: "Pair of Linear Equations in Two Variables",
 
@@ -43,7 +43,7 @@ export const pairLinearEquationsQuestions  = [
 {
   id: 23,
 
-  book: "Mathematics",
+  book: "Mathematics (Class 10)",
 
   chapter: "Pair of Linear Equations in Two Variables",
 
@@ -63,7 +63,7 @@ export const pairLinearEquationsQuestions  = [
 {
   id: 24,
 
-  book: "Mathematics",
+  book: "Mathematics (Class 10)",
 
   chapter: "Pair of Linear Equations in Two Variables",
 
@@ -83,7 +83,7 @@ export const pairLinearEquationsQuestions  = [
 {
   id: 25,
 
-  book: "Mathematics",
+  book: "Mathematics (Class 10)",
 
   chapter: "Pair of Linear Equations in Two Variables",
 
@@ -103,7 +103,7 @@ export const pairLinearEquationsQuestions  = [
 {
   id: 26,
 
-  book: "Mathematics",
+  book: "Mathematics (Class 10)",
 
   chapter: "Pair of Linear Equations in Two Variables",
 
@@ -123,7 +123,7 @@ export const pairLinearEquationsQuestions  = [
 {
   id: 27,
 
-  book: "Mathematics",
+  book: "Mathematics (Class 10)",
 
   chapter: "Pair of Linear Equations in Two Variables",
 
@@ -143,7 +143,7 @@ export const pairLinearEquationsQuestions  = [
 {
   id: 28,
 
-  book: "Mathematics",
+  book: "Mathematics (Class 10)",
 
   chapter: "Pair of Linear Equations in Two Variables",
 
@@ -163,7 +163,7 @@ export const pairLinearEquationsQuestions  = [
 {
   id: 29,
 
-  book: "Mathematics",
+  book: "Mathematics (Class 10)",
 
   chapter: "Pair of Linear Equations in Two Variables",
 
@@ -183,7 +183,7 @@ export const pairLinearEquationsQuestions  = [
 {
   id: 30,
 
-  book: "Mathematics",
+  book: "Mathematics (Class 10)",
 
   chapter: "Pair of Linear Equations in Two Variables",
 

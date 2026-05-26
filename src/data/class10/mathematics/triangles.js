@@ -3,7 +3,7 @@ export const trianglesQuestions = [
 {
   id: 61,
 
-  book: "Mathematics",
+  book: "Mathematics (Class 10)",
 
   chapter: "Triangles",
 
@@ -23,7 +23,7 @@ export const trianglesQuestions = [
 {
   id: 62,
 
-  book: "Mathematics",
+  book: "Mathematics (Class 10)",
 
   chapter: "Triangles",
 
@@ -43,7 +43,7 @@ export const trianglesQuestions = [
 {
   id: 63,
 
-  book: "Mathematics",
+  book: "Mathematics (Class 10)",
 
   chapter: "Triangles",
 
@@ -63,7 +63,7 @@ export const trianglesQuestions = [
 {
   id: 64,
 
-  book: "Mathematics",
+  book: "Mathematics (Class 10)",
 
   chapter: "Triangles",
 
@@ -83,7 +83,7 @@ export const trianglesQuestions = [
 {
   id: 65,
 
-  book: "Mathematics",
+  book: "Mathematics (Class 10)",
 
   chapter: "Triangles",
 
@@ -103,7 +103,7 @@ export const trianglesQuestions = [
 {
   id: 66,
 
-  book: "Mathematics",
+  book: "Mathematics (Class 10)",
 
   chapter: "Triangles",
 
@@ -123,7 +123,7 @@ export const trianglesQuestions = [
 {
   id: 67,
 
-  book: "Mathematics",
+  book: "Mathematics (Class 10)",
 
   chapter: "Triangles",
 
@@ -143,7 +143,7 @@ export const trianglesQuestions = [
 {
   id: 68,
 
-  book: "Mathematics",
+  book: "Mathematics (Class 10)",
 
   chapter: "Triangles",
 
@@ -163,7 +163,7 @@ export const trianglesQuestions = [
 {
   id: 69,
 
-  book: "Mathematics",
+  book: "Mathematics (Class 10)",
 
   chapter: "Triangles",
 
@@ -183,7 +183,7 @@ export const trianglesQuestions = [
 {
   id: 70,
 
-  book: "Mathematics",
+  book: "Mathematics (Class 10)",
 
   chapter: "Triangles",
 

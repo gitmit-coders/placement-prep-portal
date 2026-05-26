@@ -2,7 +2,7 @@
 export const controlAndCoordinationQuestions = [
   {
     id: 51,
-    book: "Science",
+    book: "Science (Class 10)",
     chapter: "Control and Coordination",
     question: "The functional unit of the nervous system is:",
     options: ["Nephron", "Neuron", "Alveolus", "Dendrite"],
@@ -10,7 +10,7 @@ export const controlAndCoordinationQuestions = [
   },
   {
     id: 52,
-    book: "Science",
+    book: "Science (Class 10)",
     chapter: "Control and Coordination",
     question: "Which part of the brain controls balance and posture?",
     options: ["Cerebrum", "Medulla", "Cerebellum", "Hypothalamus"],
@@ -18,7 +18,7 @@ export const controlAndCoordinationQuestions = [
   },
   {
     id: 53,
-    book: "Science",
+    book: "Science (Class 10)",
     chapter: "Control and Coordination",
     question: "Insulin is secreted by which gland?",
     options: ["Thyroid", "Pituitary", "Pancreas", "Adrenal"],
@@ -26,7 +26,7 @@ export const controlAndCoordinationQuestions = [
   },
   {
     id: 54,
-    book: "Science",
+    book: "Science (Class 10)",
     chapter: "Control and Coordination",
     question: "The movement of a plant towards light is called:",
     options: ["Geotropism", "Phototropism", "Thigmotropism", "Hydrotropism"],
@@ -34,7 +34,7 @@ export const controlAndCoordinationQuestions = [
   },
   {
     id: 55,
-    book: "Science",
+    book: "Science (Class 10)",
     chapter: "Control and Coordination",
     question: "Which hormone is released during emergency or stress situations?",
     options: ["Insulin", "Thyroxine", "Adrenaline", "Oestrogen"],
@@ -42,7 +42,7 @@ export const controlAndCoordinationQuestions = [
   },
   {
     id: 56,
-    book: "Science",
+    book: "Science (Class 10)",
     chapter: "Control and Coordination",
     question: "The master gland of the human body is:",
     options: ["Thyroid gland", "Adrenal gland", "Pituitary gland", "Pancreas"],
@@ -50,7 +50,7 @@ export const controlAndCoordinationQuestions = [
   },
   {
     id: 57,
-    book: "Science",
+    book: "Science (Class 10)",
     chapter: "Control and Coordination",
     question: "Deficiency of iodine causes:",
     options: ["Diabetes", "Goitre", "Dwarfism", "Gigantism"],
@@ -58,7 +58,7 @@ export const controlAndCoordinationQuestions = [
   },
   {
     id: 58,
-    book: "Science",
+    book: "Science (Class 10)",
     chapter: "Control and Coordination",
     question: "A reflex arc consists of:",
     options: ["Brain only", "Spinal cord only", "Receptor, nerve, effector", "Only muscles"],
@@ -66,7 +66,7 @@ export const controlAndCoordinationQuestions = [
   },
   {
     id: 59,
-    book: "Science",
+    book: "Science (Class 10)",
     chapter: "Control and Coordination",
     question: "Auxin hormone in plants is responsible for:",
     options: ["Flowering", "Cell elongation", "Root formation", "Fruit ripening"],
@@ -74,7 +74,7 @@ export const controlAndCoordinationQuestions = [
   },
   {
     id: 60,
-    book: "Science",
+    book: "Science (Class 10)",
     chapter: "Control and Coordination",
     question: "Which of the following is a plant hormone?",
     options: ["Insulin", "Thyroxine", "Cytokinin", "Adrenaline"],

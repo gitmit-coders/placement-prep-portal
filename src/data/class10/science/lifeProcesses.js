@@ -2,7 +2,7 @@
 export const lifeProcessesQuestions = [
   {
     id: 41,
-    book: "Science",
+    book: "Science (Class 10)",
     chapter: "Life Processes",
     question: "The process by which green plants make their own food using sunlight is called:",
     options: ["Respiration", "Photosynthesis", "Transpiration", "Excretion"],
@@ -10,7 +10,7 @@ export const lifeProcessesQuestions = [
   },
   {
     id: 42,
-    book: "Science",
+    book: "Science (Class 10)",
     chapter: "Life Processes",
     question: "In human beings, the digestion of starch starts in the:",
     options: ["Stomach", "Small intestine", "Mouth", "Large intestine"],
@@ -18,7 +18,7 @@ export const lifeProcessesQuestions = [
   },
   {
     id: 43,
-    book: "Science",
+    book: "Science (Class 10)",
     chapter: "Life Processes",
     question: "The enzyme present in saliva is:",
     options: ["Pepsin", "Trypsin", "Salivary amylase", "Lipase"],
@@ -26,7 +26,7 @@ export const lifeProcessesQuestions = [
   },
   {
     id: 44,
-    book: "Science",
+    book: "Science (Class 10)",
     chapter: "Life Processes",
     question: "Which blood group is called universal donor?",
     options: ["A", "B", "AB", "O"],
@@ -34,7 +34,7 @@ export const lifeProcessesQuestions = [
   },
   {
     id: 45,
-    book: "Science",
+    book: "Science (Class 10)",
     chapter: "Life Processes",
     question: "The functional unit of kidney is:",
     options: ["Neuron", "Nephron", "Alveolus", "Villus"],
@@ -42,7 +42,7 @@ export const lifeProcessesQuestions = [
   },
   {
     id: 46,
-    book: "Science",
+    book: "Science (Class 10)",
     chapter: "Life Processes",
     question: "Oxygen is carried by which component of blood?",
     options: ["WBC", "Platelets", "Plasma", "RBC"],
@@ -50,7 +50,7 @@ export const lifeProcessesQuestions = [
   },
   {
     id: 47,
-    book: "Science",
+    book: "Science (Class 10)",
     chapter: "Life Processes",
     question: "Stomata open in the presence of:",
     options: ["Carbon dioxide", "Sunlight", "Water", "Oxygen"],
@@ -58,7 +58,7 @@ export const lifeProcessesQuestions = [
   },
   {
     id: 48,
-    book: "Science",
+    book: "Science (Class 10)",
     chapter: "Life Processes",
     question: "The process of removal of waste products from the body is called:",
     options: ["Digestion", "Respiration", "Excretion", "Transpiration"],
@@ -66,7 +66,7 @@ export const lifeProcessesQuestions = [
   },
   {
     id: 49,
-    book: "Science",
+    book: "Science (Class 10)",
     chapter: "Life Processes",
     question: "Which chamber of the heart pumps oxygenated blood to the body?",
     options: ["Right atrium", "Left atrium", "Right ventricle", "Left ventricle"],
@@ -74,7 +74,7 @@ export const lifeProcessesQuestions = [
   },
   {
     id: 50,
-    book: "Science",
+    book: "Science (Class 10)",
     chapter: "Life Processes",
     question: "Which gas is released during photosynthesis?",
     options: ["Carbon dioxide", "Nitrogen", "Oxygen", "Hydrogen"],

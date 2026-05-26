@@ -2,7 +2,7 @@
 export const metalsAndNonMetalsQuestions = [
   {
     id: 21,
-    book: "Science",
+    book: "Science (Class 10)",
     chapter: "Metals and Non-metals",
     question: "Which of the following metals is the best conductor of electricity?",
     options: ["Iron", "Copper", "Silver", "Gold"],
@@ -10,7 +10,7 @@ export const metalsAndNonMetalsQuestions = [
   },
   {
     id: 22,
-    book: "Science",
+    book: "Science (Class 10)",
     chapter: "Metals and Non-metals",
     question: "The process of depositing a layer of zinc on iron is called:",
     options: ["Tinning", "Galvanisation", "Electroplating", "Anodising"],
@@ -18,7 +18,7 @@ export const metalsAndNonMetalsQuestions = [
   },
   {
     id: 23,
-    book: "Science",
+    book: "Science (Class 10)",
     chapter: "Metals and Non-metals",
     question: "Which non-metal is a good conductor of electricity?",
     options: ["Sulphur", "Phosphorus", "Graphite", "Bromine"],
@@ -26,7 +26,7 @@ export const metalsAndNonMetalsQuestions = [
   },
   {
     id: 24,
-    book: "Science",
+    book: "Science (Class 10)",
     chapter: "Metals and Non-metals",
     question: "The ore of aluminium is:",
     options: ["Haematite", "Bauxite", "Galena", "Cinnabar"],
@@ -34,7 +34,7 @@ export const metalsAndNonMetalsQuestions = [
   },
   {
     id: 25,
-    book: "Science",
+    book: "Science (Class 10)",
     chapter: "Metals and Non-metals",
     question: "Which of the following metals does not react with water at all?",
     options: ["Sodium", "Calcium", "Gold", "Iron"],
@@ -42,7 +42,7 @@ export const metalsAndNonMetalsQuestions = [
   },
   {
     id: 26,
-    book: "Science",
+    book: "Science (Class 10)",
     chapter: "Metals and Non-metals",
     question: "The property of metals to be drawn into thin wires is called:",
     options: ["Malleability", "Ductility", "Conductivity", "Sonority"],
@@ -50,7 +50,7 @@ export const metalsAndNonMetalsQuestions = [
   },
   {
     id: 27,
-    book: "Science",
+    book: "Science (Class 10)",
     chapter: "Metals and Non-metals",
     question: "Which of the following is the most reactive metal?",
     options: ["Gold", "Iron", "Sodium", "Copper"],
@@ -58,7 +58,7 @@ export const metalsAndNonMetalsQuestions = [
   },
   {
     id: 28,
-    book: "Science",
+    book: "Science (Class 10)",
     chapter: "Metals and Non-metals",
     question: "The chemical formula of rust is:",
     options: ["FeO", "Fe₂O₃", "Fe₂O₃.xH₂O", "Fe₃O₄"],
@@ -66,7 +66,7 @@ export const metalsAndNonMetalsQuestions = [
   },
   {
     id: 29,
-    book: "Science",
+    book: "Science (Class 10)",
     chapter: "Metals and Non-metals",
     question: "Cinnabar is an ore of which metal?",
     options: ["Lead", "Mercury", "Copper", "Iron"],
@@ -74,7 +74,7 @@ export const metalsAndNonMetalsQuestions = [
   },
   {
     id: 30,
-    book: "Science",
+    book: "Science (Class 10)",
     chapter: "Metals and Non-metals",
     question: "Which metal is liquid at room temperature?",
     options: ["Sodium", "Potassium", "Mercury", "Gallium"],

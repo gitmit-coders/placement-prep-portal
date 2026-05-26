@@ -3,7 +3,7 @@ export const coordinateGeometryQuestions = [
 {
   id: 51,
 
-  book: "Mathematics",
+  book: "Mathematics (Class 10)",
 
   chapter: "Coordinate Geometry",
 
@@ -23,7 +23,7 @@ export const coordinateGeometryQuestions = [
 {
   id: 52,
 
-  book: "Mathematics",
+  book: "Mathematics (Class 10)",
 
   chapter: "Coordinate Geometry",
 
@@ -43,7 +43,7 @@ export const coordinateGeometryQuestions = [
 {
   id: 53,
 
-  book: "Mathematics",
+  book: "Mathematics (Class 10)",
 
   chapter: "Coordinate Geometry",
 
@@ -63,7 +63,7 @@ export const coordinateGeometryQuestions = [
 {
   id: 54,
 
-  book: "Mathematics",
+  book: "Mathematics (Class 10)",
 
   chapter: "Coordinate Geometry",
 
@@ -83,7 +83,7 @@ export const coordinateGeometryQuestions = [
 {
   id: 55,
 
-  book: "Mathematics",
+  book: "Mathematics (Class 10)",
 
   chapter: "Coordinate Geometry",
 
@@ -103,7 +103,7 @@ export const coordinateGeometryQuestions = [
 {
   id: 56,
 
-  book: "Mathematics",
+  book: "Mathematics (Class 10)",
 
   chapter: "Coordinate Geometry",
 
@@ -123,7 +123,7 @@ export const coordinateGeometryQuestions = [
 {
   id: 57,
 
-  book: "Mathematics",
+  book: "Mathematics (Class 10)",
 
   chapter: "Coordinate Geometry",
 
@@ -143,7 +143,7 @@ export const coordinateGeometryQuestions = [
 {
   id: 58,
 
-  book: "Mathematics",
+  book: "Mathematics (Class 10)",
 
   chapter: "Coordinate Geometry",
 
@@ -163,7 +163,7 @@ export const coordinateGeometryQuestions = [
 {
   id: 59,
 
-  book: "Mathematics",
+  book: "Mathematics (Class 10)",
 
   chapter: "Coordinate Geometry",
 
@@ -183,7 +183,7 @@ export const coordinateGeometryQuestions = [
 {
   id: 60,
 
-  book: "Mathematics",
+  book: "Mathematics (Class 10)",
 
   chapter: "Coordinate Geometry",
 

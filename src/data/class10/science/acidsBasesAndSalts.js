@@ -2,7 +2,7 @@
 export const acidsBasesAndSaltsQuestions = [
   {
     id: 11,
-    book: "Science",
+    book: "Science (Class 10)",
     chapter: "Acids, Bases and Salts",
     question: "Which of the following salts does not contain water of crystallisation?",
     options: ["Blue vitriol", "Baking soda", "Washing soda", "Gypsum"],
@@ -10,7 +10,7 @@ export const acidsBasesAndSaltsQuestions = [
   },
   {
     id: 12,
-    book: "Science",
+    book: "Science (Class 10)",
     chapter: "Acids, Bases and Salts",
     question: "What is formed when zinc reacts with sodium hydroxide?",
     options: ["Zinc hydroxide and sodium", "Sodium zincate and hydrogen gas", "Sodium zinc-oxide and hydrogen gas", "Sodium zincate and water"],
@@ -18,7 +18,7 @@ export const acidsBasesAndSaltsQuestions = [
   },
   {
     id: 13,
-    book: "Science",
+    book: "Science (Class 10)",
     chapter: "Acids, Bases and Salts",
     question: "Tomato is a natural source of which acid?",
     options: ["Acetic acid", "Citric acid", "Tartaric acid", "Oxalic acid"],
@@ -26,7 +26,7 @@ export const acidsBasesAndSaltsQuestions = [
   },
   {
     id: 14,
-    book: "Science",
+    book: "Science (Class 10)",
     chapter: "Acids, Bases and Salts",
     question: "Brine is an aqueous solution of:",
     options: ["Sodium hydroxide", "Sodium carbonate", "Sodium chloride", "Sodium bicarbonate"],
@@ -34,7 +34,7 @@ export const acidsBasesAndSaltsQuestions = [
   },
   {
     id: 15,
-    book: "Science",
+    book: "Science (Class 10)",
     chapter: "Acids, Bases and Salts",
     question: "The pH of a neutral solution is:",
     options: ["0", "7", "14", "1"],
@@ -42,7 +42,7 @@ export const acidsBasesAndSaltsQuestions = [
   },
   {
     id: 16,
-    book: "Science",
+    book: "Science (Class 10)",
     chapter: "Acids, Bases and Salts",
     question: "Which of the following is used as an antacid?",
     options: ["NaOH", "Ca(OH)₂", "Mg(OH)₂", "KOH"],
@@ -50,7 +50,7 @@ export const acidsBasesAndSaltsQuestions = [
   },
   {
     id: 17,
-    book: "Science",
+    book: "Science (Class 10)",
     chapter: "Acids, Bases and Salts",
     question: "Na₂CO₃.10H₂O is known as:",
     options: ["Baking soda", "Washing soda", "Bleaching powder", "Plaster of Paris"],
@@ -58,7 +58,7 @@ export const acidsBasesAndSaltsQuestions = [
   },
   {
     id: 18,
-    book: "Science",
+    book: "Science (Class 10)",
     chapter: "Acids, Bases and Salts",
     question: "Farmers neutralise the effect of acidity in soil by adding:",
     options: ["Sand", "Slaked lime", "Common salt", "Compost"],
@@ -66,7 +66,7 @@ export const acidsBasesAndSaltsQuestions = [
   },
   {
     id: 19,
-    book: "Science",
+    book: "Science (Class 10)",
     chapter: "Acids, Bases and Salts",
     question: "Which of the following is a strong acid?",
     options: ["Acetic acid", "Citric acid", "Hydrochloric acid", "Carbonic acid"],
@@ -74,7 +74,7 @@ export const acidsBasesAndSaltsQuestions = [
   },
   {
     id: 20,
-    book: "Science",
+    book: "Science (Class 10)",
     chapter: "Acids, Bases and Salts",
     question: "The colour of phenolphthalein in a basic solution is:",
     options: ["Red", "Yellow", "Pink", "Colourless"],

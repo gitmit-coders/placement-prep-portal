@@ -2,7 +2,7 @@
 export const heredityAndEvolutionQuestions = [
   {
     id: 71,
-    book: "Science",
+    book: "Science (Class 10)",
     chapter: "Heredity and Evolution",
     question: "The father of genetics is:",
     options: ["Darwin", "Mendel", "Lamarck", "Watson"],
@@ -10,7 +10,7 @@ export const heredityAndEvolutionQuestions = [
   },
   {
     id: 72,
-    book: "Science",
+    book: "Science (Class 10)",
     chapter: "Heredity and Evolution",
     question: "The number of chromosomes in human body cells is:",
     options: ["23", "46", "48", "44"],
@@ -18,7 +18,7 @@ export const heredityAndEvolutionQuestions = [
   },
   {
     id: 73,
-    book: "Science",
+    book: "Science (Class 10)",
     chapter: "Heredity and Evolution",
     question: "Sex of a child is determined by:",
     options: ["Mother's chromosome", "Father's chromosome", "Both parents", "Environment"],
@@ -26,7 +26,7 @@ export const heredityAndEvolutionQuestions = [
   },
   {
     id: 74,
-    book: "Science",
+    book: "Science (Class 10)",
     chapter: "Heredity and Evolution",
     question: "The theory of evolution by natural selection was given by:",
     options: ["Mendel", "Lamarck", "Darwin", "Hugo de Vries"],
@@ -34,7 +34,7 @@ export const heredityAndEvolutionQuestions = [
   },
   {
     id: 75,
-    book: "Science",
+    book: "Science (Class 10)",
     chapter: "Heredity and Evolution",
     question: "Organs that have the same basic structure but different functions are called:",
     options: ["Analogous organs", "Homologous organs", "Vestigial organs", "Fossil organs"],
@@ -42,7 +42,7 @@ export const heredityAndEvolutionQuestions = [
   },
   {
     id: 76,
-    book: "Science",
+    book: "Science (Class 10)",
     chapter: "Heredity and Evolution",
     question: "Acquired characteristics are:",
     options: ["Inherited by offspring", "Not inherited by offspring", "Always dominant", "Caused by mutation"],
@@ -50,7 +50,7 @@ export const heredityAndEvolutionQuestions = [
   },
   {
     id: 77,
-    book: "Science",
+    book: "Science (Class 10)",
     chapter: "Heredity and Evolution",
     question: "DNA molecule carries:",
     options: ["Proteins", "Genetic information", "Enzymes", "Hormones"],
@@ -58,7 +58,7 @@ export const heredityAndEvolutionQuestions = [
   },
   {
     id: 78,
-    book: "Science",
+    book: "Science (Class 10)",
     chapter: "Heredity and Evolution",
     question: "The wings of a bird and wings of an insect are examples of:",
     options: ["Homologous organs", "Analogous organs", "Vestigial organs", "Fossil evidence"],
@@ -66,7 +66,7 @@ export const heredityAndEvolutionQuestions = [
   },
   {
     id: 79,
-    book: "Science",
+    book: "Science (Class 10)",
     chapter: "Heredity and Evolution",
     question: "Which of the following is an example of a vestigial organ in humans?",
     options: ["Kidney", "Liver", "Wisdom teeth", "Heart"],
@@ -74,7 +74,7 @@ export const heredityAndEvolutionQuestions = [
   },
   {
     id: 80,
-    book: "Science",
+    book: "Science (Class 10)",
     chapter: "Heredity and Evolution",
     question: "A cross between a pure tall (TT) and pure dwarf (tt) plant gives:",
     options: ["All dwarf", "All tall", "50% tall 50% dwarf", "75% tall 25% dwarf"],

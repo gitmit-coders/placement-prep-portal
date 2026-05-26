@@ -5,7 +5,7 @@ export const realNumbersQuestions  = [
 {
   id: 11,
 
-  book: "Mathematics",
+  book: "Mathematics (Class 10)",
 
   chapter: "Real Numbers",
 
@@ -20,7 +20,7 @@ export const realNumbersQuestions  = [
 {
   id: 12,
 
-  book: "Mathematics",
+  book: "Mathematics (Class 10)",
 
   chapter: "Real Numbers",
 
@@ -35,7 +35,7 @@ export const realNumbersQuestions  = [
 {
   id: 13,
 
-  book: "Mathematics",
+  book: "Mathematics (Class 10)",
 
   chapter: "Real Numbers",
 
@@ -50,7 +50,7 @@ export const realNumbersQuestions  = [
 {
   id: 14,
 
-  book: "Mathematics",
+  book: "Mathematics (Class 10)",
 
   chapter: "Real Numbers",
 
@@ -65,7 +65,7 @@ export const realNumbersQuestions  = [
 {
   id: 15,
 
-  book: "Mathematics",
+  book: "Mathematics (Class 10)",
 
   chapter: "Real Numbers",
 
@@ -85,7 +85,7 @@ export const realNumbersQuestions  = [
 {
   id: 16,
 
-  book: "Mathematics",
+  book: "Mathematics (Class 10)",
 
   chapter: "Real Numbers",
 
@@ -100,7 +100,7 @@ export const realNumbersQuestions  = [
 {
   id: 17,
 
-  book: "Mathematics",
+  book: "Mathematics (Class 10)",
 
   chapter: "Real Numbers",
 
@@ -120,7 +120,7 @@ export const realNumbersQuestions  = [
 {
   id: 18,
 
-  book: "Mathematics",
+  book: "Mathematics (Class 10)",
 
   chapter: "Real Numbers",
 
@@ -140,7 +140,7 @@ export const realNumbersQuestions  = [
 {
   id: 19,
 
-  book: "Mathematics",
+  book: "Mathematics (Class 10)",
 
   chapter: "Real Numbers",
 
@@ -160,7 +160,7 @@ export const realNumbersQuestions  = [
 {
   id: 20,
 
-  book: "Mathematics",
+  book: "Mathematics (Class 10)",
 
   chapter: "Real Numbers",
 

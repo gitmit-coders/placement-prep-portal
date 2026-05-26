@@ -2,7 +2,7 @@
 export const lightReflectionAndRefractionQuestions = [
   {
     id: 81,
-    book: "Science",
+    book: "Science (Class 10)",
     chapter: "Light – Reflection and Refraction",
     question: "The focal length of a concave mirror is 20 cm. Its radius of curvature is:",
     options: ["10 cm", "20 cm", "40 cm", "5 cm"],
@@ -10,7 +10,7 @@ export const lightReflectionAndRefractionQuestions = [
   },
   {
     id: 82,
-    book: "Science",
+    book: "Science (Class 10)",
     chapter: "Light – Reflection and Refraction",
     question: "A convex mirror is used as a rear-view mirror because it:",
     options: ["Forms a magnified image", "Forms an erect and diminished image", "Forms a real image", "Reflects more light"],
@@ -18,7 +18,7 @@ export const lightReflectionAndRefractionQuestions = [
   },
   {
     id: 83,
-    book: "Science",
+    book: "Science (Class 10)",
     chapter: "Light – Reflection and Refraction",
     question: "The power of a lens of focal length 25 cm is:",
     options: ["4 D", "2.5 D", "0.25 D", "25 D"],
@@ -26,7 +26,7 @@ export const lightReflectionAndRefractionQuestions = [
   },
   {
     id: 84,
-    book: "Science",
+    book: "Science (Class 10)",
     chapter: "Light – Reflection and Refraction",
     question: "When a ray of light goes from a denser medium to a rarer medium, it bends:",
     options: ["Towards normal", "Away from normal", "Parallel to normal", "Does not bend"],
@@ -34,7 +34,7 @@ export const lightReflectionAndRefractionQuestions = [
   },
   {
     id: 85,
-    book: "Science",
+    book: "Science (Class 10)",
     chapter: "Light – Reflection and Refraction",
     question: "The mirror formula is:",
     options: ["1/v + 1/u = 1/f", "1/v - 1/u = 1/f", "v + u = f", "1/f = v - u"],
@@ -42,7 +42,7 @@ export const lightReflectionAndRefractionQuestions = [
   },
   {
     id: 86,
-    book: "Science",
+    book: "Science (Class 10)",
     chapter: "Light – Reflection and Refraction",
     question: "A concave lens always forms an image that is:",
     options: ["Real and inverted", "Virtual and magnified", "Virtual, erect and diminished", "Real and magnified"],
@@ -50,7 +50,7 @@ export const lightReflectionAndRefractionQuestions = [
   },
   {
     id: 87,
-    book: "Science",
+    book: "Science (Class 10)",
     chapter: "Light – Reflection and Refraction",
     question: "The refractive index of glass with respect to air is 1.5. The refractive index of air with respect to glass is:",
     options: ["1.5", "0.67", "2.5", "0.5"],
@@ -58,7 +58,7 @@ export const lightReflectionAndRefractionQuestions = [
   },
   {
     id: 88,
-    book: "Science",
+    book: "Science (Class 10)",
     chapter: "Light – Reflection and Refraction",
     question: "Which mirror is used by dentists to see a magnified image of teeth?",
     options: ["Plane mirror", "Convex mirror", "Concave mirror", "Both convex and concave"],
@@ -66,7 +66,7 @@ export const lightReflectionAndRefractionQuestions = [
   },
   {
     id: 89,
-    book: "Science",
+    book: "Science (Class 10)",
     chapter: "Light – Reflection and Refraction",
     question: "The speed of light in vacuum is:",
     options: ["3×10⁶ m/s", "3×10⁸ m/s", "3×10¹⁰ m/s", "3×10⁴ m/s"],
@@ -74,7 +74,7 @@ export const lightReflectionAndRefractionQuestions = [
   },
   {
     id: 90,
-    book: "Science",
+    book: "Science (Class 10)",
     chapter: "Light – Reflection and Refraction",
     question: "Magnification of a plane mirror is always:",
     options: ["+2", "-1", "+1", "0"],
