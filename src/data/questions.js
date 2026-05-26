@@ -57,6 +57,23 @@ import { mensurationQuestions } from "./class6/mathematics/mensuration"
 import { algebraQuestions } from "./class6/mathematics/algebra"
 import { ratioAndProportionQuestions } from "./class6/mathematics/ratioAndProportion"
 
+
+// Class 6 Science
+import { foodWhereDoesItComeFromQuestions } from "./class6/science/foodWhereDoesItComeFrom"
+import { componentsOfFoodQuestions } from "./class6/science/componentsOfFood"
+import { fibreToFabricQuestions } from "./class6/science/fibreToFabric"
+import { sortingMaterialsIntoGroupsQuestions } from "./class6/science/sortingMaterialsIntoGroups"
+import { separationOfSubstancesQuestions } from "./class6/science/separationOfSubstances"
+import { changesAroundUsQuestions } from "./class6/science/changesAroundUs"
+import { gettingToKnowPlantsQuestions } from "./class6/science/gettingToKnowPlants"
+import { bodyMovementsQuestions } from "./class6/science/bodyMovements"
+import { theLivingOrganismsQuestions } from "./class6/science/theLivingOrganisms"
+import { motionAndMeasurementQuestions } from "./class6/science/motionAndMeasurement"
+import { lightShadowsAndReflectionsQuestions } from "./class6/science/lightShadowsAndReflections"
+import { electricityAndCircuitsQuestions } from "./class6/science/electricityAndCircuits"
+import { funWithMagnetsQuestions } from "./class6/science/funWithMagnets"
+import { waterQuestions } from "./class6/science/water"
+
 export const questions = [
   // Class 10 Mathematics
   ...realNumbersQuestions,
@@ -116,4 +133,23 @@ export const questions = [
   ...mensurationQuestions,
   ...algebraQuestions,
   ...ratioAndProportionQuestions,
+
+
+  // Class 6 Science
+...foodWhereDoesItComeFromQuestions,
+...componentsOfFoodQuestions,
+...fibreToFabricQuestions,
+...sortingMaterialsIntoGroupsQuestions,
+...separationOfSubstancesQuestions,
+...changesAroundUsQuestions,
+...gettingToKnowPlantsQuestions,
+...bodyMovementsQuestions,
+...theLivingOrganismsQuestions,
+...motionAndMeasurementQuestions,
+...lightShadowsAndReflectionsQuestions,
+...electricityAndCircuitsQuestions,
+...funWithMagnetsQuestions,
+...waterQuestions,
+
+
 ]
