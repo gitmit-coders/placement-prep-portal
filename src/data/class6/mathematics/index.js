@@ -1,0 +1,13 @@
+// Class 6 Mathematics - All Chapters Index
+export { knowingOurNumbersQuestions } from "./knowingOurNumbers"
+export { wholeNumbersQuestions } from "./wholeNumbers"
+export { playingWithNumbersQuestions } from "./playingWithNumbers"
+export { basicGeometricalIdeasQuestions } from "./basicGeometricalIdeas"
+export { understandingElementaryShapesQuestions } from "./understandingElementaryShapes"
+export { integersQuestions } from "./integers"
+export { fractionsQuestions } from "./fractions"
+export { decimalsQuestions } from "./decimals"
+export { dataHandlingQuestions } from "./dataHandling"
+export { mensurationQuestions } from "./mensuration"
+export { algebraQuestions } from "./algebra"
+export { ratioAndProportionQuestions } from "./ratioAndProportion"
