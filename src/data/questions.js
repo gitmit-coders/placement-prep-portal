@@ -43,6 +43,21 @@ import { workAndEnergyQuestions } from "./class9/science/workAndEnergy"
 import { soundQuestions } from "./class9/science/sound"
 import { improvementInFoodResourcesQuestions } from "./class9/science/improvementInFoodResources"
 
+
+// Class 9 Mathematics
+import { numberSystemsQuestions } from "./class9/mathematics/numberSystems"
+import { polynomialsQuestions } from "./class9/mathematics/polynomials"
+import { coordinateGeometryQuestions } from "./class9/mathematics/coordinateGeometry"
+import { linearEquationsQuestions } from "./class9/mathematics/linearEquations"
+import { euclidGeometryQuestions } from "./class9/mathematics/euclidGeometry"
+import { linesAndAnglesQuestions } from "./class9/mathematics/linesAndAngles"
+import { trianglesQuestions } from "./class9/mathematics/triangles"
+import { quadrilateralsQuestions } from "./class9/mathematics/quadrilaterals"
+import { circlesQuestions } from "./class9/mathematics/circles"
+import { heronsFormulaQuestions } from "./class9/mathematics/heronsFormula"
+import { surfaceAreasAndVolumesQuestions } from "./class9/mathematics/surfaceAreasAndVolumes"
+import { statisticsQuestions } from "./class9/mathematics/statistics"
+
 // ── CLASS 6 MATHEMATICS ──
 import { knowingOurNumbersQuestions } from "./class6/mathematics/knowingOurNumbers"
 import { wholeNumbersQuestions } from "./class6/mathematics/wholeNumbers"
@@ -119,6 +134,21 @@ export const questions = [
   ...workAndEnergyQuestions,
   ...soundQuestions,
   ...improvementInFoodResourcesQuestions,
+
+// Class 9 Mathematics
+...numberSystemsQuestions,
+...polynomialsQuestions,
+...coordinateGeometryQuestions,
+...linearEquationsQuestions,
+...euclidGeometryQuestions,
+...linesAndAnglesQuestions,
+...trianglesQuestions,
+...quadrilateralsQuestions,
+...circlesQuestions,
+...heronsFormulaQuestions,
+...surfaceAreasAndVolumesQuestions,
+...statisticsQuestions,
+  
 
   // Class 6 Mathematics
   ...knowingOurNumbersQuestions,
