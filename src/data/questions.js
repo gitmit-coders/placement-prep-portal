@@ -89,6 +89,21 @@ import { electricityAndCircuitsQuestions } from "./class6/science/electricityAnd
 import { funWithMagnetsQuestions } from "./class6/science/funWithMagnets"
 import { waterQuestions } from "./class6/science/water"
 
+
+// ── CLASS 7 MATHEMATICS ──
+import { c7IntegersQuestions } from "./class7/mathematics/integers"
+import { c7FractionsDecimalsQuestions } from "./class7/mathematics/fractionsAndDecimals"
+import { c7DataHandlingQuestions } from "./class7/mathematics/dataHandling"
+import { c7SimpleEquationsQuestions } from "./class7/mathematics/simpleEquations"
+import { c7LinesAndAnglesQuestions } from "./class7/mathematics/linesAndAngles"
+import { c7TrianglePropertiesQuestions } from "./class7/mathematics/triangleProperties"
+import { c7ComparingQuantitiesQuestions } from "./class7/mathematics/comparingQuantities"
+import { c7RationalNumbersQuestions } from "./class7/mathematics/rationalNumbers"
+import { c7PerimeterAndAreaQuestions } from "./class7/mathematics/perimeterAndArea"
+import { c7AlgebraicExpressionsQuestions } from "./class7/mathematics/algebraicExpressions"
+import { c7ExponentsAndPowersQuestions } from "./class7/mathematics/exponentsAndPowers"
+import { c7SymmetryQuestions } from "./class7/mathematics/symmetry"
+
 export const questions = [
   // Class 10 Mathematics
   ...realNumbersQuestions,
@@ -181,5 +196,19 @@ export const questions = [
 ...funWithMagnetsQuestions,
 ...waterQuestions,
 
+// Class 7 Mathematics
+  ...c7IntegersQuestions,
+  ...c7FractionsDecimalsQuestions,
+  ...c7DataHandlingQuestions,
+  ...c7SimpleEquationsQuestions,
+  ...c7LinesAndAnglesQuestions,
+  ...c7TrianglePropertiesQuestions,
+  ...c7ComparingQuantitiesQuestions,
+  ...c7RationalNumbersQuestions,
+  ...c7PerimeterAndAreaQuestions,
+  ...c7AlgebraicExpressionsQuestions,
+  ...c7ExponentsAndPowersQuestions,
+  ...c7SymmetryQuestions,
 
+  
 ]
