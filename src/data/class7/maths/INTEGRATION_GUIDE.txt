@@ -1,0 +1,115 @@
+=======================================================
+  CLASS 7 MATHEMATICS — COMPLETE INTEGRATION GUIDE
+=======================================================
+
+STEP 1: FILES COPY KARO
+-----------------------
+Ye saari files apni project mein daalo:
+
+  src/data/class7/mathematics/integers.js
+  src/data/class7/mathematics/fractionsAndDecimals.js
+  src/data/class7/mathematics/dataHandling.js
+  src/data/class7/mathematics/simpleEquations.js
+  src/data/class7/mathematics/linesAndAngles.js
+  src/data/class7/mathematics/triangleProperties.js
+  src/data/class7/mathematics/comparingQuantities.js
+  src/data/class7/mathematics/rationalNumbers.js
+  src/data/class7/mathematics/perimeterAndArea.js
+  src/data/class7/mathematics/algebraicExpressions.js
+  src/data/class7/mathematics/exponentsAndPowers.js
+  src/data/class7/mathematics/symmetry.js
+
+
+=======================================================
+STEP 2: questions.jsx MEIN YE CHANGES KARO
+=======================================================
+
+-- TOP MEIN (imports section mein) YE ADD KARO --
+
+// ── CLASS 7 MATHEMATICS ──
+import { c7IntegersQuestions } from "./class7/mathematics/integers"
+import { c7FractionsDecimalsQuestions } from "./class7/mathematics/fractionsAndDecimals"
+import { c7DataHandlingQuestions } from "./class7/mathematics/dataHandling"
+import { c7SimpleEquationsQuestions } from "./class7/mathematics/simpleEquations"
+import { c7LinesAndAnglesQuestions } from "./class7/mathematics/linesAndAngles"
+import { c7TrianglePropertiesQuestions } from "./class7/mathematics/triangleProperties"
+import { c7ComparingQuantitiesQuestions } from "./class7/mathematics/comparingQuantities"
+import { c7RationalNumbersQuestions } from "./class7/mathematics/rationalNumbers"
+import { c7PerimeterAndAreaQuestions } from "./class7/mathematics/perimeterAndArea"
+import { c7AlgebraicExpressionsQuestions } from "./class7/mathematics/algebraicExpressions"
+import { c7ExponentsAndPowersQuestions } from "./class7/mathematics/exponentsAndPowers"
+import { c7SymmetryQuestions } from "./class7/mathematics/symmetry"
+
+
+-- NICHE (export const questions = [...] ke andar) YE ADD KARO --
+-- (Class 6 Mathematics section se pehle daalna) --
+
+  // Class 7 Mathematics
+  ...c7IntegersQuestions,
+  ...c7FractionsDecimalsQuestions,
+  ...c7DataHandlingQuestions,
+  ...c7SimpleEquationsQuestions,
+  ...c7LinesAndAnglesQuestions,
+  ...c7TrianglePropertiesQuestions,
+  ...c7ComparingQuantitiesQuestions,
+  ...c7RationalNumbersQuestions,
+  ...c7PerimeterAndAreaQuestions,
+  ...c7AlgebraicExpressionsQuestions,
+  ...c7ExponentsAndPowersQuestions,
+  ...c7SymmetryQuestions,
+
+
+=======================================================
+STEP 3: chapters.jsx MEIN YE CHANGES KARO
+=======================================================
+
+"Mathematics (Class 7)" wala array already hai aur BILKUL SAHI hai.
+Koi change NAHI karna. Bas verify karo ki ye hai:
+
+  "Mathematics (Class 7)": [
+    "Integers", "Fractions and Decimals", "Data Handling",
+    "Simple Equations", "Lines and Angles",
+    "The Triangle and its Properties", "Comparing Quantities",
+    "Rational Numbers", "Perimeter and Area",
+    "Algebraic Expressions", "Exponents and Powers", "Symmetry",
+  ],
+
+NOTE: chapters.jsx mein chapter names EXACTLY match karne chahiye
+questions.jsx ki files mein likhe "chapter" field ke saath.
+Ye already match karti hain — check karo:
+
+  chapters.jsx          |  questions file chapter field
+  ----------------------|------------------------------
+  Integers              |  "Integers"
+  Fractions and Decimals|  "Fractions and Decimals"
+  Data Handling         |  "Data Handling"
+  Simple Equations      |  "Simple Equations"
+  Lines and Angles      |  "Lines and Angles"
+  The Triangle and...   |  "The Triangle and its Properties"
+  Comparing Quantities  |  "Comparing Quantities"
+  Rational Numbers      |  "Rational Numbers"
+  Perimeter and Area    |  "Perimeter and Area"
+  Algebraic Expressions |  "Algebraic Expressions"
+  Exponents and Powers  |  "Exponents and Powers"
+  Symmetry              |  "Symmetry"
+
+
+=======================================================
+STEP 4: GITHUB PUSH COMMANDS
+=======================================================
+
+Terminal mein ye commands run karo (ek ek karke):
+
+  git add src/data/class7/
+
+  git add src/data/questions.jsx
+
+  git commit -m "feat: Add Class 7 Mathematics chapters with 120 PYQ questions"
+
+  git push origin main
+
+NOTE: Agar tumhara branch main nahi hai (jaise master ya koi aur naam),
+to last command mein main ki jagah apna branch name daalo.
+Branch check karne ke liye: git branch
+
+=======================================================
