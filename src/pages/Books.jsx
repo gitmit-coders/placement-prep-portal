@@ -20,9 +20,8 @@ function Books() {
       { name: "English (Class 8)", label: "English" },
     ],
     "9": [
-      { name: "Mathematics (Class 9)", label: "Mathematics" },
       { name: "Science (Class 9)", label: "Science" },
-      { name: "English (Class 9)", label: "English" },
+      // Mathematics (Class 9) — coming soon, no questions added yet
     ],
     "10": [
       { name: "Mathematics (Class 10)", label: "Mathematics" },
