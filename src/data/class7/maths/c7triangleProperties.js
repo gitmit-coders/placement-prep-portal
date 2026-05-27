@@ -1,0 +1,12 @@
+export const c7TrianglePropertiesQuestions = [
+  { id: 7051, book: "Mathematics (Class 7)", chapter: "The Triangle and its Properties", question: "Sum of angles of a triangle is:", options: ["90°", "180°", "270°", "360°"], answer: "180°" },
+  { id: 7052, book: "Mathematics (Class 7)", chapter: "The Triangle and its Properties", question: "The exterior angle of a triangle equals:", options: ["Sum of all interior angles", "Sum of two non-adjacent interior angles", "The adjacent interior angle", "180°"], answer: "Sum of two non-adjacent interior angles" },
+  { id: 7053, book: "Mathematics (Class 7)", chapter: "The Triangle and its Properties", question: "In a right-angled triangle, the longest side is called:", options: ["Base", "Height", "Hypotenuse", "Median"], answer: "Hypotenuse" },
+  { id: 7054, book: "Mathematics (Class 7)", chapter: "The Triangle and its Properties", question: "A triangle with all sides unequal is called:", options: ["Equilateral", "Isosceles", "Scalene", "Right-angled"], answer: "Scalene" },
+  { id: 7055, book: "Mathematics (Class 7)", chapter: "The Triangle and its Properties", question: "In triangle ABC, if AB = AC, then:", options: ["∠B = ∠C", "∠A = ∠B", "∠A = ∠C", "All angles equal"], answer: "∠B = ∠C" },
+  { id: 7056, book: "Mathematics (Class 7)", chapter: "The Triangle and its Properties", question: "Median of a triangle connects:", options: ["Two midpoints", "Vertex to midpoint of opposite side", "Two vertices", "Vertex to opposite vertex"], answer: "Vertex to midpoint of opposite side" },
+  { id: 7057, book: "Mathematics (Class 7)", chapter: "The Triangle and its Properties", question: "Sum of any two sides of a triangle is always:", options: ["Equal to third side", "Less than third side", "Greater than third side", "Half of third side"], answer: "Greater than third side" },
+  { id: 7058, book: "Mathematics (Class 7)", chapter: "The Triangle and its Properties", question: "An equilateral triangle has each angle equal to:", options: ["45°", "60°", "90°", "120°"], answer: "60°" },
+  { id: 7059, book: "Mathematics (Class 7)", chapter: "The Triangle and its Properties", question: "Pythagoras theorem: In right triangle, c² = ?", options: ["a + b", "a² - b²", "a² + b²", "2ab"], answer: "a² + b²" },
+  { id: 7060, book: "Mathematics (Class 7)", chapter: "The Triangle and its Properties", question: "Altitude of a triangle is drawn from:", options: ["Midpoint to side", "Vertex perpendicular to opposite side", "Side to side", "Vertex to vertex"], answer: "Vertex perpendicular to opposite side" },
+]
