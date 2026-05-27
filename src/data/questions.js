@@ -99,7 +99,7 @@ import { fractionsAndDecimalsQuestions as c7FractionsDecimalsQuestions } from ".
 import { dataHandlingQuestions as c7DataHandlingQuestions } from "./class7/mathematics/dataHandling"
 import { simpleEquationsQuestions as c7SimpleEquationsQuestions } from "./class7/mathematics/simpleEquations"
 import { linesAndAnglesQuestions as c7LinesAndAnglesQuestions } from "./class7/mathematics/linesAndAngles"
-import { triangleAndItsPropertiesQuestions as c7TrianglePropertiesQuestions } from "./class7/mathematics/triangleAndItsProperties"
+import { triangleAndItsPropertiesQuestions as c7TrianglePropertiesQuestions } from "./class7/mathematics/triangleProperties"
 import { comparingQuantitiesQuestions as c7ComparingQuantitiesQuestions } from "./class7/mathematics/comparingQuantities"
 import { rationalNumbersQuestions as c7RationalNumbersQuestions } from "./class7/mathematics/rationalNumbers"
 import { perimeterAndAreaQuestions as c7PerimeterAndAreaQuestions } from "./class7/mathematics/perimeterAndArea"
