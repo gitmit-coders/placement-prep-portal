@@ -11,8 +11,8 @@ function Quiz() {
   const selectedChapter = searchParams.get("chapter")
 
   const questions = bank.filter(
-    (q) => q.book === selectedBook && q.chapter === selectedChapter
-  )
+  (q) => q.subject === selectedBook && q.chapter === selectedChapter
+)
 
   const [current, setCurrent] = useState(0)
   const [time, setTime] = useState(TOTAL_TIME)
