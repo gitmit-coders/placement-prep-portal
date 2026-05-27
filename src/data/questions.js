@@ -123,6 +123,22 @@ import { motionAndTimeQuestions } from "./class7/science/motionAndTime"
 import { electricCurrentAndItsEffectsQuestions } from "./class7/science/electricCurrentAndItsEffects"
 import { lightQuestions as c7LightQuestions } from "./class7/science/light"
 
+// ── CLASS 8 MATHEMATICS ──
+import { c8RationalNumbersQuestions } from "./class8/mathematics/rationalNumbers"
+import { c8LinearEquationsQuestions } from "./class8/mathematics/linearEquations"
+import { c8UnderstandingQuadrilateralsQuestions } from "./class8/mathematics/understandingQuadrilaterals"
+import { c8PracticalGeometryQuestions } from "./class8/mathematics/practicalGeometry"
+import { c8DataHandlingQuestions } from "./class8/mathematics/dataHandling"
+import { c8SquaresAndSquareRootsQuestions } from "./class8/mathematics/squaresAndSquareRoots"
+import { c8CubesAndCubeRootsQuestions } from "./class8/mathematics/cubesAndCubeRoots"
+import { c8ComparingQuantitiesQuestions } from "./class8/mathematics/comparingQuantities"
+import { c8AlgebraicExpressionsQuestions } from "./class8/mathematics/algebraicExpressions"
+import { c8MensurationQuestions } from "./class8/mathematics/mensuration"
+import { c8ExponentsAndPowersQuestions } from "./class8/mathematics/exponentsAndPowers"
+import { c8DirectAndInverseProportionsQuestions } from "./class8/mathematics/directAndInverseProportions"
+import { c8FactorisationQuestions } from "./class8/mathematics/factorisation"
+import { c8IntroductionToGraphsQuestions } from "./class8/mathematics/introductionToGraphs"
+
 export const questions = [
   // Class 10 Mathematics
   ...realNumbersQuestions,
@@ -246,5 +262,21 @@ export const questions = [
   ...motionAndTimeQuestions,
   ...electricCurrentAndItsEffectsQuestions,
   ...c7LightQuestions,
+
+  // Class 8 Mathematics
+  ...c8RationalNumbersQuestions,
+  ...c8LinearEquationsQuestions,
+  ...c8UnderstandingQuadrilateralsQuestions,
+  ...c8PracticalGeometryQuestions,
+  ...c8DataHandlingQuestions,
+  ...c8SquaresAndSquareRootsQuestions,
+  ...c8CubesAndCubeRootsQuestions,
+  ...c8ComparingQuantitiesQuestions,
+  ...c8AlgebraicExpressionsQuestions,
+  ...c8MensurationQuestions,
+  ...c8ExponentsAndPowersQuestions,
+  ...c8DirectAndInverseProportionsQuestions,
+  ...c8FactorisationQuestions,
+  ...c8IntroductionToGraphsQuestions,
 
 ]
