@@ -104,6 +104,24 @@ import { c7AlgebraicExpressionsQuestions } from "./class7/mathematics/algebraicE
 import { c7ExponentsAndPowersQuestions } from "./class7/mathematics/exponentsAndPowers"
 import { c7SymmetryQuestions } from "./class7/mathematics/symmetry"
 
+  // ── CLASS 7 SCIENCE — Import Statements ──
+
+import { nutritionInPlantsQuestions } from "./class7/science/nutritionInPlants"
+import { nutritionInAnimalsQuestions } from "./class7/science/nutritionInAnimals"
+import { fibreToFabricQuestions } from "./class7/science/fibreToFabric"
+import { heatQuestions } from "./class7/science/heat"
+import { acidsBasesAndSaltsQuestions as c7AcidsBasesAndSaltsQuestions } from "./class7/science/acidsBasesAndSalts"
+import { physicalAndChemicalChangesQuestions } from "./class7/science/physicalAndChemicalChanges"
+import { weatherClimateAndAdaptationsQuestions } from "./class7/science/weatherClimateAndAdaptations"
+import { windsStormsAndCyclonesQuestions } from "./class7/science/windsStormsAndCyclones"
+import { soilQuestions } from "./class7/science/soil"
+import { respirationInOrganismsQuestions } from "./class7/science/respirationInOrganisms"
+import { transportationInAnimalsAndPlantsQuestions } from "./class7/science/transportationInAnimalsAndPlants"
+import { reproductionInPlantsQuestions } from "./class7/science/reproductionInPlants"
+import { motionAndTimeQuestions } from "./class7/science/motionAndTime"
+import { electricCurrentAndItsEffectsQuestions } from "./class7/science/electricCurrentAndItsEffects"
+import { lightQuestions as c7LightQuestions } from "./class7/science/light"
+
 export const questions = [
   // Class 10 Mathematics
   ...realNumbersQuestions,
@@ -210,5 +228,22 @@ export const questions = [
   ...c7ExponentsAndPowersQuestions,
   ...c7SymmetryQuestions,
 
-  
+
+// Class 7 Science
+  ...nutritionInPlantsQuestions,
+  ...nutritionInAnimalsQuestions,
+  ...fibreToFabricQuestions,
+  ...heatQuestions,
+  ...c7AcidsBasesAndSaltsQuestions,
+  ...physicalAndChemicalChangesQuestions,
+  ...weatherClimateAndAdaptationsQuestions,
+  ...windsStormsAndCyclonesQuestions,
+  ...soilQuestions,
+  ...respirationInOrganismsQuestions,
+  ...transportationInAnimalsAndPlantsQuestions,
+  ...reproductionInPlantsQuestions,
+  ...motionAndTimeQuestions,
+  ...electricCurrentAndItsEffectsQuestions,
+  ...c7LightQuestions,
+
 ]
