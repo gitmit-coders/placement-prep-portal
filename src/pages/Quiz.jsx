@@ -26,13 +26,11 @@ function Quiz() {
   const [saving, setSaving] = useState(false)
   const [saveError, setSaveError] = useState(false)
 
-  // ✅ FIX: Use refs to track score/time accurately.
-  // React setState is async — inside nextQuestion(), score state
-  // would show the OLD value. Refs always hold the current value.
   const scoreRef = useRef(0)
   const wrongRef = useRef(0)
   const totalTimeRef = useRef(0)
   const historyRef = useRef([])
+  const finishedRef = useRef(false) // ✅ track finished in ref to avoid timer restart
 
   if (!selectedBook || !selectedChapter || questions.length === 0) {
     return (
@@ -48,9 +46,9 @@ function Quiz() {
     )
   }
 
-  // Question countdown timer
+  // ✅ Question countdown timer — restarts on each new question
   useEffect(() => {
-    if (finished || answered) return
+    if (finishedRef.current || answered) return
     const interval = setInterval(() => {
       setTime((t) => {
         if (t <= 1) {
@@ -63,19 +61,21 @@ function Quiz() {
       })
     }, 1000)
     return () => clearInterval(interval)
-  }, [current, finished, answered])
+  }, [current, answered]) // only depends on current question, not finished state
 
-  // Total elapsed timer
+  // ✅ FIXED: Total timer — runs ONCE on mount, never restarts
+  // Uses ref to check if finished so it doesn't need finished in deps
   useEffect(() => {
-    if (finished) return
     const interval = setInterval(() => {
-      setTotalTime((t) => {
-        totalTimeRef.current = t + 1
-        return t + 1
-      })
+      if (finishedRef.current) {
+        clearInterval(interval)
+        return
+      }
+      totalTimeRef.current += 1
+      setTotalTime(totalTimeRef.current)
     }, 1000)
     return () => clearInterval(interval)
-  }, [finished])
+  }, []) // ✅ empty deps — starts once, never restarts
 
   const checkAnswer = (opt) => {
     if (answered) return
@@ -106,7 +106,9 @@ function Quiz() {
       setSelected(null)
       setResult("")
     } else {
-      // Use refs — not state — for guaranteed accurate final values
+      // Stop total timer
+      finishedRef.current = true
+
       const finalScore = scoreRef.current
       const finalWrong = wrongRef.current
       const finalTime = totalTimeRef.current
@@ -134,11 +136,11 @@ function Quiz() {
           }),
         })
         if (!response.ok) {
-          console.error("Save failed with status:", response.status)
+          console.error("Save failed:", response.status)
           setSaveError(true)
         }
       } catch (error) {
-        console.error("Network error while saving result:", error)
+        console.error("Network error:", error)
         setSaveError(true)
       }
 
@@ -204,7 +206,7 @@ function Quiz() {
             </p>
           ) : (
             <p style={{ color: "#64748b", textAlign: "center", marginTop: "12px", fontSize: "14px" }}>
-              Result saved successfully. Dashboard and Leaderboard have been updated.
+              Result saved. Dashboard and Leaderboard updated.
             </p>
           )}
         </div>
@@ -215,9 +217,11 @@ function Quiz() {
   return (
     <>
       <style>{style}</style>
+      {/* ✅ Total timer — always running, never resets */}
       <div className="top-bar">Total Time: {totalTime}s</div>
       <div className="root">
         <div className="card">
+          {/* Per-question countdown */}
           <div className="q-timer">{time}s</div>
           <p style={{ margin: "0 0 4px", fontSize: "15px", color: "#94a3b8", fontWeight: "500" }}>
             {selectedBook} — {selectedChapter}
