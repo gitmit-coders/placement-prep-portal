@@ -139,6 +139,25 @@ import { c8DirectAndInverseProportionsQuestions } from "./class8/mathematics/dir
 import { c8FactorisationQuestions } from "./class8/mathematics/factorisation"
 import { c8IntroductionToGraphsQuestions } from "./class8/mathematics/introductionToGraphs"
 
+
+// ── CLASS 8 SCIENCE ──
+import { c8CropProductionQuestions } from "./class8/science/cropProductionAndManagement"
+import { c8MicroorganismsQuestions } from "./class8/science/microorganisms"
+import { c8CoalAndPetroleumQuestions } from "./class8/science/coalAndPetroleum"
+import { c8CombustionAndFlameQuestions } from "./class8/science/combustionAndFlame"
+import { c8ConservationPlantsAnimalsQuestions } from "./class8/science/conservationOfPlantsAndAnimals"
+import { c8CellStructureQuestions } from "./class8/science/cellStructureAndFunctions"
+import { c8ReproductionInAnimalsQuestions } from "./class8/science/reproductionInAnimals"
+import { c8AdolescenceQuestions } from "./class8/science/reachingTheAgeOfAdolescence"
+import { c8ForceAndPressureQuestions } from "./class8/science/forceAndPressure"
+import { c8FrictionQuestions } from "./class8/science/friction"
+import { c8SoundQuestions } from "./class8/science/sound"
+import { c8ChemicalEffectsQuestions } from "./class8/science/chemicalEffectsOfElectricCurrent"
+import { c8NaturalPhenomenaQuestions } from "./class8/science/someNaturalPhenomena"
+import { c8LightQuestions } from "./class8/science/light"
+
+
+
 export const questions = [
   // Class 10 Mathematics
   ...realNumbersQuestions,
@@ -278,5 +297,24 @@ export const questions = [
   ...c8DirectAndInverseProportionsQuestions,
   ...c8FactorisationQuestions,
   ...c8IntroductionToGraphsQuestions,
+
+
+  // Class 8 Science
+  ...c8CropProductionQuestions,
+  ...c8MicroorganismsQuestions,
+  ...c8CoalAndPetroleumQuestions,
+  ...c8CombustionAndFlameQuestions,
+  ...c8ConservationPlantsAnimalsQuestions,
+  ...c8CellStructureQuestions,
+  ...c8ReproductionInAnimalsQuestions,
+  ...c8AdolescenceQuestions,
+  ...c8ForceAndPressureQuestions,
+  ...c8FrictionQuestions,
+  ...c8SoundQuestions,
+  ...c8ChemicalEffectsQuestions,
+  ...c8NaturalPhenomenaQuestions,
+  ...c8LightQuestions,
+
+  
 
 ]
