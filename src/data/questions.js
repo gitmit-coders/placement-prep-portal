@@ -106,21 +106,18 @@ import { c7SymmetryQuestions } from "./class7/mathematics/symmetry"
 
   // ── CLASS 7 SCIENCE — Import Statements ──
 
-import { nutritionInPlantsQuestions } from "./class7/science/nutritionInPlants"
-import { nutritionInAnimalsQuestions } from "./class7/science/nutritionInAnimals"
-import { fibreToFabricQuestions as c7FibreToFabricQuestions } from "./class7/science/fibreToFabric"
-import { heatQuestions } from "./class7/science/heat"
-import { acidsBasesAndSaltsQuestions as c7AcidsBasesAndSaltsQuestions } from "./class7/science/acidsBasesAndSalts"
-import { physicalAndChemicalChangesQuestions } from "./class7/science/physicalAndChemicalChanges"
-import { weatherClimateAndAdaptationsQuestions } from "./class7/science/weatherClimateAndAdaptations"
-import { windsStormsAndCyclonesQuestions } from "./class7/science/windsStormsAndCyclones"
-import { soilQuestions } from "./class7/science/soil"
-import { respirationInOrganismsQuestions } from "./class7/science/respirationInOrganisms"
-import { transportationInAnimalsAndPlantsQuestions } from "./class7/science/transportationInAnimalsAndPlants"
-import { reproductionInPlantsQuestions } from "./class7/science/reproductionInPlants"
-import { motionAndTimeQuestions } from "./class7/science/motionAndTime"
-import { electricCurrentAndItsEffectsQuestions } from "./class7/science/electricCurrentAndItsEffects"
-import { lightQuestions as c7LightQuestions } from "./class7/science/light"
+import { integersQuestions as c7IntegersQuestions } from "./class7/mathematics/integers"
+import { fractionsAndDecimalsQuestions as c7FractionsDecimalsQuestions } from "./class7/mathematics/fractionsAndDecimals"
+import { dataHandlingQuestions as c7DataHandlingQuestions } from "./class7/mathematics/dataHandling"
+import { simpleEquationsQuestions as c7SimpleEquationsQuestions } from "./class7/mathematics/simpleEquations"
+import { linesAndAnglesQuestions as c7LinesAndAnglesQuestions } from "./class7/mathematics/linesAndAngles"
+import { triangleAndItsPropertiesQuestions as c7TrianglePropertiesQuestions } from "./class7/mathematics/triangleAndItsProperties"
+import { comparingQuantitiesQuestions as c7ComparingQuantitiesQuestions } from "./class7/mathematics/comparingQuantities"
+import { rationalNumbersQuestions as c7RationalNumbersQuestions } from "./class7/mathematics/rationalNumbers"
+import { perimeterAndAreaQuestions as c7PerimeterAndAreaQuestions } from "./class7/mathematics/perimeterAndArea"
+import { algebraicExpressionsQuestions as c7AlgebraicExpressionsQuestions } from "./class7/mathematics/algebraicExpressions"
+import { exponentsAndPowersQuestions as c7ExponentsAndPowersQuestions } from "./class7/mathematics/exponentsAndPowers"
+import { symmetryQuestions as c7SymmetryQuestions } from "./class7/mathematics/symmetry"
 
 export const questions = [
   // Class 10 Mathematics
