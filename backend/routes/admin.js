@@ -1,13 +1,14 @@
 const express = require("express")
 const router = express.Router()
 const Admin = require("../models/Admin")
+const School = require("../models/School")
 const bcrypt = require("bcryptjs")
 
-// REGISTER (used by superadmin to create teacher accounts)
+// REGISTER (used by school admin to create teacher accounts)
 router.post("/register", async (req, res) => {
   try {
-    const { name, email, password, schoolName, role } = req.body
-    if (!name || !email || !password || !schoolName) {
+    const { name, email, password, schoolName, schoolCode, role } = req.body
+    if (!name || !email || !password || !schoolName || !schoolCode) {
       return res.status(400).json({ message: "All fields are required." })
     }
     if (password.length < 6) {
@@ -20,7 +21,7 @@ router.post("/register", async (req, res) => {
     const hashed = await bcrypt.hash(password, 10)
     const admin = new Admin({
       name, email: email.toLowerCase(),
-      password: hashed, schoolName,
+      password: hashed, schoolName, schoolCode,
       role: role || "teacher",
     })
     await admin.save()
@@ -30,21 +31,35 @@ router.post("/register", async (req, res) => {
   }
 })
 
-// LOGIN (both superadmin and teacher use this)
+// LOGIN (teacher login)
 router.post("/login", async (req, res) => {
   try {
     const { email, password } = req.body
     if (!email || !password) {
       return res.status(400).json({ message: "Email and password required." })
     }
+
     const admin = await Admin.findOne({ email: email.toLowerCase() })
     if (!admin) {
       return res.status(400).json({ message: "Invalid email or password." })
     }
+
     const match = await bcrypt.compare(password, admin.password)
     if (!match) {
       return res.status(400).json({ message: "Invalid email or password." })
     }
+
+    // ✅ FIX: Check if school is still approved
+    const schoolActive = await School.findOne({
+      schoolCode: admin.schoolCode,
+      status: "approved",
+    })
+    if (!schoolActive) {
+      return res.status(403).json({
+        message: "Your school is no longer active on this platform. Please contact the platform administrator.",
+      })
+    }
+
     res.status(200).json({
       message: "Login successful.",
       admin: {
@@ -52,6 +67,7 @@ router.post("/login", async (req, res) => {
         name: admin.name,
         email: admin.email,
         schoolName: admin.schoolName,
+        schoolCode: admin.schoolCode,
         role: admin.role,
       },
     })
@@ -60,7 +76,7 @@ router.post("/login", async (req, res) => {
   }
 })
 
-// GET all teachers for a school (superadmin use)
+// GET all teachers for a school
 router.get("/teachers", async (req, res) => {
   try {
     const { schoolName } = req.query
