@@ -1,0 +1,12 @@
+export const c8PracticalGeometryQuestions = [
+  { book: "Mathematics (Class 8)", chapter: "Practical Geometry", question: "How many measurements are needed to uniquely construct a quadrilateral?", options: ["3", "4", "5", "6"], answer: "5" },
+  { book: "Mathematics (Class 8)", chapter: "Practical Geometry", question: "A quadrilateral can be constructed if we know its four sides and:", options: ["One angle", "One diagonal", "Two diagonals", "One side"], answer: "One diagonal" },
+  { book: "Mathematics (Class 8)", chapter: "Practical Geometry", question: "To construct a rhombus, the minimum data required is:", options: ["One side only", "One side and one angle", "Two diagonals", "Both B and C"], answer: "Both B and C" },
+  { book: "Mathematics (Class 8)", chapter: "Practical Geometry", question: "A square can be constructed if we know:", options: ["Its perimeter only", "One side only", "One diagonal only", "Both B and C"], answer: "Both B and C" },
+  { book: "Mathematics (Class 8)", chapter: "Practical Geometry", question: "Which instrument is used to measure angles in construction?", options: ["Ruler", "Compass", "Protractor", "Set square"], answer: "Protractor" },
+  { book: "Mathematics (Class 8)", chapter: "Practical Geometry", question: "To construct a parallelogram, we need:", options: ["Two adjacent sides and included angle", "All four sides", "Two diagonals only", "One side only"], answer: "Two adjacent sides and included angle" },
+  { book: "Mathematics (Class 8)", chapter: "Practical Geometry", question: "The number of diagonals in a quadrilateral is:", options: ["1", "2", "3", "4"], answer: "2" },
+  { book: "Mathematics (Class 8)", chapter: "Practical Geometry", question: "A compass is used in construction to:", options: ["Measure angles", "Draw straight lines", "Draw arcs and circles", "Measure length"], answer: "Draw arcs and circles" },
+  { book: "Mathematics (Class 8)", chapter: "Practical Geometry", question: "If three angles of a quadrilateral are 90°, 80°, and 100°, the fourth angle is:", options: ["80°", "90°", "100°", "110°"], answer: "90°" },
+  { book: "Mathematics (Class 8)", chapter: "Practical Geometry", question: "Special case of constructing a quadrilateral when two diagonals and three sides are given is called:", options: ["SSS construction", "SAS construction", "Special construction", "RHS construction"], answer: "Special construction" },
+]
