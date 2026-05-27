@@ -92,21 +92,19 @@ import { waterQuestions } from "./class6/science/water"
 
 
 
-  // ── CLASS 7 maths — Import Statements ──
-
-import { integersQuestions as c7IntegersQuestions } from "./class7/mathematics/integers"
-import { fractionsAndDecimalsQuestions as c7FractionsDecimalsQuestions } from "./class7/mathematics/fractionsAndDecimals"
-import { dataHandlingQuestions as c7DataHandlingQuestions } from "./class7/mathematics/dataHandling"
-import { simpleEquationsQuestions as c7SimpleEquationsQuestions } from "./class7/mathematics/simpleEquations"
-import { linesAndAnglesQuestions as c7LinesAndAnglesQuestions } from "./class7/mathematics/linesAndAngles"
-import { triangleAndItsPropertiesQuestions as c7TrianglePropertiesQuestions } from "./class7/mathematics/triangleProperties"
-import { comparingQuantitiesQuestions as c7ComparingQuantitiesQuestions } from "./class7/mathematics/comparingQuantities"
-import { rationalNumbersQuestions as c7RationalNumbersQuestions } from "./class7/mathematics/rationalNumbers"
-import { perimeterAndAreaQuestions as c7PerimeterAndAreaQuestions } from "./class7/mathematics/perimeterAndArea"
-import { algebraicExpressionsQuestions as c7AlgebraicExpressionsQuestions } from "./class7/mathematics/algebraicExpressions"
-import { exponentsAndPowersQuestions as c7ExponentsAndPowersQuestions } from "./class7/mathematics/exponentsAndPowers"
-import { symmetryQuestions as c7SymmetryQuestions } from "./class7/mathematics/symmetry"
-
+// ── CLASS 7 MATHEMATICS ──
+import { c7IntegersQuestions } from "./class7/mathematics/integers"
+import { c7FractionsDecimalsQuestions } from "./class7/mathematics/fractionsAndDecimals"
+import { c7DataHandlingQuestions } from "./class7/mathematics/dataHandling"
+import { c7SimpleEquationsQuestions } from "./class7/mathematics/simpleEquations"
+import { c7LinesAndAnglesQuestions } from "./class7/mathematics/linesAndAngles"
+import { c7TrianglePropertiesQuestions } from "./class7/mathematics/triangleProperties"
+import { c7ComparingQuantitiesQuestions } from "./class7/mathematics/comparingQuantities"
+import { c7RationalNumbersQuestions } from "./class7/mathematics/rationalNumbers"
+import { c7PerimeterAndAreaQuestions } from "./class7/mathematics/perimeterAndArea"
+import { c7AlgebraicExpressionsQuestions } from "./class7/mathematics/algebraicExpressions"
+import { c7ExponentsAndPowersQuestions } from "./class7/mathematics/exponentsAndPowers"
+import { c7SymmetryQuestions } from "./class7/mathematics/symmetry"
 
 // ── CLASS 7 SCIENCE ──
 import { nutritionInPlantsQuestions } from "./class7/science/nutritionInPlants"
