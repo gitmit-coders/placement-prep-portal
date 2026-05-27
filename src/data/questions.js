@@ -108,7 +108,7 @@ import { c7SymmetryQuestions } from "./class7/mathematics/symmetry"
 
 import { nutritionInPlantsQuestions } from "./class7/science/nutritionInPlants"
 import { nutritionInAnimalsQuestions } from "./class7/science/nutritionInAnimals"
-import { fibreToFabricQuestions } from "./class7/science/fibreToFabric"
+import { fibreToFabricQuestions as c7FibreToFabricQuestions } from "./class7/science/fibreToFabric"
 import { heatQuestions } from "./class7/science/heat"
 import { acidsBasesAndSaltsQuestions as c7AcidsBasesAndSaltsQuestions } from "./class7/science/acidsBasesAndSalts"
 import { physicalAndChemicalChangesQuestions } from "./class7/science/physicalAndChemicalChanges"
@@ -232,7 +232,7 @@ export const questions = [
 // Class 7 Science
   ...nutritionInPlantsQuestions,
   ...nutritionInAnimalsQuestions,
-  ...fibreToFabricQuestions,
+  ...c7FibreToFabricQuestions,
   ...heatQuestions,
   ...c7AcidsBasesAndSaltsQuestions,
   ...physicalAndChemicalChangesQuestions,
