@@ -10,8 +10,9 @@ function Quiz() {
   const selectedBook = searchParams.get("book")
   const selectedChapter = searchParams.get("chapter")
 
-  const questions = bank.filter(
-  (q) => q.subject === selectedBook && q.chapter === selectedChapter
+  // ✅ NAYA — dono ko handle karta hai
+const questions = bank.filter(
+  (q) => (q.subject === selectedBook || q.book === selectedBook) && q.chapter === selectedChapter
 )
 
   const [current, setCurrent] = useState(0)
