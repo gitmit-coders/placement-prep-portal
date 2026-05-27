@@ -90,21 +90,9 @@ import { funWithMagnetsQuestions } from "./class6/science/funWithMagnets"
 import { waterQuestions } from "./class6/science/water"
 
 
-// ── CLASS 7 MATHEMATICS ──
-import { c7IntegersQuestions } from "./class7/mathematics/integers"
-import { c7FractionsDecimalsQuestions } from "./class7/mathematics/fractionsAndDecimals"
-import { c7DataHandlingQuestions } from "./class7/mathematics/dataHandling"
-import { c7SimpleEquationsQuestions } from "./class7/mathematics/simpleEquations"
-import { c7LinesAndAnglesQuestions } from "./class7/mathematics/linesAndAngles"
-import { c7TrianglePropertiesQuestions } from "./class7/mathematics/triangleProperties"
-import { c7ComparingQuantitiesQuestions } from "./class7/mathematics/comparingQuantities"
-import { c7RationalNumbersQuestions } from "./class7/mathematics/rationalNumbers"
-import { c7PerimeterAndAreaQuestions } from "./class7/mathematics/perimeterAndArea"
-import { c7AlgebraicExpressionsQuestions } from "./class7/mathematics/algebraicExpressions"
-import { c7ExponentsAndPowersQuestions } from "./class7/mathematics/exponentsAndPowers"
-import { c7SymmetryQuestions } from "./class7/mathematics/symmetry"
 
-  // ── CLASS 7 SCIENCE — Import Statements ──
+
+  // ── CLASS 7 maths — Import Statements ──
 
 import { integersQuestions as c7IntegersQuestions } from "./class7/mathematics/integers"
 import { fractionsAndDecimalsQuestions as c7FractionsDecimalsQuestions } from "./class7/mathematics/fractionsAndDecimals"
@@ -118,6 +106,24 @@ import { perimeterAndAreaQuestions as c7PerimeterAndAreaQuestions } from "./clas
 import { algebraicExpressionsQuestions as c7AlgebraicExpressionsQuestions } from "./class7/mathematics/algebraicExpressions"
 import { exponentsAndPowersQuestions as c7ExponentsAndPowersQuestions } from "./class7/mathematics/exponentsAndPowers"
 import { symmetryQuestions as c7SymmetryQuestions } from "./class7/mathematics/symmetry"
+
+
+// ── CLASS 7 SCIENCE ──
+import { nutritionInPlantsQuestions } from "./class7/science/nutritionInPlants"
+import { nutritionInAnimalsQuestions } from "./class7/science/nutritionInAnimals"
+import { fibreToFabricQuestions as c7FibreToFabricQuestions } from "./class7/science/fibreToFabric"
+import { heatQuestions } from "./class7/science/heat"
+import { acidsBasesAndSaltsQuestions as c7AcidsBasesAndSaltsQuestions } from "./class7/science/acidsBasesAndSalts"
+import { physicalAndChemicalChangesQuestions } from "./class7/science/physicalAndChemicalChanges"
+import { weatherClimateAndAdaptationsQuestions } from "./class7/science/weatherClimateAndAdaptations"
+import { windsStormsAndCyclonesQuestions } from "./class7/science/windsStormsAndCyclones"
+import { soilQuestions } from "./class7/science/soil"
+import { respirationInOrganismsQuestions } from "./class7/science/respirationInOrganisms"
+import { transportationInAnimalsAndPlantsQuestions } from "./class7/science/transportationInAnimalsAndPlants"
+import { reproductionInPlantsQuestions } from "./class7/science/reproductionInPlants"
+import { motionAndTimeQuestions } from "./class7/science/motionAndTime"
+import { electricCurrentAndItsEffectsQuestions } from "./class7/science/electricCurrentAndItsEffects"
+import { lightQuestions as c7LightQuestions } from "./class7/science/light"
 
 export const questions = [
   // Class 10 Mathematics
