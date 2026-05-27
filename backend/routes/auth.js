@@ -1,6 +1,7 @@
 const express = require("express")
 const router = express.Router()
 const User = require("../models/User")
+const School = require("../models/School")
 const bcrypt = require("bcryptjs")
 const dns = require("dns").promises
 
@@ -42,6 +43,12 @@ router.post("/register", async (req, res) => {
       return res.status(400).json({ message: "An account with this email already exists." })
     }
 
+    // Verify school is still approved
+    const schoolExists = await School.findOne({ schoolCode, status: "approved" })
+    if (!schoolExists) {
+      return res.status(400).json({ message: "Selected school is not active. Please contact your administrator." })
+    }
+
     const hashed = await bcrypt.hash(password, 10)
     const newUser = new User({
       name: name.trim(),
@@ -50,7 +57,7 @@ router.post("/register", async (req, res) => {
       school: school || "",
       schoolCode,
       studentClass,
-      status: "pending", // requires school admin approval
+      status: "pending",
     })
 
     await newUser.save()
@@ -81,7 +88,16 @@ router.post("/login", async (req, res) => {
       return res.status(400).json({ message: "Invalid email or password." })
     }
 
-    // Layer 2 check — must be approved by school admin
+    // ✅ FIX: Check if school still exists and is approved
+    if (user.schoolCode) {
+      const schoolActive = await School.findOne({ schoolCode: user.schoolCode, status: "approved" })
+      if (!schoolActive) {
+        return res.status(403).json({
+          message: "Your school is no longer active on this platform. Please contact your school administrator.",
+        })
+      }
+    }
+
     if (user.status === "pending") {
       return res.status(403).json({
         message: "Your account is pending approval. Please wait for your school administrator to approve you.",

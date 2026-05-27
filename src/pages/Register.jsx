@@ -6,9 +6,11 @@ const CLASSES = ["6", "7", "8", "9", "10"]
 
 function Register() {
   const [form, setForm] = useState({
-    name: "", email: "", password: "", studentClass: "",
-    schoolCode: "", schoolName: "",
+    name: "", email: "", password: "", confirmPassword: "",
+    studentClass: "", schoolCode: "", schoolName: "",
   })
+  const [showPassword, setShowPassword] = useState(false)
+  const [showConfirm, setShowConfirm] = useState(false)
   const [schools, setSchools] = useState([])
   const [loadingSchools, setLoadingSchools] = useState(true)
   const [loading, setLoading] = useState(false)
@@ -36,36 +38,35 @@ function Register() {
 
   const handleRegister = async () => {
     setError("")
-    if (!form.name || !form.email || !form.password || !form.studentClass || !form.schoolCode) {
-      setError("Please fill in all required fields including your school."); return
+    if (!form.name || !form.email || !form.password || !form.confirmPassword || !form.studentClass || !form.schoolCode) {
+      setError("Please fill in all required fields."); return
     }
     if (form.password.length < 6) {
-      setError("Password must be at least 6 characters long."); return
+      setError("Password must be at least 6 characters."); return
     }
+    if (form.password !== form.confirmPassword) {
+      setError("Passwords do not match. Please check and try again."); return
+    }
+
     setLoading(true)
     try {
       const res = await fetch(`${BACKEND_URL}/api/auth/register`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          name: form.name,
-          email: form.email,
-          password: form.password,
-          studentClass: form.studentClass,
-          school: form.schoolName,
-          schoolCode: form.schoolCode,
+          name: form.name, email: form.email, password: form.password,
+          studentClass: form.studentClass, school: form.schoolName, schoolCode: form.schoolCode,
         }),
       })
       const data = await res.json()
       if (res.ok) { setSuccess(true) }
-      else { setError(data.message || "Registration failed. Please try again.") }
+      else { setError(data.message || "Registration failed.") }
     } catch {
-      setError("Cannot connect to server. Please try again later.")
+      setError("Cannot connect to server. Please try again.")
     }
     setLoading(false)
   }
 
-  // Success screen
   if (success) {
     return (
       <div style={pageStyle}>
@@ -76,12 +77,11 @@ function Register() {
             Your account has been created successfully.
           </p>
           <p style={{ color: "#64748b", fontSize: "13px", marginBottom: "24px" }}>
-            Your school administrator will review and approve your account.
-            You will be able to login once approved.
+            Your school administrator will review and approve your account before you can login.
           </p>
           <div style={{ background: "rgba(99,102,241,0.08)", border: "1px solid rgba(99,102,241,0.2)", borderRadius: "12px", padding: "14px 18px", marginBottom: "24px" }}>
             <p style={{ margin: 0, color: "#a5b4fc", fontSize: "13px" }}>
-              📌 Contact your class teacher or school admin to get your account approved quickly.
+              📌 Contact your class teacher or school admin to get approved quickly.
             </p>
           </div>
           <button onClick={() => navigate("/login")}
@@ -100,7 +100,7 @@ function Register() {
           <div style={{ fontSize: "36px", marginBottom: "8px" }}>📚</div>
           <h1 style={{ margin: 0, fontSize: "24px", color: "white" }}>Create Account</h1>
           <p style={{ margin: "8px 0 0", color: "#64748b", fontSize: "14px" }}>
-            Join EduExam and start practicing today
+            Join and start practicing today
           </p>
         </div>
 
@@ -114,9 +114,50 @@ function Register() {
         <input type="email" placeholder="student@gmail.com"
           value={form.email} onChange={update("email")} style={inp} />
 
+        {/* Password with show/hide */}
         <label style={lbl}>Password *</label>
-        <input type="password" placeholder="Minimum 6 characters"
-          value={form.password} onChange={update("password")} style={inp} />
+        <div style={{ position: "relative", marginBottom: "18px" }}>
+          <input
+            type={showPassword ? "text" : "password"}
+            placeholder="Minimum 6 characters"
+            value={form.password}
+            onChange={update("password")}
+            style={{ ...inp, marginBottom: 0, paddingRight: "44px" }}
+          />
+          <button onClick={() => setShowPassword(!showPassword)}
+            style={eyeBtn} type="button">
+            {showPassword ? "🙈" : "👁️"}
+          </button>
+        </div>
+
+        {/* Confirm Password */}
+        <label style={lbl}>Confirm Password *</label>
+        <div style={{ position: "relative", marginBottom: "18px" }}>
+          <input
+            type={showConfirm ? "text" : "password"}
+            placeholder="Re-enter your password"
+            value={form.confirmPassword}
+            onChange={update("confirmPassword")}
+            style={{
+              ...inp, marginBottom: 0, paddingRight: "44px",
+              borderColor: form.confirmPassword && form.password !== form.confirmPassword ? "#ef4444" : "#1f2937",
+            }}
+          />
+          <button onClick={() => setShowConfirm(!showConfirm)}
+            style={eyeBtn} type="button">
+            {showConfirm ? "🙈" : "👁️"}
+          </button>
+        </div>
+        {form.confirmPassword && form.password !== form.confirmPassword && (
+          <p style={{ margin: "-10px 0 14px", color: "#f87171", fontSize: "12px" }}>
+            Passwords do not match.
+          </p>
+        )}
+        {form.confirmPassword && form.password === form.confirmPassword && form.password.length >= 6 && (
+          <p style={{ margin: "-10px 0 14px", color: "#22c55e", fontSize: "12px" }}>
+            ✓ Passwords match.
+          </p>
+        )}
 
         <label style={lbl}>Class *</label>
         <select value={form.studentClass} onChange={update("studentClass")} style={inp}>
@@ -128,9 +169,7 @@ function Register() {
         {loadingSchools ? (
           <div style={{ ...inp, color: "#64748b" }}>Loading schools...</div>
         ) : schools.length === 0 ? (
-          <div style={{ ...inp, color: "#f87171", fontSize: "13px" }}>
-            No schools registered yet.
-          </div>
+          <div style={{ ...inp, color: "#f87171", fontSize: "13px" }}>No schools registered yet.</div>
         ) : (
           <select value={form.schoolCode} onChange={handleSchoolSelect} style={inp}>
             <option value="">Select your school</option>
@@ -142,7 +181,6 @@ function Register() {
           </select>
         )}
 
-        {/* Info box */}
         <div style={{ background: "rgba(245,158,11,0.08)", border: "1px solid rgba(245,158,11,0.2)", borderRadius: "10px", padding: "12px 16px", marginBottom: "20px" }}>
           <p style={{ margin: 0, color: "#fbbf24", fontSize: "13px" }}>
             ⏳ After registering, your school admin will approve your account before you can login.
@@ -167,8 +205,9 @@ function Register() {
 const pageStyle = { minHeight: "100vh", background: "#0b0b12", display: "flex", justifyContent: "center", alignItems: "center", padding: "20px" }
 const cardStyle = { width: "100%", maxWidth: "440px", background: "#111827", padding: "36px", borderRadius: "20px", border: "1px solid #1f2937" }
 const lbl = { display: "block", marginBottom: "6px", color: "#94a3b8", fontSize: "13px", fontWeight: "500" }
-const inp = { width: "100%", padding: "12px 14px", marginBottom: "18px", borderRadius: "10px", border: "1px solid #1f2937", outline: "none", background: "#1e293b", color: "white", fontSize: "15px", boxSizing: "border-box", cursor: "auto" }
+const inp = { width: "100%", padding: "12px 14px", marginBottom: "18px", borderRadius: "10px", border: "1px solid #1f2937", outline: "none", background: "#1e293b", color: "white", fontSize: "15px", boxSizing: "border-box" }
 const btnStyle = { width: "100%", padding: "14px", borderRadius: "10px", border: "none", background: "#6366f1", color: "white", fontSize: "16px", fontWeight: "700", cursor: "pointer" }
 const errorStyle = { background: "rgba(239,68,68,0.1)", border: "1px solid rgba(239,68,68,0.3)", color: "#f87171", borderRadius: "10px", padding: "12px 14px", marginBottom: "20px", fontSize: "14px" }
+const eyeBtn = { position: "absolute", right: "12px", top: "50%", transform: "translateY(-50%)", background: "none", border: "none", cursor: "pointer", fontSize: "16px", padding: "4px" }
 
 export default Register
