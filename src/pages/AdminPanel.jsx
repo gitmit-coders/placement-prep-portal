@@ -4,6 +4,44 @@ import * as XLSX from "xlsx"
 
 const BACKEND_URL = "https://placement-prep-backend-n0rx.onrender.com"
 const CLASSES = ["6", "7", "8", "9", "10"]
+
+// ── SUBJECT + CHAPTER MASTER DATA ──
+const SUBJECTS_BY_CLASS = {
+  "6":  ["Mathematics", "Science", "English"],
+  "7":  ["Mathematics", "Science", "English"],
+  "8":  ["Mathematics", "Science", "English"],
+  "9":  ["Mathematics", "Science", "English"],
+  "10": ["Mathematics", "Science", "English"],
+}
+
+const CHAPTERS_BY_CLASS_SUBJECT = {
+  "6": {
+    "Mathematics": ["Knowing Our Numbers","Whole Numbers","Playing with Numbers","Basic Geometrical Ideas","Understanding Elementary Shapes","Integers","Fractions","Decimals","Data Handling","Mensuration","Algebra","Ratio and Proportion"],
+    "Science": ["Food: Where Does It Come From?","Components Of Food","Fibre To Fabric","Sorting Materials Into Groups","Separation Of Substances","Changes Around Us","Getting To Know Plants","Body Movements","The Living Organisms — Characteristics And Habitats","Motion And Measurement Of Distances","Light, Shadows And Reflections","Electricity And Circuits","Fun With Magnets","Water"],
+    "English": ["Reading Comprehension","Grammar","Writing Skills","Literature"],
+  },
+  "7": {
+    "Mathematics": ["Integers","Fractions and Decimals","Data Handling","Simple Equations","Lines and Angles","The Triangle and its Properties","Comparing Quantities","Rational Numbers","Perimeter and Area","Algebraic Expressions","Exponents and Powers","Symmetry"],
+    "Science": ["Nutrition in Plants","Nutrition in Animals","Fibre to Fabric","Heat","Acids, Bases and Salts","Physical and Chemical Changes","Weather, Climate and Adaptations","Winds, Storms and Cyclones","Soil","Respiration in Organisms","Transportation in Animals and Plants","Reproduction in Plants","Motion and Time","Electric Current and its Effects","Light"],
+    "English": ["Reading Comprehension","Grammar","Writing Skills","Literature"],
+  },
+  "8": {
+    "Mathematics": ["Rational Numbers","Linear Equations in One Variable","Understanding Quadrilaterals","Practical Geometry","Data Handling","Squares and Square Roots","Cubes and Cube Roots","Comparing Quantities","Algebraic Expressions and Identities","Mensuration","Exponents and Powers","Direct and Inverse Proportions","Factorisation","Introduction to Graphs"],
+    "Science": ["Crop Production and Management","Microorganisms","Coal and Petroleum","Combustion and Flame","Conservation of Plants and Animals","Cell Structure and Functions","Reproduction in Animals","Reaching the Age of Adolescence","Force and Pressure","Friction","Sound","Chemical Effects of Electric Current","Some Natural Phenomena","Light"],
+    "English": ["Reading Comprehension","Grammar","Writing Skills","Literature"],
+  },
+  "9": {
+    "Mathematics": ["Number Systems","Polynomials","Coordinate Geometry","Linear Equations in Two Variables","Introduction to Euclid's Geometry","Lines and Angles","Triangles","Quadrilaterals","Circles","Heron's Formula","Surface Areas and Volumes","Statistics"],
+    "Science": ["Matter in Our Surroundings","Is Matter Around Us Pure","Atoms and Molecules","Structure of the Atom","The Fundamental Unit of Life","Tissues","Motion","Force and Laws of Motion","Gravitation","Work and Energy","Sound","Improvement in Food Resources"],
+    "English": ["Reading Comprehension","Grammar","Writing Skills","Literature"],
+  },
+  "10": {
+    "Mathematics": ["Real Numbers","Polynomials","Pair of Linear Equations in Two Variables","Quadratic Equations","Arithmetic Progressions","Triangles","Coordinate Geometry","Introduction to Trigonometry","Some Applications of Trigonometry","Circles","Areas Related to Circles","Surface Areas and Volumes","Statistics","Probability"],
+    "Science": ["Chemical Reactions and Equations","Acids, Bases and Salts","Metals and Non-metals","Carbon and Its Compounds","Life Processes","Control and Coordination","How do Organisms Reproduce","Heredity and Evolution","Light – Reflection and Refraction","Human Eye and the Colourful World","Electricity","Magnetic Effects of Electric Current","Sources of Energy"],
+    "English": ["Reading Comprehension","Grammar","Writing Skills","Literature"],
+  },
+}
+
 const emptyForm = { subject: "", chapter: "", studentClass: "", dayNumber: "", title: "", question: "", option1: "", option2: "", option3: "", option4: "", answer: "" }
 
 function AdminPanel() {
@@ -36,8 +74,15 @@ function AdminPanel() {
 
   useEffect(() => { if (admin) fetchQuestions() }, [filters])
 
+  // ── Smart field update — reset dependent fields ──
+  const updClass = (e) => setForm({ ...form, studentClass: e.target.value, subject: "", chapter: "" })
+  const updSubject = (e) => setForm({ ...form, subject: e.target.value, chapter: "" })
   const upd = (f) => (e) => setForm({ ...form, [f]: e.target.value })
   const updFilter = (f) => (e) => setFilters({ ...filters, [f]: e.target.value })
+
+  // ── Derived dropdown options ──
+  const subjectOptions = form.studentClass ? (SUBJECTS_BY_CLASS[form.studentClass] || []) : []
+  const chapterOptions = form.studentClass && form.subject ? (CHAPTERS_BY_CLASS_SUBJECT[form.studentClass]?.[form.subject] || []) : []
 
   const handleSave = async () => {
     const opts = [form.option1, form.option2, form.option3, form.option4]
@@ -102,7 +147,6 @@ function AdminPanel() {
     XLSX.writeFile(wb, "dpp_template.xlsx")
   }
 
-  // Group questions by class > subject > chapter > day
   const grouped = {}
   for (const q of questions) {
     const key = `Class ${q.studentClass} — ${q.subject} — ${q.chapter}`
@@ -131,13 +175,13 @@ function AdminPanel() {
 
       <div style={{ maxWidth: "1100px", margin: "0 auto", padding: "28px" }}>
 
-        {/* How it works banner */}
+        {/* Banner */}
         <div style={{ background: "rgba(99,102,241,0.08)", border: "1px solid rgba(99,102,241,0.2)", borderRadius: "14px", padding: "18px 22px", marginBottom: "24px" }}>
           <h3 style={{ margin: "0 0 8px", fontSize: "15px", color: "#a5b4fc" }}>How DPP Works</h3>
           <p style={{ margin: 0, color: "#64748b", fontSize: "13px", lineHeight: 1.7 }}>
-            1. You add DPP questions for a chapter — assign Day 1, Day 2, etc. and select the class.<br />
-            2. Students of that class see DPP questions after completing the chapter.<br />
-            3. PYQ section (from the static question bank) is always available for chapter practice.
+            1. Select Class → Subject → Chapter from dropdowns — no manual typing needed!<br />
+            2. Assign Day number and add your question with 4 options.<br />
+            3. Students of that class will see DPP after completing the chapter.
           </p>
         </div>
 
@@ -217,38 +261,71 @@ function AdminPanel() {
           <div style={{ background: "#111827", border: "1px solid #1f2937", borderRadius: "20px", padding: "28px" }}>
             <h3 style={{ margin: "0 0 20px" }}>{editId ? "Edit DPP Question" : "Add DPP Question"}</h3>
 
-            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr 1fr", gap: "12px" }}>
-              <div><label style={lbl}>Subject *</label><input placeholder="e.g. Mathematics" value={form.subject} onChange={upd("subject")} style={inp} /></div>
-              <div><label style={lbl}>Chapter *</label><input placeholder="e.g. Real Numbers" value={form.chapter} onChange={upd("chapter")} style={inp} /></div>
-              <div><label style={lbl}>Class *</label>
-                <select value={form.studentClass} onChange={upd("studentClass")} style={inp}>
-                  <option value="">Select</option>
-                  {CLASSES.map((c) => <option key={c} value={c}>Class {c}</option>)}
-                </select>
+            {/* Step 1 — Class, Subject, Chapter, Day */}
+            <div style={{ background: "rgba(99,102,241,0.06)", border: "1px solid rgba(99,102,241,0.15)", borderRadius: "12px", padding: "16px", marginBottom: "20px" }}>
+              <p style={{ margin: "0 0 14px", color: "#a5b4fc", fontSize: "13px", fontWeight: "600" }}>📌 Step 1 — Select Class, Subject & Chapter</p>
+              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 2fr 1fr", gap: "12px" }}>
+
+                {/* Class */}
+                <div>
+                  <label style={lbl}>Class *</label>
+                  <select value={form.studentClass} onChange={updClass} style={inp}>
+                    <option value="">Select Class</option>
+                    {CLASSES.map((c) => <option key={c} value={c}>Class {c}</option>)}
+                  </select>
+                </div>
+
+                {/* Subject — depends on class */}
+                <div>
+                  <label style={lbl}>Subject *</label>
+                  <select value={form.subject} onChange={updSubject} disabled={!form.studentClass} style={{ ...inp, opacity: form.studentClass ? 1 : 0.4 }}>
+                    <option value="">{form.studentClass ? "Select Subject" : "Select class first"}</option>
+                    {subjectOptions.map((s) => <option key={s} value={s}>{s}</option>)}
+                  </select>
+                </div>
+
+                {/* Chapter — depends on class + subject */}
+                <div>
+                  <label style={lbl}>Chapter *</label>
+                  <select value={form.chapter} onChange={upd("chapter")} disabled={!form.subject} style={{ ...inp, opacity: form.subject ? 1 : 0.4 }}>
+                    <option value="">{form.subject ? "Select Chapter" : "Select subject first"}</option>
+                    {chapterOptions.map((ch) => <option key={ch} value={ch}>{ch}</option>)}
+                  </select>
+                </div>
+
+                {/* Day Number */}
+                <div>
+                  <label style={lbl}>DPP Day *</label>
+                  <input type="number" min="1" placeholder="e.g. 1" value={form.dayNumber} onChange={upd("dayNumber")} style={inp} />
+                </div>
               </div>
-              <div><label style={lbl}>DPP Day Number *</label><input type="number" min="1" placeholder="e.g. 1" value={form.dayNumber} onChange={upd("dayNumber")} style={inp} /></div>
+
+              {/* Title */}
+              <label style={lbl}>DPP Title (optional)</label>
+              <input placeholder="e.g. DPP Day 1 - Basic Concepts" value={form.title} onChange={upd("title")} style={{ ...inp, marginBottom: 0 }} />
             </div>
 
-            <label style={lbl}>DPP Title (optional)</label>
-            <input placeholder="e.g. DPP Day 1 - Basic Concepts" value={form.title} onChange={upd("title")} style={inp} />
+            {/* Step 2 — Question */}
+            <div style={{ background: "rgba(34,197,94,0.04)", border: "1px solid rgba(34,197,94,0.12)", borderRadius: "12px", padding: "16px", marginBottom: "20px" }}>
+              <p style={{ margin: "0 0 14px", color: "#86efac", fontSize: "13px", fontWeight: "600" }}>✏️ Step 2 — Write Question & Options</p>
+              <label style={lbl}>Question *</label>
+              <textarea placeholder="Type the question here..." value={form.question} onChange={upd("question")} style={{ ...inp, height: "80px", resize: "vertical" }} />
 
-            <label style={lbl}>Question *</label>
-            <textarea placeholder="Type the question here..." value={form.question} onChange={upd("question")} style={{ ...inp, height: "80px", resize: "vertical" }} />
+              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "12px" }}>
+                {["option1", "option2", "option3", "option4"].map((o, i) => (
+                  <div key={o}><label style={lbl}>Option {i + 1} *</label><input placeholder={`Option ${i + 1}`} value={form[o]} onChange={upd(o)} style={inp} /></div>
+                ))}
+              </div>
 
-            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "12px" }}>
-              {["option1", "option2", "option3", "option4"].map((o, i) => (
-                <div key={o}><label style={lbl}>Option {i + 1} *</label><input placeholder={`Option ${i + 1}`} value={form[o]} onChange={upd(o)} style={inp} /></div>
-              ))}
+              <label style={lbl}>Correct Answer * <span style={{ color: "#475569", fontWeight: "400" }}>(select from options above)</span></label>
+              <select value={form.answer} onChange={upd("answer")} style={{ ...inp, marginBottom: 0 }}>
+                <option value="">Select correct answer</option>
+                {[form.option1, form.option2, form.option3, form.option4].filter(Boolean).map((o) => <option key={o} value={o}>{o}</option>)}
+              </select>
             </div>
-
-            <label style={lbl}>Correct Answer * <span style={{ color: "#475569", fontWeight: "400" }}>(select from options above)</span></label>
-            <select value={form.answer} onChange={upd("answer")} style={inp}>
-              <option value="">Select correct answer</option>
-              {[form.option1, form.option2, form.option3, form.option4].filter(Boolean).map((o) => <option key={o} value={o}>{o}</option>)}
-            </select>
 
             <div style={{ display: "flex", gap: "10px", marginTop: "6px" }}>
-              <button onClick={handleSave} disabled={saving} style={{ ...actBtn, background: "#6366f1" }}>{saving ? "Saving..." : editId ? "Update" : "Add Question"}</button>
+              <button onClick={handleSave} disabled={saving} style={{ ...actBtn, background: "#6366f1" }}>{saving ? "Saving..." : editId ? "Update Question" : "Add Question"}</button>
               <button onClick={() => { setForm(emptyForm); setEditId(null); setTab("list") }} style={{ ...actBtn, background: "#1e293b", outline: "1px solid #1f2937" }}>Cancel</button>
             </div>
           </div>
@@ -259,7 +336,6 @@ function AdminPanel() {
           <div style={{ background: "#111827", border: "1px solid #1f2937", borderRadius: "20px", padding: "28px" }}>
             <h3 style={{ margin: "0 0 8px" }}>Import DPP Questions from Excel</h3>
             <p style={{ color: "#64748b", marginBottom: "22px", fontSize: "14px" }}>Upload an Excel file with the required columns.</p>
-
             <div style={{ background: "#0b0b12", border: "1px solid #1f2937", borderRadius: "14px", padding: "20px", marginBottom: "20px" }}>
               <h4 style={{ margin: "0 0 10px", fontSize: "14px" }}>Required Excel Columns:</h4>
               <div style={{ display: "flex", gap: "6px", flexWrap: "wrap", marginBottom: "12px" }}>
@@ -267,15 +343,10 @@ function AdminPanel() {
                   <span key={c} style={{ padding: "3px 10px", background: "#1e293b", border: "1px solid #1f2937", borderRadius: "5px", fontSize: "12px", color: "#94a3b8", fontFamily: "monospace" }}>{c}</span>
                 ))}
               </div>
-              <p style={{ margin: "0 0 12px", color: "#64748b", fontSize: "13px" }}>
-                <strong style={{ color: "#94a3b8" }}>title</strong> is optional. <strong style={{ color: "#94a3b8" }}>answer</strong> must exactly match one of option1–option4.
-              </p>
               <button onClick={downloadTemplate} style={{ ...actBtn, background: "#1e293b", outline: "1px solid #1f2937", fontSize: "13px", padding: "9px 16px" }}>⬇ Download Template</button>
             </div>
-
             <input ref={fileRef} type="file" accept=".xlsx,.xls" onChange={handleExcel} style={{ display: "none" }} />
             <button onClick={() => fileRef.current.click()} style={{ ...actBtn, background: "#6366f1", marginBottom: "18px" }}>📂 Choose Excel File</button>
-
             {importResult && (
               <div style={{ background: "#0b0b12", border: "1px solid #1f2937", borderRadius: "12px", padding: "18px" }}>
                 <p style={{ margin: "0 0 6px", color: "#22c55e", fontWeight: "700" }}>✅ {importResult.message}</p>
