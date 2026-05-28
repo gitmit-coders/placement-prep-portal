@@ -2,9 +2,12 @@ const express = require("express")
 const router = express.Router()
 const Master = require("../models/Master")
 const School = require("../models/School")
+const Admin = require("../models/Admin")
+const User = require("../models/User")
+const Result = require("../models/Result")
+const Question = require("../models/Question")
 const bcrypt = require("bcryptjs")
 
-// Simple random 6-char code generator — no external deps
 function generateJoinCode() {
   const chars = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789"
   let code = ""
@@ -31,7 +34,7 @@ router.post("/login", async (req, res) => {
   }
 })
 
-// SETUP master account (one time only)
+// SETUP master account
 router.post("/setup", async (req, res) => {
   try {
     const existing = await Master.countDocuments()
@@ -67,21 +70,16 @@ router.put("/approve/:id", async (req, res) => {
     const school = await School.findById(req.params.id)
     if (!school) return res.status(404).json({ message: "School not found." })
 
-    // Generate school code
     if (!school.schoolCode) {
       const count = await School.countDocuments({ status: "approved" })
       const prefix = school.schoolName.substring(0, 3).toUpperCase().replace(/[^A-Z]/g, "X")
       school.schoolCode = `${prefix}${String(count + 1).padStart(3, "0")}`
     }
 
-    // Always generate a fresh join code on approval
     school.joinCode = generateJoinCode()
     school.status = "approved"
     school.approvedAt = new Date()
-
     await school.save()
-
-    console.log(`School approved: ${school.schoolName}, Code: ${school.schoolCode}, JoinCode: ${school.joinCode}`)
 
     res.status(200).json({
       message: `${school.schoolName} approved successfully.`,
@@ -131,15 +129,44 @@ router.put("/regenerate-code/:id", async (req, res) => {
   }
 })
 
-module.exports = router
-
-// DELETE school
+// ✅ DELETE school — permanently deletes ALL related data
 router.delete("/school/:id", async (req, res) => {
   try {
-    const deleted = await School.findByIdAndDelete(req.params.id)
-    if (!deleted) return res.status(404).json({ message: "School not found." })
-    res.status(200).json({ message: `${deleted.schoolName} deleted successfully.` })
+    const school = await School.findById(req.params.id)
+    if (!school) return res.status(404).json({ message: "School not found." })
+
+    const { schoolCode } = school
+
+    // Delete all related data permanently
+    const [teachers, students, results, questions] = await Promise.all([
+      Admin.deleteMany({ schoolCode }),           // all teachers
+      User.deleteMany({ schoolCode }),            // all students
+      Result.deleteMany({ }),                     // results by userId (handled below)
+      Question.deleteMany({ schoolName: school.schoolName }), // all DPP questions
+    ])
+
+    // Delete results for all students of this school
+    const studentIds = (await User.find({ schoolCode })).map(u => u._id)
+    await Result.deleteMany({ userId: { $in: studentIds } })
+
+    // Finally delete the school
+    await School.findByIdAndDelete(req.params.id)
+
+    console.log(`School deleted: ${school.schoolName} | Teachers: ${teachers.deletedCount} | Students: ${students.deletedCount}`)
+
+    res.status(200).json({
+      message: `${school.schoolName} and all related data deleted permanently.`,
+      deleted: {
+        school: school.schoolName,
+        teachers: teachers.deletedCount,
+        students: students.deletedCount,
+        questions: questions.deletedCount,
+      }
+    })
   } catch (err) {
+    console.error("Delete school error:", err.message)
     res.status(500).json({ message: "Server error.", error: err.message })
   }
 })
+
+module.exports = router
