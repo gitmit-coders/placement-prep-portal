@@ -16,13 +16,14 @@ function DPP() {
   const [selectedDay, setSelectedDay] = useState(null)
   const [quizMode, setQuizMode] = useState(false)
 
-  useEffect(() => {
-    if (!subject || !chapter || !user?.studentClass) return
-    fetch(`${BACKEND_URL}/api/questions/dpp?subject=${encodeURIComponent(subject)}&chapter=${encodeURIComponent(chapter)}&studentClass=${user.studentClass}`)
-      .then((r) => r.json())
-      .then((d) => { setDays(Array.isArray(d) ? d : []); setLoading(false) })
-      .catch(() => setLoading(false))
-  }, [])
+ useEffect(() => {
+  if (!subject || !chapter || !user?.studentClass) return
+  const cleanSubject = subject.replace(/ \(Class \d+\)/g, "").trim()
+  fetch(`${BACKEND_URL}/api/questions/dpp?subject=${encodeURIComponent(cleanSubject)}&chapter=${encodeURIComponent(chapter)}&studentClass=${user.studentClass}`)
+    .then((r) => r.json())
+    .then((d) => { setDays(Array.isArray(d) ? d : []); setLoading(false) })
+    .catch(() => setLoading(false))
+}, [])
 
   if (!subject || !chapter) {
     return (
